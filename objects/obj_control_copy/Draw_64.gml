@@ -1,0 +1,110 @@
+/// @description Draws the GUI
+// You can write your code in this editor
+marginX = 40;
+marginY = 0;
+barHeight = 24;
+barWidth = 320;
+viewX = view_get_xport(0);
+viewY = view_get_yport(0);
+draw_set_valign(fa_top);
+draw_set_color(c_black);
+draw_set_font(Font_HUD);
+if(room == room_main){
+	if(global.WAVE_PHASE < 0){
+		draw_set_halign(fa_left);
+		draw_text(viewX,viewY,"PRESS ENTER TO START WAVE");
+	}else if(global.PLAYER_DIED){
+		draw_text(viewX,viewY,"RESPAWNING IN: "+string_format(respawnTimer/room_speed,2,1));
+	}else{
+		if(instance_exists(obj_player)){
+			draw_set_halign(fa_left);
+			//draw_text(viewX,viewY,"Health: "+string(global.plyHP)+"/"+string(global.plyMaxHP));
+			//Draw Player Healthbar/////////////////
+			marginY+=barHeight;
+			var iconW = sprite_get_height(spr_hud_icon_funbar);
+			draw_sprite(spr_hud_icon_healthbar,0,viewX-iconW+marginX,viewY+marginY);
+			draw_healthbar(viewX+marginX,(viewY+marginY),(viewX+marginX)+barWidth,(viewY+marginY)+barHeight,(global.plyHP/global.plyMaxHP)*100,c_black,c_red,c_green,0,true,true);
+			marginY += barHeight;
+			draw_sprite(spr_hud_icon_xpbar,0,viewX-iconW+marginX,viewY+marginY);
+			draw_healthbar(viewX+marginX,viewY+marginY,(viewX+marginX)+barWidth,(viewY+marginY)+barHeight,(global.xp/global.xpThreshold[global.plyLevel])*100,c_black,c_teal,c_teal,0,true,true);
+			marginY += barHeight;
+			draw_sprite(spr_hud_icon_funbar,0,viewX-iconW+marginX,viewY+marginY);
+			draw_healthbar(viewX+marginX,(viewY+marginY),(viewX+marginX)+barWidth,(viewY+marginY)+barHeight,(global.FUN/MAX_FUN)*100,c_black,$FF00FF,$00FFFF,0,true,true);
+			//Draw Fun "sections"
+			draw_set_color(c_black);
+			draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+barWidth/4,(viewY+marginY)+barHeight,true);
+			marginX += 80;
+			draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+barWidth/4,(viewY+marginY)+barHeight,true);
+			marginX += 80;
+			draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+barWidth/4,(viewY+marginY)+barHeight,true);
+			marginX += 80;
+			draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+barWidth/4,(viewY+marginY)+barHeight,true);
+			marginX += 80;
+			/////////////////
+			///WAVE//////////
+			marginX=view_get_wport(0)/2;
+			draw_set_halign(fa_center);
+			marginY = 0;
+			draw_text(viewX+marginX,viewY+marginY,"Wave: "+string(global.WAVE + 1));
+			///////////
+			///CASH///////
+			cashString = "$"+string(global.CURRENCY);
+			marginX = view_get_wport(0) - (string_width(cashString)+40);
+			marginY = view_get_hport(0) - 40;
+			cashBoxHeight = string_height(cashString)-10;
+			cashBoxWidth = string_width(cashString);
+			draw_rectangle_color(marginX,marginY,marginX+cashBoxWidth,marginY+cashBoxHeight,c_green,c_green,c_green,c_green,false);
+			draw_set_halign(fa_left);
+			draw_set_color(c_black);
+			draw_text(marginX,marginY,cashString);
+			////////////////////
+			///LEVEL INFO///////
+			levelString = "LEVEL: "+string(global.plyLevel)+", TIER: "+string(global.PLAYER_TIER);
+			marginX = view_get_wport(0) - (string_width(levelString)+40);
+			marginY = 40;
+			levelBoxHeight = string_height(levelString)-10;
+			levelBoxWidth = string_width(levelString);
+			draw_rectangle_color(marginX,marginY,marginX+levelBoxWidth,marginY+levelBoxHeight,c_blue,c_blue,c_blue,c_blue,false);
+			draw_set_halign(fa_left);
+			draw_set_color(c_black);
+			draw_text(marginX,marginY,levelString);
+			//Draw Phase///////////////////////
+			draw_set_color($0000AA);//DARKER SHADE OF RED
+			switch(global.WAVE_PHASE){			
+				case Phase.PREP:
+				draw_set_halign(fa_center);
+				draw_text(viewX+view_get_wport(0)/2,viewY+string_height("A")+4,"Prepare your defenses! "+string_format(global.TIMER/room_speed,2,1));
+				break;				
+				case Phase.SWARM:
+				draw_set_halign(fa_center);
+				draw_text(viewX+view_get_wport(0)/2,viewY+string_height("A")+4,"Enemies: "+string(global.currentEnemyKills)+"/"+string(global.ENEM_POP[global.WAVE]));
+				break;
+				case Phase.BOSS:
+				draw_set_halign(fa_center);
+				draw_text(viewX+view_get_wport(0)/2,viewY+string_height("A")+4,"Large Hostile Incoming!");
+				break;
+			}
+		}
+	}
+}else if(room == rm_shop){
+	draw_set_halign(fa_left);
+	draw_set_color(c_white);
+	draw_text(viewX+marginX,viewY,"Cash: "+string(global.CURRENCY));
+	marginX += 300;
+	if(global.W_OR_B)
+		draw_text(viewX+marginX,viewY,"PRICE: "+string(global.PRICES_W[obj_shop_preview.position]));
+	else
+		draw_text(viewX+marginX,viewY,"PRICE: "+string(global.PRICES_B[obj_shop_preview.position]));
+}
+/*else if(room == rm_tutorial || room == rm_shop_tutorial){
+	draw_set_halign(fa_left);
+	draw_set_color(c_white);
+	draw_text(viewX,viewY,"PRESS ESCAPE TO RETURN TO MENU");
+	draw_text(viewX,viewY+40,tutString);
+}*/
+
+
+if(gamePause == true){
+	marginX = 40;
+	draw_text(viewX+marginX,viewY+marginY,"PAUSED");
+}

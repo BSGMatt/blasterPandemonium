@@ -1,0 +1,1 @@
+selection_dir = -1;
