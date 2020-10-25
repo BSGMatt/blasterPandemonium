@@ -80,16 +80,16 @@ if(place_meeting(x,y,obj_shop_preview)){
 
 if(place_meeting(x,y,obj_menu_start)){
 	if(mouse_check_button_pressed(mb_left)){
-		global.LOAD_GAME = false;
 		room_goto(rm_cutscene);
+		global.LOAD_GAME = false;
 	}
 }
 
 
 if(place_meeting(x,y,obj_menu_tutorial)){
 	if(mouse_check_button_pressed(mb_left)){
-		global.LOAD_GAME = true;
 		room_goto(room_main);
+		global.LOAD_GAME = true;
 	}
 }
 

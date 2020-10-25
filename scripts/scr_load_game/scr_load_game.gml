@@ -1,7 +1,8 @@
 ///This script declares all global variables. 
 function scr_load_game() {
+	
 	//INIT
-	obj_saveLoad.state = ds_map_secure_load("save.txt");
+	obj_saveLoad.state = ds_map_secure_load("save.json");
 
 	randomise();
 	global.plyLevel = ds_map_find_value(obj_saveLoad.state, "player_level");
@@ -83,16 +84,19 @@ function scr_load_game() {
 	//0 = prep phase, 1 = attack phase, boss phase;
 
 	//inventory and buying
-	global.CURRENCY  = 750;
+	global.CURRENCY = ds_map_find_value(obj_saveLoad.state,"cash");
 
-	global.WEAPONS_AVAILABLE_AT_TIER[0] = 3;
-	global.WEAPONS_AVAILABLE_AT_TIER[1] = 6;
-	global.WEAPONS_AVAILABLE_AT_TIER[2] = 9;
-	global.WEAPONS_AVAILABLE_AT_TIER[3] = 9;
+	global.WEAPONS_AVAILABLE_AT_TIER[0] = 4;
+	global.WEAPONS_AVAILABLE_AT_TIER[1] = 7;
+	global.WEAPONS_AVAILABLE_AT_TIER[2] = 10;
+	global.WEAPONS_AVAILABLE_AT_TIER[3] = 10;
+	global.WEAPONS_AVAILABLE_AT_TIER[4] = 10;
 
-	global.BLOCKS_AVAILABLE_AT_TIER[0] = 8;
+	global.BLOCKS_AVAILABLE_AT_TIER[0] = 2;
 	global.BLOCKS_AVAILABLE_AT_TIER[1] = 6;
 	global.BLOCKS_AVAILABLE_AT_TIER[2] = 8;
+	global.BLOCKS_AVAILABLE_AT_TIER[3] = 8;
+	global.BLOCKS_AVAILABLE_AT_TIER[4] = 8;
 
 	global.BUILDER_EN = false;
 	global.IFP_WEAPON = array_create(12, false);//IFP stands for "Items For Purchase";
@@ -109,25 +113,27 @@ function scr_load_game() {
 	//global.IFP_WEAPON
 	var ifp_weapon_array = ds_list_create();
 	ds_list_copy(ifp_weapon_array,ds_map_find_value(obj_saveLoad.state,"ifp_weapon"));
-	for(var i=0; i < array_length_1d(global.IFP_WEAPON); i++){
+	show_debug_message(ifp_weapon_array);
+	for(var i=0; i < array_length(global.IFP_WEAPON); i++){
 		global.IFP_WEAPON[i] = ds_list_find_value(ifp_weapon_array,i);	
+		show_debug_message(global.IFP_WEAPON[i]);
 	}
 	//global.IFP_BLOCK
 	var ifp_block_array = ds_list_create();
 	ds_list_copy(ifp_block_array,ds_map_find_value(obj_saveLoad.state,"ifp_block"));
-	for(var i=0; i < array_length_1d(global.IFP_BLOCK); i++){
+	for(var i=0; i < array_length(global.IFP_BLOCK); i++){
 		global.IFP_BLOCK[i] = ds_list_find_value(ifp_block_array,i);	
 	}
 	//global.INV_BLOCK
 	var inv_block_array = ds_list_create();
 	ds_list_copy(inv_block_array,ds_map_find_value(obj_saveLoad.state,"inv_block"));
-	for(var i=0; i < array_length_1d(global.INV_BLOCK); i++){
+	for(var i=0; i < array_length(global.INV_BLOCK); i++){
 		global.INV_BLOCK[i] = ds_list_find_value(inv_block_array,i);	
 	}
 	//global.INV_WEAPON
 	var inv_weapon_array = ds_list_create();
 	ds_list_copy(inv_weapon_array,ds_map_find_value(obj_saveLoad.state,"inv_weapon"));
-	for(var i=0; i < array_length_1d(global.INV_WEAPON); i++){
+	for(var i=0; i < array_length(global.INV_WEAPON); i++){
 		global.INV_WEAPON[i] = ds_list_find_value(inv_weapon_array,i);	
 	}
 
@@ -137,31 +143,33 @@ function scr_load_game() {
 
 	//REPLACE BLOCKS
 	var block_count = ds_map_find_value(obj_saveLoad.state,"block_count");
+	show_debug_message("block count: "+string(block_count));
 	for(var i = 0; i < block_count; i++){
 		var blockX = ds_map_find_value(obj_saveLoad.state,"block_"+string(i)+"_x");
 		var blockY = ds_map_find_value(obj_saveLoad.state,"block_"+string(i)+"_y");
 		var inst = instance_create_layer(blockX,blockY,"instance_layer",ds_map_find_value(obj_saveLoad.state,"block_"+string(i)+"_obj_index"));
+		show_debug_message(string(inst.object_index));
 		inst.image_xscale = ds_map_find_value(obj_saveLoad.state,"block_"+string(i)+"_x_scale");
 		inst.image_yscale = ds_map_find_value(obj_saveLoad.state,"block_"+string(i)+"_y_scale");
 		if(inst.image_xscale > 1 or inst.image_yscale > 1) layer_add_instance("waterBlockLayer",inst);
 	}
 
 
-	//set prices for items
 	//C - tier
 	global.PRICES_W[weaponID.std_pistol] = 0;
 	global.PRICES_W[weaponID.std_shotgun] = 100;
 	global.PRICES_W[weaponID.std_sniper] = 150;
-	//B - tier
 	global.PRICES_W[weaponID.std_ak] = 200;
+	//B - tier
 	global.PRICES_W[weaponID.std_sine] = 300;
 	global.PRICES_W[weaponID.std_grenade_launcher] = 450;
+	global.PRICES_W[weaponID.quirky_ak] = 500;
 	//A - tier
 	global.PRICES_W[weaponID.super_pistol] = 600;
 	global.PRICES_W[weaponID.super_shotgun] = 600;
 	global.PRICES_W[weaponID.super_ak] = 600;
 
-	global.WEAPONS_AVAILABLE_AT_TIER[4] = array_length_1d(global.PRICES_W);
+	global.WEAPONS_AVAILABLE_AT_TIER[4] = array_length(global.PRICES_W);
 	//I put this here to prevent an out-of-bounds error in the shop. 
 	//C - tier
 	global.PRICES_B[buildingID.block_std] = 0;
@@ -198,10 +206,10 @@ function scr_load_game() {
 	global.ENEM_POP[1] = 8;
 	global.ENEM_POP[2] = 10;
 	global.ENEM_POP[3] = 15;
-	for(var i = 4; i < array_length_1d(global.ENEM_POP); i++){
+	for(var i = 4; i < array_length(global.ENEM_POP); i++){
 		if(global.ENEM_POP[i-1] < 30) {
 			global.ENEM_POP[i] = global.ENEM_POP[i-1]+3;
-		}else global.ENEM_POP[i] = 30;
+		}else global.ENEM_POP[i] = 20;
 	}
 
 	//Checking enemy count

@@ -15,7 +15,7 @@ if(global.WAVE_PHASE == Phase.SWARM){
 			targetAvail = true;	
 		}
 	}
-	for(var i=0; i < array_length_1d(enemyInField); i++){
+	for(var i=0; i < array_length(enemyInField); i++){
 		var dist = distance_to_object(enemyInField[i]);
 		if(dist < minDist){
 			minDist = dist;

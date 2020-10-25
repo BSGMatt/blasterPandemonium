@@ -22,3 +22,4 @@ myColor = c_white;
 event_inherited();
 block_max_hp = 5000;
 hp = block_max_hp;
+isDestructible = true;

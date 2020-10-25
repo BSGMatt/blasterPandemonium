@@ -7,6 +7,7 @@ radius = 384;
 funRate = 0.2;
 block_max_hp = 1000;
 hp = block_max_hp;
+isDestructible = true;
 bk_emit = audio_emitter_create();
 audio_emitter_position(bk_emit,x,y,0);
 audio_emitter_falloff(bk_emit,radius,250+radius,1);
