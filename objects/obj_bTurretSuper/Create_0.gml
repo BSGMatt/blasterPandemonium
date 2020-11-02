@@ -2,6 +2,10 @@
 // You can write your code in this editor
 
 // Inherit the parent event
+event_inherited();
+block_max_hp = 5000;
+hp = block_max_hp;
+isDestructible = true;
 myWeapon = noone;
 wepDamage = 6;
 wepFR = 0.8*room_speed;
@@ -19,7 +23,3 @@ minDist = 10000;
 enemyInField = array_create(32,noone);
 radius = 512;
 myColor = c_white;
-event_inherited();
-block_max_hp = 5000;
-hp = block_max_hp;
-isDestructible = true;
