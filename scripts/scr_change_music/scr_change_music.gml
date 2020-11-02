@@ -24,7 +24,7 @@ function scr_change_music(argument0) {
 		break;
 	
 		case Music.SWARM:
-			global.BGM = audio_create_stream("Attack - Mono.ogg");
+			global.BGM = audio_create_stream("Swarm - Master.ogg");
 			loops = true;
 		break;
 	

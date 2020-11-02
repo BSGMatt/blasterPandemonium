@@ -5,7 +5,7 @@ function scr_define_const() {
 #macro STARTING_FUN 50
 #macro FUN_TICK_RATE .030//RATE OF FUN OVER TIME
 #macro CRYSTAL_HPS 10
-#macro PREP_TIME room_speed*60
+#macro PREP_TIME room_speed*180
 #macro REFUND_RATE 0.75
 #macro MAX_AMMO_MAN 10
 #macro MAX_AMMO_SEMI 25
