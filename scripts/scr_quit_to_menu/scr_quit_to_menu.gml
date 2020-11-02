@@ -89,7 +89,9 @@ function scr_quit_to_menu() {
 	}
 
 	scr_define_const();
-	scr_univar();//RESET EVERYTHING
+	
+	//scr_univar();//RESET EVERYTHING
+	scr_save_game();
 
 
 	room_goto(rm_menu);//GOTO MAIN MENU

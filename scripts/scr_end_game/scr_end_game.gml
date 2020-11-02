@@ -70,6 +70,7 @@ function scr_end_game() {
 		audio_destroy_stream(global.BGM);	
 	}
 
+	
 	scr_univar();//RESET EVERYTHING
 
 

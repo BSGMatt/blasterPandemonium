@@ -17,7 +17,7 @@ target = noone;
 targetAvail = false;
 minDist = 10000;
 enemyInField = array_create(32,noone);
-radius = 384;
+radius = 512;
 myColor = c_white;
 event_inherited();
 block_max_hp = 5000;

@@ -58,7 +58,8 @@ function scr_game_over() {
 		instance_destroy(obj_crystal.myWeapon);
 		instance_destroy(obj_crystal);
 	}
-
+	
+	//RESET TIMELINE
 	if(timeline_exists(tm_test)) timeline_clear(tm_test);
 	timeline_running = false;
 
@@ -74,13 +75,14 @@ function scr_game_over() {
 		audio_destroy_stream(global.BGM);	
 	}
 
-
-	/*scr_define_const();
-	scr_univar();//RESET EVERYTHING*/
-
+	//RESET EVERYTHING
+	scr_define_const();
+	scr_univar();
+	
+	
 
 	room_goto(rm_game_over);//GOTO GAME OVER SCREEN
-	instance_destroy(obj_control_copy);
+	//instance_destroy(obj_control_copy); - Not even sure why I left this in lol.
 
 
 }
