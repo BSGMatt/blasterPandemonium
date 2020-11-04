@@ -8,8 +8,8 @@ if(x < room_width /2){
 	howFarToPush = 32;
 }
 
-if(!place_free(x,y)){
-	while(!place_free(x,y)){
+if(place_meeting(x,y,obj_block)){
+	while(!place_meeting(x,y,obj_block)){
 		x += howFarToPush;
 		y += howFarToPush;
 	}

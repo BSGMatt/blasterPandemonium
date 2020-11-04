@@ -94,7 +94,7 @@ function scr_load_game() {
 	global.WEAPONS_AVAILABLE_AT_TIER[3] = 10;
 	global.WEAPONS_AVAILABLE_AT_TIER[4] = 10;
 
-	global.BLOCKS_AVAILABLE_AT_TIER[0] = 2;
+	global.BLOCKS_AVAILABLE_AT_TIER[0] = 3;
 	global.BLOCKS_AVAILABLE_AT_TIER[1] = 6;
 	global.BLOCKS_AVAILABLE_AT_TIER[2] = 8;
 	global.BLOCKS_AVAILABLE_AT_TIER[3] = 8;
