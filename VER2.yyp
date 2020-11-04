@@ -78,6 +78,7 @@
     {"id":{"name":"sfx_confirm","path":"sounds/sfx_confirm/sfx_confirm.yy",},"order":4,},
     {"id":{"name":"sfx_blast","path":"sounds/sfx_blast/sfx_blast.yy",},"order":5,},
     {"id":{"name":"sfx_die","path":"sounds/sfx_die/sfx_die.yy",},"order":6,},
+    {"id":{"name":"sfx_level_up","path":"sounds/sfx_level_up/sfx_level_up.yy",},"order":10,},
     {"id":{"name":"sfx_healpod","path":"sounds/sfx_healpod/sfx_healpod.yy",},"order":7,},
     {"id":{"name":"sfx_tv","path":"sounds/sfx_tv/sfx_tv.yy",},"order":8,},
     {"id":{"name":"sfx_enem_general","path":"sounds/sfx_enem_general/sfx_enem_general.yy",},"order":0,},

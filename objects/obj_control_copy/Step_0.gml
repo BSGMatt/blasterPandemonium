@@ -8,7 +8,7 @@ if(gamePause == false){
 		//SETUP BASIC PHASE BEHAVIOR
 		if(!global.WAVE_STARTED){
 			global.WAVE_PHASE = Phase.IDLE;
-			if(!instance_exists(obj_player)) instance_create_layer(room_width/2,room_height/2,"instance_layer",obj_player);	
+			if(!instance_exists(obj_player)) instance_create_layer(global.PLAYER_SPAWN_X,global.PLAYER_SPAWN_Y,"instance_layer",obj_player);	
 			if(!instance_exists(obj_crystal)) instance_create_layer(global.CRYSTAL_SPAWN_X,global.CRYSTAL_SPAWN_Y,"instance_layer",obj_crystal);
 		}
 		//VIEW FAILSAFE

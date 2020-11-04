@@ -28,6 +28,8 @@ function scr_load_game() {
 		default:
 			global.CRYSTAL_SPAWN_X = room_width/2;
 			global.CRYSTAL_SPAWN_Y = room_height/2;
+			global.PLAYER_SPAWN_X = ds_map_find_value(obj_saveLoad.state,"player_x");
+			global.PLAYER_SPAWN_Y = ds_map_find_value(obj_saveLoad.state,"player_y");
 		break;
 	}
 

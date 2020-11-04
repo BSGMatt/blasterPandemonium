@@ -34,10 +34,10 @@ switch(mode){
 if(timeline_position > MAX_SHIGGY_TIME) timeline_position = 0;
 
 if(place_meeting(x+mspeedX,y,obj_bGround)){
-	path_index *= -1;
+	path_speed *= -1;
 }
 if(place_meeting(x,y+mspeedY,obj_bGround)){
-	path_index *= -1;
+	path_speed *= -1;
 }
 
 //COLLISION

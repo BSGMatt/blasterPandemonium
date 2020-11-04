@@ -59,5 +59,5 @@ function scr_level_up() {
 				global.xp = 0;//clears XP
 		}
 
-
+	audio_play_sound(sfx_level_up,125,false);
 }

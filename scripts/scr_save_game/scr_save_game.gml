@@ -9,6 +9,8 @@ function scr_save_game() {
 	ds_map_add(obj_saveLoad.state,"wave",global.WAVE);
 	ds_map_add(obj_saveLoad.state,"phase",global.WAVE_PHASE);
 	ds_map_add(obj_saveLoad.state,"cash",global.CURRENCY);
+	ds_map_add(obj_saveLoad.state,"player_x",obj_player.x);
+	ds_map_add(obj_saveLoad.state,"player_y",obj_player.y);
 	
 	var invBList = ds_list_create();
 	for(var i = 0; i < array_length(global.INV_BLOCK); i++) ds_list_add(invBList,global.INV_BLOCK[i]);

@@ -3,7 +3,7 @@
 
 // Inherit the parent event
 event_inherited();
-block_max_hp = 5000;
+block_max_hp = 400;
 hp = block_max_hp;
 isDestructible = true;
 myWeapon = noone;

@@ -25,6 +25,8 @@ function scr_univar() {
 		default:
 			global.CRYSTAL_SPAWN_X = room_width/2;
 			global.CRYSTAL_SPAWN_Y = room_height/2;
+			global.PLAYER_SPAWN_X = room_width/2;
+			global.PLAYER_SPAWN_Y = room_height/2;
 		break;
 	}
 
