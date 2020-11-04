@@ -9,7 +9,7 @@ function scr_change_music(argument0) {
 	var loops = false;
 	switch(argument0){
 		case Music.MENU:
-			global.BGM = audio_create_stream("Title Theme - Mono.ogg");
+			global.BGM = audio_create_stream("Title Theme - Stereo.ogg");
 			loops = true;
 		break;
 	
