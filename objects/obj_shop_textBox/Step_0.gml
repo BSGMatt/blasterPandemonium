@@ -42,6 +42,13 @@ if(global.W_OR_B){
 		myString[2]  = "Launches grenades that explodes after a certain amount time, or when it hits a object, such as a solid block or enemy.";
 		break;
 		
+		case weaponID.quirky_ak:
+		dps = (obj_weapon_quirky.damage*obj_weapon_quirky.pelletCount)/(obj_weapon_quirky.fireRate/room_speed);
+		myString[0] = "Damage: "+string((obj_weapon_quirky.damage*obj_weapon_quirky.pelletCount))+" DPS: "+string(dps);
+		myString[1] = "Spread Range: "+string(-obj_weapon_quirky.weaponSpread)+"-"+string(obj_weapon_quirky.weaponSpread);
+		myString[2] = "A automatic weapon with high damage, but random spread.";
+		break;
+		
 		case weaponID.super_pistol:
 		dps = (obj_weapon_superpistol.damage*obj_weapon_superpistol.pelletCount)/(obj_weapon_superpistol.fireRate/room_speed);
 		myString[0] = "Damage: "+string(obj_weapon_superpistol.damage*obj_weapon_superpistol.pelletCount)+" DPS: "+string(dps);
