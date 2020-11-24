@@ -14,6 +14,8 @@ function scr_toAttack() {
 	}else{
 		seconds = 4;
 	}
+
+	//Create Timeline
 	if(timeline_exists(tm_test)) timeline_clear(tm_test);
 	var moment = room_speed*seconds;
 	for(var i = 0; i < global.ENEM_POP[global.WAVE]*moment; i+= moment){
