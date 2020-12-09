@@ -1,5 +1,5 @@
 Blasters 2: Quarantine - README file
-This is the v0.0.1.1 of Blasters 2 Quarantine from Blast Studio Games. Please make sure you read this file before playing the game
+This is the v0.0.2.1 of Blasters 2 Quarantine from Blast Studio Games. Please make sure you read this file before playing the game
 
 This is the README file for Blasters: Pandemonium. PLEASE READ THIS BEFORE PLAYING! THIS FILE LISTS ALL THE CONTROLS FOR THE GAME, AS WELL AS EXPLAINING THE RULES!
 

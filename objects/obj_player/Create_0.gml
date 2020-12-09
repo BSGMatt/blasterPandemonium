@@ -1,5 +1,17 @@
 /// @description initialize variables
 //
+//push player in case he spawns on top of something.
+while(!place_free(x,y)){
+	if(x < room_width/2){
+		x+=64;
+		y+=64;
+	}else{
+		x-=64;
+		y-=64;
+	}
+}
+
+
 audio_listener_orientation(0,1,0,0,0,1);
 audio_falloff_set_model(audio_falloff_exponent_distance);
 #macro MULT_AT_HYPED 1

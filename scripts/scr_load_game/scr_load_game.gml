@@ -23,7 +23,7 @@ function scr_load_game() {
 
 
 
-
+//LOAD PLAYER'S LAST POSITION 
 	switch(room){
 		default:
 			global.CRYSTAL_SPAWN_X = room_width/2;
