@@ -28,9 +28,14 @@ function scr_define_const() {
 		std_sine = 4,
 		std_grenade_launcher = 5,
 		quirky_ak = 6,
-		super_pistol = 7,
-		super_shotgun = 8,
-		super_ak = 9		
+		sine_shotgun = 7,
+		std_cannon = 8,
+		super_pistol = 9,
+		super_shotgun = 10,
+		super_sniper = 11,
+		super_ak = 12,	
+		super_sine = 13,
+		super_cannon = 14
 	}
 
 	enum weaponType{

@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "semi-auto",
-    "path": "folders/Objects/weapons/friendly/semi-auto.yy",
+    "name": "friendly",
+    "path": "folders/Objects/weapons/friendly.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_weapon_crystal",

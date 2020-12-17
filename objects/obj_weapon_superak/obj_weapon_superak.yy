@@ -29,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "auto",
-    "path": "folders/Objects/weapons/friendly/auto.yy",
+    "name": "Atier",
+    "path": "folders/Objects/weapons/friendly/Atier.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_weapon_superak",

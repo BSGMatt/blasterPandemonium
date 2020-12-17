@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "manual",
-    "path": "folders/Objects/weapons/friendly/manual.yy",
+    "name": "Btier",
+    "path": "folders/Objects/weapons/friendly/Btier.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_weapon_supershotgun",

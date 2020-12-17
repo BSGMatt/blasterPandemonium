@@ -44,11 +44,11 @@ function scr_univar() {
 	//inventory and buying
 	global.CURRENCY  = 750;
 
-	global.WEAPONS_AVAILABLE_AT_TIER[0] = 4;
-	global.WEAPONS_AVAILABLE_AT_TIER[1] = 7;
-	global.WEAPONS_AVAILABLE_AT_TIER[2] = 10;
-	global.WEAPONS_AVAILABLE_AT_TIER[3] = 10;
-	global.WEAPONS_AVAILABLE_AT_TIER[4] = 10;
+	global.WEAPONS_AVAILABLE_AT_TIER[0] = 3;
+	global.WEAPONS_AVAILABLE_AT_TIER[1] = 6;
+	global.WEAPONS_AVAILABLE_AT_TIER[2] = 9;
+	global.WEAPONS_AVAILABLE_AT_TIER[3] = 12;
+	global.WEAPONS_AVAILABLE_AT_TIER[4] = 15;
 
 	global.BLOCKS_AVAILABLE_AT_TIER[0] = 3;
 	global.BLOCKS_AVAILABLE_AT_TIER[1] = 6;
@@ -70,19 +70,26 @@ function scr_univar() {
 
 
 	//set prices for items
-	//C - tier
+	//F - tier
 	global.PRICES_W[weaponID.std_pistol] = 0;
 	global.PRICES_W[weaponID.std_shotgun] = 100;
 	global.PRICES_W[weaponID.std_sniper] = 150;
+	//D - tier
 	global.PRICES_W[weaponID.std_ak] = 200;
-	//B - tier
 	global.PRICES_W[weaponID.std_sine] = 300;
 	global.PRICES_W[weaponID.std_grenade_launcher] = 450;
+	//C - tier
 	global.PRICES_W[weaponID.quirky_ak] = 500;
+	global.PRICES_W[weaponID.sine_shotgun] = 550;
+	global.PRICES_W[weaponID.std_cannon] = 600;	
+	//B - tier
+	global.PRICES_W[weaponID.super_pistol] = 700;
+	global.PRICES_W[weaponID.super_shotgun] = 750;
+	global.PRICES_W[weaponID.super_sniper] = 800;
 	//A - tier
-	global.PRICES_W[weaponID.super_pistol] = 600;
-	global.PRICES_W[weaponID.super_shotgun] = 600;
-	global.PRICES_W[weaponID.super_ak] = 600;
+	global.PRICES_W[weaponID.super_ak] = 1000;
+	global.PRICES_W[weaponID.super_sine] = 1000;
+	global.PRICES_W[weaponID.super_cannon] = 1000;
 
 	global.WEAPONS_AVAILABLE_AT_TIER[4] = array_length(global.PRICES_W);
 	//I put this here to prevent an out-of-bounds error in the shop. 

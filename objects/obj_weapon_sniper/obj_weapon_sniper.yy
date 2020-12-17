@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "manual",
-    "path": "folders/Objects/weapons/friendly/manual.yy",
+    "name": "Ftier",
+    "path": "folders/Objects/weapons/friendly/Ftier.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_weapon_sniper",

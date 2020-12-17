@@ -29,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "auto",
-    "path": "folders/Objects/weapons/friendly/auto.yy",
+    "name": "Dtier",
+    "path": "folders/Objects/weapons/friendly/Dtier.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_weapon_ak",

@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "semi-auto",
-    "path": "folders/Objects/weapons/friendly/semi-auto.yy",
+    "name": "Dtier",
+    "path": "folders/Objects/weapons/friendly/Dtier.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_weapon_sine",

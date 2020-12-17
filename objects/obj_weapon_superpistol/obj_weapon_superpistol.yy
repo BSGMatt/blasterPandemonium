@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "semi-auto",
-    "path": "folders/Objects/weapons/friendly/semi-auto.yy",
+    "name": "Btier",
+    "path": "folders/Objects/weapons/friendly/Btier.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_weapon_superpistol",

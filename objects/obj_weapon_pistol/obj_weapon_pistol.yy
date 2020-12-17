@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "semi-auto",
-    "path": "folders/Objects/weapons/friendly/semi-auto.yy",
+    "name": "Ftier",
+    "path": "folders/Objects/weapons/friendly/Ftier.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_weapon_pistol",
