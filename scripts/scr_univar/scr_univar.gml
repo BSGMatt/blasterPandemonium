@@ -49,12 +49,22 @@ function scr_univar() {
 	global.WEAPONS_AVAILABLE_AT_TIER[2] = 9;
 	global.WEAPONS_AVAILABLE_AT_TIER[3] = 12;
 	global.WEAPONS_AVAILABLE_AT_TIER[4] = 15;
+	
+	//COMMENT OUT THE CODE BELOW WHEN NOT DEBUGGING
+	for(var i=0; i < array_length(global.WEAPONS_AVAILABLE_AT_TIER); i++){
+		array_set(global.WEAPONS_AVAILABLE_AT_TIER,i,15);
+	}
 
 	global.BLOCKS_AVAILABLE_AT_TIER[0] = 3;
 	global.BLOCKS_AVAILABLE_AT_TIER[1] = 6;
 	global.BLOCKS_AVAILABLE_AT_TIER[2] = 8;
 	global.BLOCKS_AVAILABLE_AT_TIER[3] = 8;
 	global.BLOCKS_AVAILABLE_AT_TIER[4] = 8;
+
+	//COMMENT OUT THE CODE BELOW WHEN NOT DEBUGGING
+	/*for(var i=0; i < array_length(global.BLOCKS_AVAILABLE_AT_TIER); i++){
+		array_set(global.BLOCKS_AVAILABLE_AT_TIER,i,15);
+	}*/
 
 	global.BUILDER_EN = false;
 	global.IFP_WEAPON = array_create(15, false);//IFP stands for "Items For Purchase";

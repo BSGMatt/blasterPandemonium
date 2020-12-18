@@ -38,6 +38,10 @@ if(global.W_OR_B){
 		myString = "THE \"ULTRA-BORTHER\"";
 		break;
 		
+		case weaponID.sine_shotgun:
+		myString = "THE \"WAVY SHOTGUN\"";
+		break;
+		
 		default:
 		myString = "THE \"GENERIC WEAPON\"";
 		break;

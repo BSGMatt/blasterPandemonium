@@ -32,6 +32,10 @@ if(global.W_OR_B){
 			draw_sprite_ext(object_get_sprite(obj_weapon_quirky),0,x,y,2,2,0,c_white,image_alpha);;
 		break;
 		
+		case weaponID.sine_shotgun:
+			draw_sprite_ext(object_get_sprite(obj_weapon_sine_shotgun),0,x,y,2,2,0,c_white,image_alpha);;
+		break;
+		
 		case weaponID.super_pistol:
 			draw_sprite_ext(object_get_sprite(obj_weapon_superpistol),0,x,y,2,2,0,c_white,image_alpha);;
 		break;

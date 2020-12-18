@@ -208,6 +208,10 @@ if(switched){
 			myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_quirky);
 		break;
 		
+		case weaponID.sine_shotgun:
+			myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_sine_shotgun);
+		break;
+		
 		default:
 			myWeapon = noone;
 		break;

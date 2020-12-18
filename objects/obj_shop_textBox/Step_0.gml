@@ -49,6 +49,13 @@ if(global.W_OR_B){
 		myString[2] = "A automatic weapon with high damage, but random spread.";
 		break;
 		
+		case weaponID.sine_shotgun:
+		dps = (obj_weapon_sine_shotgun.damage*obj_weapon_sine_shotgun.pelletCount)/(obj_weapon_sine_shotgun.fireRate/room_speed);
+		myString[0] = "Damage: "+string(obj_weapon_sine_shotgun.damage*obj_weapon_sine_shotgun.pelletCount)+" DPS: "+string(dps);
+		myString[1] = "Max Damage: "+string(obj_weapon_sine_shotgun.maxDamage*obj_weapon_sine_shotgun.pelletCount);
+		myString[2] = "A shotgun that fires wavy projectiles instead of regular bullets.";
+		break;
+		
 		case weaponID.super_pistol:
 		dps = (obj_weapon_superpistol.damage*obj_weapon_superpistol.pelletCount)/(obj_weapon_superpistol.fireRate/room_speed);
 		myString[0] = "Damage: "+string(obj_weapon_superpistol.damage*obj_weapon_superpistol.pelletCount)+" DPS: "+string(dps);

@@ -6,7 +6,7 @@ depth = -1000;//Make sure mouse is on top of everything
 //Interactions
 //shop button
 
-//shop arrows
+//control shop arrows
 var arrow = instance_place(x,y,obj_shop_arrow);
 if(arrow != noone){
 	if(mouse_check_button_pressed(mb_left)){
@@ -14,7 +14,7 @@ if(arrow != noone){
 		if(global.W_OR_B){
 			if(arrow.selection_dir < 0){
 				if(obj_shop_preview.position-1 < 0){
-					obj_shop_preview.position = 0;	
+					obj_shop_preview.position = global.BLOCKS_AVAILABLE_AT_TIER[global.PLAYER_TIER]-1;	
 				}else{
 					obj_shop_preview.position += arrow.selection_dir;
 				}
@@ -28,7 +28,7 @@ if(arrow != noone){
 		}else{
 			if(arrow.selection_dir < 0){
 				if(obj_shop_preview.position-1 < 0){
-					obj_shop_preview.position = 0;	
+					obj_shop_preview.position = global.BLOCKS_AVAILABLE_AT_TIER[global.PLAYER_TIER]-1;	
 				}else{
 					obj_shop_preview.position += arrow.selection_dir;
 				}
@@ -44,6 +44,7 @@ if(arrow != noone){
 	}
 }
 
+//Button that switches from weapons screen to the blocks screen on the shop menu. 
 if(place_meeting(x,y,obj_shop_swap)){
 	if(mouse_check_button_pressed(mb_left)){
 		if(!global.W_OR_B) {
@@ -55,10 +56,11 @@ if(place_meeting(x,y,obj_shop_swap)){
 	}
 }
 
-//shop preview button
+//selecting a weapon to purchase
 if(place_meeting(x,y,obj_shop_preview)){
 	if(mouse_check_button_pressed(mb_left)){
 		thisID = obj_shop_preview.position;
+		//Check if weapons is already in inventory or not, as well as if player can afford to purchase it. 
 		if(global.W_OR_B){
 			if(global.IFP_WEAPON[thisID] == false && global.CURRENCY >= global.PRICES_W[thisID]){
 				global.CURRENCY -= global.PRICES_W[thisID];		
