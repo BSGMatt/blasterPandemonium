@@ -1,15 +1,15 @@
 {
   "spriteId": {
-    "name": "spr_bullet",
-    "path": "sprites/spr_bullet/spr_bullet.yy",
+    "name": "spr_bullet_large",
+    "path": "sprites/spr_bullet_large/spr_bullet_large.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_bullet",
-    "path": "objects/obj_bullet/obj_bullet.yy",
+    "name": "obj_bullet_friendly",
+    "path": "objects/obj_bullet_friendly/obj_bullet_friendly.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -27,11 +27,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "enemy",
-    "path": "folders/Objects/projectile/enemy.yy",
+    "name": "friendly",
+    "path": "folders/Objects/projectile/friendly.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_bullet_enemy",
+  "name": "obj_bullet_large_friendly",
   "tags": [],
   "resourceType": "GMObject",
 }

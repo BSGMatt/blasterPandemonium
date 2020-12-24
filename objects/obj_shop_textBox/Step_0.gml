@@ -56,6 +56,12 @@ if(global.W_OR_B){
 		myString[2] = "A shotgun that fires wavy projectiles instead of regular bullets.";
 		break;
 		
+		case weaponID.std_cannon:
+		dps = (obj_weapon_cannon.damage*obj_weapon_cannon.pelletCount)/(obj_weapon_cannon.fireRate/room_speed);
+		myString[0] = "Damage: "+(obj_weapon_cannon.damage*obj_weapon_cannon.pelletCount)+" DPS: "+string(dps);
+		myString[2] = "A literal cannon. Has a slow fire rate, but has incredibly high damage on a chunky projectile.";
+		break;
+		
 		case weaponID.super_pistol:
 		dps = (obj_weapon_superpistol.damage*obj_weapon_superpistol.pelletCount)/(obj_weapon_superpistol.fireRate/room_speed);
 		myString[0] = "Damage: "+string(obj_weapon_superpistol.damage*obj_weapon_superpistol.pelletCount)+" DPS: "+string(dps);

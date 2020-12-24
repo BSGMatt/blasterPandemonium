@@ -42,6 +42,10 @@ if(global.W_OR_B){
 		myString = "THE \"WAVY SHOTGUN\"";
 		break;
 		
+		case weaponID.std_cannon:
+		myString = "THE \"KA-BOOM\"";
+		break;
+		
 		default:
 		myString = "THE \"GENERIC WEAPON\"";
 		break;

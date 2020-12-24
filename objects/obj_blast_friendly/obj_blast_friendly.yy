@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "projectile",
-    "path": "folders/Objects/projectile.yy",
+    "name": "friendly",
+    "path": "folders/Objects/projectile/friendly.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_blast_friendly",

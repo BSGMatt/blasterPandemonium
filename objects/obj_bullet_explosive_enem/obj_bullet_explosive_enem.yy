@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "projectile",
-    "path": "folders/Objects/projectile.yy",
+    "name": "enemy",
+    "path": "folders/Objects/projectile/enemy.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_bullet_explosive_enem",
