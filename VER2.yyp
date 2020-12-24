@@ -211,6 +211,7 @@
     {"id":{"name":"obj_enem_tax_y","path":"objects/obj_enem_tax_y/obj_enem_tax_y.yy",},"order":5,},
     {"id":{"name":"obj_coin_bag","path":"objects/obj_coin_bag/obj_coin_bag.yy",},"order":2,},
     {"id":{"name":"obj_coin_reg","path":"objects/obj_coin_reg/obj_coin_reg.yy",},"order":3,},
+    {"id":{"name":"sfx_cancel","path":"sounds/sfx_cancel/sfx_cancel.yy",},"order":11,},
     {"id":{"name":"tm_boss_shiggy","path":"timelines/tm_boss_shiggy/tm_boss_shiggy.yy",},"order":0,},
     {"id":{"name":"obj_mouse","path":"objects/obj_mouse/obj_mouse.yy",},"order":0,},
     {"id":{"name":"obj_mouse1","path":"objects/obj_mouse1/obj_mouse1.yy",},"order":1,},

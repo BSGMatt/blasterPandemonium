@@ -67,6 +67,9 @@ if(place_meeting(x,y,obj_shop_preview)){
 				global.IFP_WEAPON[thisID] = true;
 				global.INV_WEAPON[global.NSA_WEAPON] = thisID;
 				global.NSA_WEAPON++;
+				audio_play_sound(sfx_confirm,2,false);
+			}else{
+				audio_play_sound(sfx_cancel,2,false);
 			}
 		}else{
 			if(global.IFP_BLOCK[thisID] == false && global.CURRENCY >= global.PRICES_B[thisID]){
@@ -74,9 +77,12 @@ if(place_meeting(x,y,obj_shop_preview)){
 				global.IFP_BLOCK[thisID] = true;
 				global.INV_BLOCK[global.NSA_BLOCK] = thisID;
 				global.NSA_BLOCK++;
+				audio_play_sound(sfx_confirm,2,false);
+			}else{
+				audio_play_sound(sfx_cancel,2,false);
 			}
 		}
-		audio_play_sound(sfx_confirm,2,false);
+		
 	}
 }
 

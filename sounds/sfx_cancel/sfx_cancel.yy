@@ -1,6 +1,6 @@
 {
   "compression": 0,
-  "volume": 0.52,
+  "volume": 0.53,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sfx_confirm",
-  "duration": 0.586519,
+  "soundFile": "sfx_cancel.wav",
+  "duration": 0.226224,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sfx_confirm",
+  "name": "sfx_cancel",
   "tags": [],
   "resourceType": "GMSound",
 }
