@@ -236,14 +236,14 @@
     "name": "Default",
     "children": [],
   },
-  "RoomOrder": [
-    {"name":"rm_menu","path":"rooms/rm_menu/rm_menu.yy",},
-    {"name":"room_main","path":"rooms/room_main/room_main.yy",},
-    {"name":"rm_shop","path":"rooms/rm_shop/rm_shop.yy",},
-    {"name":"rm_shop_tutorial","path":"rooms/rm_shop_tutorial/rm_shop_tutorial.yy",},
-    {"name":"rm_game_over","path":"rooms/rm_game_over/rm_game_over.yy",},
-    {"name":"rm_endgame","path":"rooms/rm_endgame/rm_endgame.yy",},
-    {"name":"rm_cutscene","path":"rooms/rm_cutscene/rm_cutscene.yy",},
+  "RoomOrderNodes": [
+    {"roomId":{"name":"rm_menu","path":"rooms/rm_menu/rm_menu.yy",},},
+    {"roomId":{"name":"room_main","path":"rooms/room_main/room_main.yy",},},
+    {"roomId":{"name":"rm_shop","path":"rooms/rm_shop/rm_shop.yy",},},
+    {"roomId":{"name":"rm_shop_tutorial","path":"rooms/rm_shop_tutorial/rm_shop_tutorial.yy",},},
+    {"roomId":{"name":"rm_game_over","path":"rooms/rm_game_over/rm_game_over.yy",},},
+    {"roomId":{"name":"rm_endgame","path":"rooms/rm_endgame/rm_endgame.yy",},},
+    {"roomId":{"name":"rm_cutscene","path":"rooms/rm_cutscene/rm_cutscene.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":0,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
@@ -310,10 +310,10 @@
     {"folderPath":"folders/Objects/projectile/enemy.yy","order":9,"resourceVersion":"1.0","name":"enemy","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
-    {"targets":461609314234257646,"resourceVersion":"1.0","name":"audiogroup_default","resourceType":"GMAudioGroup",},
+    {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
   ],
   "TextureGroups": [
-    {"isScaled":true,"autocrop":true,"border":2,"mipsToGenerate":0,"targets":461609314234257646,"resourceVersion":"1.0","name":"Default","resourceType":"GMTextureGroup",},
+    {"isScaled":true,"autocrop":true,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":-1,"resourceVersion":"1.3","name":"Default","resourceType":"GMTextureGroup",},
   ],
   "IncludedFiles": [
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"Attack Them (Beta).ogg","resourceType":"GMIncludedFile",},
@@ -331,9 +331,9 @@
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"Title Theme - Stereo.ogg","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
-    "IDEVersion": "2.3.0.529",
+    "IDEVersion": "2.3.1.542",
   },
-  "resourceVersion": "1.3",
+  "resourceVersion": "1.4",
   "name": "VER2",
   "tags": [],
   "resourceType": "GMProject",
