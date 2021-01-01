@@ -27,7 +27,7 @@ slotPos = 0;
 switched = true;
 radarDir = 0;
 radarTarget = noone;
-maxIFrames = room_speed/4;
+maxIFrames = 5;
 iFrames = 0;
 invincible = false;
 

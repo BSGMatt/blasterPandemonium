@@ -8,6 +8,7 @@ if(isDestructible){
 		hp -= bullet.damage;	
 		instance_destroy(bullet);
 		percent = hp/block_max_hp;
+		//SMOOTH FADE TO RED
 		colorVal = $0000FF;
 		var n = percent * 16;
 		n = round(n);
