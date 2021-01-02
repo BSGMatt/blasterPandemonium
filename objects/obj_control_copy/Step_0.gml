@@ -1,5 +1,12 @@
 /// @description run scripts
 // You can write your code in this editor
+/*if(global.LOAD_GAME_FROM_MENU && !global.GAME_LOADED){
+	scr_load_game();	
+	global.WAVE_STARTED = false;
+	global.GAME_LOADED = true;
+}*/
+
+
 if(gamePause == false){
 	if(room == room_main || room == rm_shop){
 		if(global.CRYSTAL_HP <= 0 && global.PLAYER_DIED){

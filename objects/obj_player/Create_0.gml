@@ -1,14 +1,14 @@
 /// @description initialize variables
 //
 //push player in case he spawns on top of something.
+if(x < room_width/2){
+	push = 64;
+}else{
+	push = -64;
+}
 while(!place_free(x,y)){
-	if(x < room_width/2){
-		x+=64;
-		y+=64;
-	}else{
-		x-=64;
-		y-=64;
-	}
+		x+=push;
+		y+=push;
 }
 
 

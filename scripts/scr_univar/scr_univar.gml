@@ -37,7 +37,7 @@ function scr_univar() {
 
 	global.WAVE = 0;
 	global.WAVE_PHASE = Phase.IDLE;
-	global.TIMER = PREP_TIME;//60 seconds
+	global.TIMER = PREP_TIME;
 	global.WAVE_STARTED = false;
 	//0 = prep phase, 1 = attack phase, boss phase;
 
@@ -67,10 +67,10 @@ function scr_univar() {
 	}*/
 
 	global.BUILDER_EN = false;
-	global.IFP_WEAPON = array_create(15, false);//IFP stands for "Items For Purchase";
-	global.IFP_BLOCK = array_create(15, false);//IFP stands for "Items For Purchase";
-	global.PRICES_W = array_create(15, 100);
-	global.PRICES_B = array_create(15, 100);
+	global.IFP_WEAPON = array_create(20, false);//IFP stands for "Items For Purchase";
+	global.IFP_BLOCK = array_create(20, false);//IFP stands for "Items For Purchase";
+	global.PRICES_W = array_create(20, 100);
+	global.PRICES_B = array_create(20, 100);
 
 	global.W_OR_B = false;//W=true,B=false
 	global.NSA_WEAPON = 0;//STANDS FOR "NEXT SLOT AVAILABLE";

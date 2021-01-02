@@ -3,6 +3,7 @@ function scr_quit_to_menu() {
 	//UNPAUSE GAME
 	gamePause = false;
 	instance_activate_all();
+	scr_save_game();
 	//room_main is persistent, so it cannot be reset like other rooms. So instead i have to reset everything manually
 	enemyArr = array_create(instance_number(obj_enemB),0);
 	blockArr =  array_create(instance_number(obj_block),0);
@@ -46,27 +47,29 @@ function scr_quit_to_menu() {
 	}
 
 	//DESTROY INSTANCES
-	for(var i = 0; i < array_length_1d(enemyArr); i++){
+	for(var i = 0; i < array_length(enemyArr); i++){
 		instance_destroy(enemyArr[i]);	
 	}
-	for(var i = 0; i < array_length_1d(blockArr); i++){
+	for(var i = 0; i < array_length(blockArr); i++){
 		instance_destroy(blockArr[i]);	
 	}
-	for(var i = 0; i < array_length_1d(weaponEnemArr); i++){
+	for(var i = 0; i < array_length(weaponEnemArr); i++){
 		instance_destroy(weaponEnemArr[i]);	
 	}
-	for(var i = 0; i < array_length_1d(packArr); i++){
+	for(var i = 0; i < array_length(packArr); i++){
 		instance_destroy(packArr[i]);	
 	}
-	for(var i = 0; i < array_length_1d(bulletArr); i++){
+	for(var i = 0; i < array_length(bulletArr); i++){
 		instance_destroy(bulletArr[i]);	
 	}
-	for(var i = 0; i < array_length_1d(bossArr); i++){
+	for(var i = 0; i < array_length(bossArr); i++){
 		instance_destroy(bossArr[i]);	
 	}
-	for(var i = 0; i < array_length_1d(coinArr); i++){
+	for(var i = 0; i < array_length(coinArr); i++){
 		instance_destroy(coinArr[i]);		
 	}
+	
+	if(instance_exists(obj_boss)) instance_destroy(obj_boss);
 
 	if(instance_exists(obj_crystal)){
 		instance_destroy(obj_crystal.myWeapon);
@@ -79,9 +82,8 @@ function scr_quit_to_menu() {
 
 	//SET PLAYER POSITION
 	if(instance_exists(obj_player)){
-		obj_player.x = room_width/2;
-		obj_player.y = room_height/2;
 		instance_destroy(obj_player.myWeapon);
+		instance_destroy(obj_player);
 	}
 
 	if(audio_is_playing(global.BGM)){
@@ -89,12 +91,14 @@ function scr_quit_to_menu() {
 	}
 
 	scr_define_const();
-	
-	//scr_univar();//RESET EVERYTHING
-	scr_save_game();
 
+
+	//global.LOAD_GAME_FROM_MENU = true;
+	//scr_univar();//RESET EVERYTHING
+
+	
 
 	room_goto(rm_menu);//GOTO MAIN MENU
 
-
+	instance_destroy(obj_control_copy);
 }

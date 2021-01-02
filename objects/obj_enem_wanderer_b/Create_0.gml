@@ -10,6 +10,11 @@ path_end();
 //Create Weapon
 myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_enem_manual);
 myWeapon.fireRate = 0.25*room_speed;
-myWeapon.damage = 1;
-myWeapon.pelletCount = 2;
+myWeapon.damage = 5;
+myWeapon.pelletCount = 1;
 myWeapon.spread = 30;
+myWeapon.hasExplosive = true;
+myWeapon.blastDamage = 2;
+myWeapon.blastDmgTick = 1;
+myWeapon.blastDuration = 0.5*room_speed;
+myWeapon.blastRadius = 1;

@@ -151,7 +151,7 @@ if(inst != noone){
 if(array_length(global.INV_WEAPON) > 1){
 	if(keyboard_check_pressed(ord("Q"))){
 		//SAVE AMMO
-		if(myWeapon != noone){
+		if(instance_exists(myWeapon)){
 			ammo[myWeapon.type] = myWeapon.ammo;
 		}
 		//
@@ -159,7 +159,7 @@ if(array_length(global.INV_WEAPON) > 1){
 		switched = true;
 	}else if(keyboard_check_pressed(ord("E"))){
 		//SAVE AMMO
-		if(myWeapon != noone){
+		if(instance_exists(myWeapon)){
 			ammo[myWeapon.type] = myWeapon.ammo;
 		}
 		//

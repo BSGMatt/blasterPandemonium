@@ -7,6 +7,9 @@ the control objects are exactly the same aside from this rant, but I don't fucki
 It's 2 AM, fuck me. 
 
 */
+//Variables for when a save file is loaded from the main menu, since the create is never 
+/*global.LOAD_GAME_FROM_MENU = false;
+global.GAME_LOADED = false;*/
 scr_define_const();
 if(global.LOAD_GAME){
 	scr_load_game();	

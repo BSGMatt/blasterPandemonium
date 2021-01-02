@@ -29,7 +29,9 @@ function scr_load_game() {
 			global.CRYSTAL_SPAWN_X = room_width/2;
 			global.CRYSTAL_SPAWN_Y = room_height/2;
 			global.PLAYER_SPAWN_X = ds_map_find_value(obj_saveLoad.state,"player_x");
+				show_debug_message("PLAYER X: "+string(global.PLAYER_SPAWN_X));
 			global.PLAYER_SPAWN_Y = ds_map_find_value(obj_saveLoad.state,"player_y");
+				show_debug_message("PLAYER Y: "+string(global.PLAYER_SPAWN_Y));
 		break;
 	}
 
@@ -146,7 +148,7 @@ function scr_load_game() {
 		var blockX = ds_map_find_value(obj_saveLoad.state,"block_"+string(i)+"_x");
 		var blockY = ds_map_find_value(obj_saveLoad.state,"block_"+string(i)+"_y");
 		var inst = instance_create_layer(blockX,blockY,"instance_layer",ds_map_find_value(obj_saveLoad.state,"block_"+string(i)+"_obj_index"));
-		show_debug_message(string(inst.object_index));
+		show_debug_message("BLOCK "+string(i)+"'s Object Index: "+string(inst.object_index));
 		inst.image_xscale = ds_map_find_value(obj_saveLoad.state,"block_"+string(i)+"_x_scale");
 		inst.image_yscale = ds_map_find_value(obj_saveLoad.state,"block_"+string(i)+"_y_scale");
 		if(inst.image_xscale > 1 or inst.image_yscale > 1) layer_add_instance("waterBlockLayer",inst);

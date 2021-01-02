@@ -20,8 +20,8 @@ function scr_determineSpawnArea() {
 	}
 
 	//
-	rand = irandom_range(lower,higher);
-	//rand = 1;
+	//rand = irandom_range(lower,higher);
+	rand = 1;
 	switch(rand){
 		
 		///EASY ENEMIES
@@ -31,7 +31,7 @@ function scr_determineSpawnArea() {
 		break;
 		
 		case 1:
-			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_wanderer_a);
+			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_wanderer_b);
 		break;
 		
 		case 2:
