@@ -1,6 +1,8 @@
 function scr_save_game() {
 	show_debug_message("Saving...");
 	var block_count = 0;
+	var inv_weapon_length = 0;
+	var inv_block_length = 0;
 	ds_map_clear(obj_saveLoad.state);
 	ds_map_add(obj_saveLoad.state,"player_level",global.plyLevel);
 	ds_map_add(obj_saveLoad.state,"player_xp",global.xp);
@@ -12,41 +14,29 @@ function scr_save_game() {
 	ds_map_add(obj_saveLoad.state,"player_x",obj_player.x);
 	ds_map_add(obj_saveLoad.state,"player_y",obj_player.y);
 	
-	var invBList = ds_list_create();
-	for(var i = 0; i < array_length(global.INV_BLOCK); i++){
-		ds_list_add(invBList,global.INV_BLOCK[i])
-		show_debug_message("INV_BLOCK's Length: "+string(array_length(global.INV_BLOCK)));
-		show_debug_message("INV_BLOCK Value at "+string(i)+": "+string(global.INV_BLOCK[i]));		
+	for(var i = 0; i < array_length(global.INV_BLOCK); i++){	
+		ds_map_add(obj_saveLoad.state,"inv_block_"+string(i),global.INV_BLOCK[i]);
+		inv_block_length++;
+		show_debug_message("INV_BLOCK at value "+string(i)+": "+string(global.INV_BLOCK[i]));	
 	}
-	ds_map_add_list(obj_saveLoad.state,"inv_block",invBList);
-	show_debug_message("INV_BLOCK"+string(invBList));
-	//ds_map_add(obj_saveLoad.state,"inv_block",global.INV_BLOCK);
+	ds_map_add(obj_saveLoad.state,"inv_block_length",inv_block_length);
 	
-	var invBWeapon = ds_list_create();
 	for(var i = 0; i < array_length(global.INV_WEAPON); i++){
-		ds_list_add(invBWeapon,global.INV_WEAPON[i]);
-		show_debug_message("INV_WEAPON's Length: "+string(array_length(global.INV_WEAPON)));
-		show_debug_message("INV_WEAPON Value at "+string(i)+": "+string(global.INV_WEAPON[i]));
+		ds_map_add(obj_saveLoad.state,"inv_weapon_"+string(i),global.INV_WEAPON[i]);
+		inv_weapon_length++;
+		show_debug_message("INV_WEAPON at value "+string(i)+": "+string(global.INV_WEAPON[i]));
 	}
-	ds_map_add_list(obj_saveLoad.state,"inv_weapon",invBWeapon);
-	show_debug_message("INV_WEAPON"+string(invBWeapon));
+	ds_map_add(obj_saveLoad.state,"inv_weapon_length",inv_weapon_length);
 	
-	//ds_map_add(obj_saveLoad.state,"inv_weapon",global.INV_WEAPON);
-	
-	var ifpBlock = ds_list_create();
 	for(var i = 0; i < array_length(global.IFP_BLOCK); i++){
-		ds_list_add(ifpBlock,global.IFP_BLOCK[i])
-		show_debug_message("IFP_BLOCK's Length"+string(array_length(global.IFP_BLOCK)));
-		show_debug_message("IFP_BLOCK"+string(global.IFP_BLOCK[i]));	
+		ds_map_add(obj_saveLoad.state,"ifp_block_"+string(i),global.IFP_BLOCK[i]);
+		show_debug_message("IFP_BLOCK at value "+string(i)+": "+string(global.IFP_BLOCK[i]));	
 	}
-	ds_map_add_list(obj_saveLoad.state,"ifp_block",ifpBlock);
-	//ds_map_add(obj_saveLoad.state,"ifp_block",global.IFP_BLOCK);
 
-	var ifpWeapon = ds_list_create();
-	for(var i = 0; i < array_length(global.IFP_BLOCK); i++) ds_list_add(ifpWeapon,global.IFP_BLOCK[i]);
-	ds_map_add_list(obj_saveLoad.state,"ifp_weapon",ifpWeapon);
-	show_debug_message("INV_WEAPON"+string(ifpWeapon));	
-	//ds_map_add(obj_saveLoad.state,"ifp_weapon",global.IFP_WEAPON);
+	for(var i = 0; i < array_length(global.IFP_WEAPON); i++){
+		ds_map_add(obj_saveLoad.state,"ifp_weapon_"+string(i),global.IFP_WEAPON[i]);
+		show_debug_message("IFP_BLOCK at value "+string(i)+": "+string(global.IFP_WEAPON[i]));	
+	}
 	
 	
 	ds_map_add(obj_saveLoad.state,"nsa_block",global.NSA_BLOCK);

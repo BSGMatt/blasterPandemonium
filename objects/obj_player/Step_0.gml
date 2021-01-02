@@ -147,7 +147,7 @@ if(inst != noone){
 	instance_destroy(inst);
 }
 //WEAPONS
-//Sroll through invetory slot
+//Sroll through inventory slot
 if(array_length(global.INV_WEAPON) > 1){
 	if(keyboard_check_pressed(ord("Q"))){
 		//SAVE AMMO

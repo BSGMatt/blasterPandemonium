@@ -101,42 +101,38 @@ function scr_load_game() {
 	global.BLOCKS_AVAILABLE_AT_TIER[4] = 8;
 
 	global.BUILDER_EN = false;
-	global.IFP_WEAPON = array_create(12, false);//IFP stands for "Items For Purchase";
-	global.IFP_BLOCK = array_create(12, false);//IFP stands for "Items For Purchase";
-	global.PRICES_W = array_create(12, 100);
-	global.PRICES_B = array_create(12, 100);
+	global.IFP_WEAPON = array_create(20, false);//IFP stands for "Items For Purchase";
+	global.IFP_BLOCK = array_create(20, false);//IFP stands for "Items For Purchase";
+	global.PRICES_W = array_create(20, 100);
+	global.PRICES_B = array_create(20, 100);
 
 	global.W_OR_B = false;//W=true,B=false
 
 	global.INV_WEAPON[0] = -1;
 	global.INV_BLOCK[0] = -1;
 
-	//write values from ds_list into the global arrays
+
 	//global.IFP_WEAPON
-	var ifp_weapon_array = ds_list_create();
-	ds_list_copy(ifp_weapon_array,ds_map_find_value(obj_saveLoad.state,"ifp_weapon"));
-	show_debug_message(ifp_weapon_array);
 	for(var i=0; i < array_length(global.IFP_WEAPON); i++){
-		global.IFP_WEAPON[i] = ds_list_find_value(ifp_weapon_array,i);	
+		global.IFP_WEAPON[i] = ds_map_find_value(obj_saveLoad.state,"ifp_weapon_"+string(i));
 		show_debug_message(global.IFP_WEAPON[i]);
 	}
 	//global.IFP_BLOCK
-	var ifp_block_array = ds_list_create();
-	ds_list_copy(ifp_block_array,ds_map_find_value(obj_saveLoad.state,"ifp_block"));
 	for(var i=0; i < array_length(global.IFP_BLOCK); i++){
-		global.IFP_BLOCK[i] = ds_list_find_value(ifp_block_array,i);	
+		global.IFP_BLOCK[i] = ds_map_find_value(obj_saveLoad.state,"ifp_block_"+string(i));
+		show_debug_message(global.IFP_BLOCK[i]);
 	}
 	//global.INV_BLOCK
-	var inv_block_array = ds_list_create();
-	ds_list_copy(inv_block_array,ds_map_find_value(obj_saveLoad.state,"inv_block"));
-	for(var i=0; i < array_length(global.INV_BLOCK); i++){
-		global.INV_BLOCK[i] = ds_list_find_value(inv_block_array,i);	
+	var blockLength = ds_map_find_value(obj_saveLoad.state, "inv_block_length");
+	for(var i=0; i < blockLength; i++){
+		global.INV_BLOCK[i] = ds_map_find_value(obj_saveLoad.state,"inv_block_"+string(i));
+		show_debug_message(global.INV_BLOCK[i]);
 	}
 	//global.INV_WEAPON
-	var inv_weapon_array = ds_list_create();
-	ds_list_copy(inv_weapon_array,ds_map_find_value(obj_saveLoad.state,"inv_weapon"));
-	for(var i=0; i < array_length(global.INV_WEAPON); i++){
-		global.INV_WEAPON[i] = ds_list_find_value(inv_weapon_array,i);	
+	var weaponLength = ds_map_find_value(obj_saveLoad.state, "inv_weapon_length");
+	for(var i=0; i < weaponLength; i++){
+		global.INV_WEAPON[i] = ds_map_find_value(obj_saveLoad.state,"inv_weapon_"+string(i));
+		show_debug_message(global.INV_WEAPON[i]);
 	}
 
 	global.NSA_WEAPON = ds_map_find_value(obj_saveLoad.state,"nsa_weapon");
