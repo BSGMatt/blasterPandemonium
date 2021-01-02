@@ -86,24 +86,34 @@ if(place_meeting(x,y,obj_shop_preview)){
 	}
 }
 
-if(place_meeting(x,y,obj_menu_start)){
+//All the buttons on the menu
+if(place_meeting(x,y,obj_menu_new_game)){
 	if(mouse_check_button_pressed(mb_left)){
 		room_goto(rm_cutscene);
 		global.LOAD_GAME = false;
 	}
+	obj_menu_description.option = optionHovering.NEW;
 }
 
+if(place_meeting(x,y,obj_menu_start)){
+	if(mouse_check_button_pressed(mb_left)){
+		room_goto(rm_menu);
+	}
+}
+	
 
 if(place_meeting(x,y,obj_menu_tutorial)){
 	if(mouse_check_button_pressed(mb_left)){
 		room_goto(room_main);
 		global.LOAD_GAME = true;
 	}
+	obj_menu_description.option = optionHovering.LOAD;
 }
 
 if(place_meeting(x,y,obj_menu_quit)){
 	if(mouse_check_button_pressed(mb_left)){
 		game_end();
 	}
+	obj_menu_description.option = optionHovering.QUIT;
 }
 

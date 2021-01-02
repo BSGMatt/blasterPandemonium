@@ -1,7 +1,7 @@
 {
   "option_windows_display_name": "Blasters: Pandemonium",
   "option_windows_executable_name": "${project_name}",
-  "option_windows_version": "0.1.3.1",
+  "option_windows_version": "0.1.3.2",
   "option_windows_company_info": "Blast Studio Games",
   "option_windows_product_info": "Blasters: Pandemonium",
   "option_windows_copyright_info": "(c) 2020-2021 Blast Studio Games",
