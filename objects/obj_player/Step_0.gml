@@ -23,6 +23,8 @@ maxSpeed = normalSpeed * funMultiplier;
 
 //AUDIO
 audio_listener_position(x,y,0);
+
+//POINT ARROW IN NEAREST ENEMY'S DIRECTION
 if(global.WAVE_PHASE > Phase.PREP){
 	if(global.WAVE_PHASE = Phase.SWARM) {
 		radarTarget = instance_nearest(x,y,obj_enemB);
@@ -44,11 +46,14 @@ if(invincible){
 	image_alpha = 1;	
 }
 
+///INPUTS 
 moveX = keyboard_check(ord("D")) - keyboard_check(ord("A"));
 moveY = keyboard_check(ord("S")) - keyboard_check(ord("W"));
 
 mspeedX = maxSpeed*moveX;
 mspeedY = maxSpeed*moveY;
+
+
 
 /*if(mspeedX < maxSpeed*moveX) mspeedX += accX*moveX;
 if(mspeedY < maxSpeed*moveY) mspeedY += accY*moveY;*/
@@ -125,6 +130,7 @@ if(inst != noone){
 		}
 		audio_play_sound(sfx_hit,1,false);
 		invincible = true;
+		instance_destroy(inst);
 	}
 }
 //Explosions
@@ -258,8 +264,13 @@ if(facingDirection >= (90 - offset) && facingDirection <= (90 + offset)){
 
 if(instance_exists(myWeapon)){
 	myWeapon.x = x - (sprite_width/2);
-	myWeapon.y = y;
-	myWeapon.direction = facingDirection;
+	myWeapon.y = y;	
+	//AUTO_LOCK
+	if((mouse_check_button(mb_right) || keyboard_check(ord("C")))){
+		myWeapon.direction = radarDir;	
+	}else{
+		myWeapon.direction = facingDirection;	
+	}
 }
 
 //prevent player from being seen 

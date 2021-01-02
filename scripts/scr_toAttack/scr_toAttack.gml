@@ -14,13 +14,33 @@ function scr_toAttack() {
 	}else{
 		seconds = 4;
 	}
+	
+	if(global.WAVE > 24){
+		healthPackTime = 60;
+	}else if(global.WAVE > 18){
+		healthPackTime = 30;
+	}else if(global.WAVE > 12){
+		healthPackTime = 15;
+	}else if(global.WAVE > 6){
+		healthPackTime = 8;
+	}else{
+		healthPackTime = 4;
+	}
 
-	//Create Timeline
+	//Create Timeline for Enemy Spawns
 	if(timeline_exists(tm_test)) timeline_clear(tm_test);
 	var moment = room_speed*seconds;
 	for(var i = 0; i < global.ENEM_POP[global.WAVE]*moment; i+= moment){
 		timeline_moment_add_script(tm_test,i,scr_determineSpawnArea);	
 	}
+	
+	//Create Timeline for HealthPacks
+	/*if(timeline_exists(tm_healthpack)) timeline_clear(tm_healthpack);
+	var moment = room_speed*healthPackTime;
+	for(var i = 0; i < MAX_NUMBER_OF_HEALTHPACKS*moment; i+= moment){
+		timeline_moment_add_script(tm_healthpack,i,scr_createHealthPacks);	
+	}*/
+	
 	if(!timeline_running){
 		timeline_running = true;
 	}

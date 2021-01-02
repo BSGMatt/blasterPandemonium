@@ -1,18 +1,34 @@
 function scr_attackPhase() {
 
 	if(global.currentEnemyKills >= global.ENEM_POP[global.WAVE]){
-		scr_toBoss();
+		if(global.WAVE%5 == 0){
+			scr_toBoss();
+		}else{
+			scr_toIdle();	
+		}
 	}
 
 	if(global.plyHP <= 0){
 		global.PLAYER_DIED = true;
 	}
 
-	//Generate healthpacks
+	if(global.WAVE > 24){
+		healthPackTime = 60;
+	}else if(global.WAVE > 18){
+		healthPackTime = 30;
+	}else if(global.WAVE > 12){
+		healthPackTime = 20;
+	}else if(global.WAVE > 6){
+		healthPackTime = 15;
+	}else{
+		healthPackTime = 10;
+	}
+
+	//Healthpacks
 	timer--;
-	if(timer <= 0){
-	instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_healthpack);
-	timer = packRespawnTime;
+	if(timer<0){
+		instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_healthpack);
+		timer = healthPackTime*room_speed;
 	}
 	
 	///LEVELS

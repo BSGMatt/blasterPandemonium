@@ -10,6 +10,7 @@ function scr_define_const() {
 #macro MAX_AMMO_MAN 10
 #macro MAX_AMMO_SEMI 25
 #macro MAX_AMMO_AUTO 50
+#macro MAX_NUMBER_OF_HEALTHPACKS 20
 
 	//PHASE ENUM
 	enum Phase{
