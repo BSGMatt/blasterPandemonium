@@ -3,7 +3,7 @@ function scr_quit_to_menu() {
 	//UNPAUSE GAME
 	gamePause = false;
 	instance_activate_all();
-	scr_save_game();
+	//scr_save_game();
 	//room_main is persistent, so it cannot be reset like other rooms. So instead i have to reset everything manually
 	enemyArr = array_create(instance_number(obj_enemB),0);
 	blockArr =  array_create(instance_number(obj_block),0);

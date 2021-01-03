@@ -56,6 +56,7 @@ function scr_save_game() {
 			
 	}
 	ds_map_add(obj_saveLoad.state,"block_count",block_count);
+	show_debug_message("Block Count"+string(block_count));
 	//WRITING DATA TO FILE
 	/*var j = json_encode(obj_saveLoad.state);
 	show_debug_message(j);

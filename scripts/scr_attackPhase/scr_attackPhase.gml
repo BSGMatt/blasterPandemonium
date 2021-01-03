@@ -1,7 +1,7 @@
 function scr_attackPhase() {
 
 	if(global.currentEnemyKills >= global.ENEM_POP[global.WAVE]){
-		if(global.WAVE%5 == 0){
+		if(global.WAVE%5 == 0 && global.WAVE != 0){
 			scr_toBoss();
 		}else{
 			scr_toIdle();	

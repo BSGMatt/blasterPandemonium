@@ -31,7 +31,7 @@ function scr_determineSpawnArea() {
 		break;
 		
 		case 1:
-			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_wanderer_b);
+			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_wanderer_y);
 		break;
 		
 		case 2:

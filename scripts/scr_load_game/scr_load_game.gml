@@ -1,6 +1,6 @@
 ///This script declares all global variables. 
 function scr_load_game() {
-	
+	show_debug_message("Loading...");
 	//INIT
 	obj_saveLoad.state = ds_map_secure_load("save.json");
 
