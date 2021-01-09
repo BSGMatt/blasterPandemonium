@@ -4,21 +4,21 @@
 randomize();
 audio_emitter_position(au_emit,x,y,0);
 if(x > room_width){
-	path_end();
-	onPath = false;
+	//path_end();
+	//onPath = false;
 	while(bbox_right > room_width) x-= sprite_get_width(object_get_sprite(object_index));
 }else if(y > room_height){
-	path_end();
-	onPath = false;	
+	//path_end();
+	//onPath = false;	
 	while(bbox_bottom > room_height) y-= sprite_get_height(object_get_sprite(object_index));
 }
 if(x < 0){
-	path_end();
-	onPath = false;
+	//path_end();
+	//onPath = false;
 	while(bbox_left < 0) x+= sprite_get_width(object_get_sprite(object_index));
 }else if(y < 0){
-	path_end();
-	onPath = false;	
+	//path_end();
+	//onPath = false;	
 	while(bbox_bottom > room_height) y+= sprite_get_height(object_get_sprite(object_index));
 }
 
@@ -59,6 +59,8 @@ if(myWeapon != noone){
 	if(instance_exists(obj_player)) myWeapon.direction = facingDirection;
 }
 
+
+
 //COLLISION
 //bullets
 var inst = instance_place(x,y,obj_bullet_friendly);
@@ -82,11 +84,10 @@ if(boom != noone){
 	audio_play_sound(sfx_hit,1,false);
 }
 
-
 //This code right determines the direction the enemy will go, basically replace the key inputs the player has. 
+//MOVEMENT
 if(place_meeting(x,y,obj_field)){
-	path_end();
-	onPath = false;
+	wandering = false;
 	if(instance_exists(obj_player)){
 		moveX = sign(obj_player.x - x);
 		moveY = sign(obj_player.y - y);
@@ -95,12 +96,36 @@ if(place_meeting(x,y,obj_field)){
 		moveY = sign(obj_crystal.y - y);
 	}
 }else{
-	onPath = true;
-	if(path_index = -1) path_start(myPath,maxSpeed,path_action_continue,false);
+	wandering = true;
+	//if(path_index = -1) path_start(myPath,maxSpeed,path_action_continue,false);
 }
 
-mspeedX = moveX*maxSpeed;
-mspeedY = moveY*maxSpeed;
+
+//"TOLERANCE" is how far the enemy will be from a block
+if(wandering){
+	mspeedX = maxSpeed;
+	mspeedY = 0;
+	if(place_meeting(x+TOLERANCE,y,obj_block)){
+		mspeedX = 0;
+		mspeedY = maxSpeed;
+	}
+	if(place_meeting(x,y+TOLERANCE,obj_block)){
+		mspeedX = -maxSpeed;
+		mspeedY = 0;
+	}
+	if(place_meeting(x-TOLERANCE,y,obj_block)){
+		mspeedX = 0;
+		mspeedY = -maxSpeed;
+	}
+	if(place_meeting(x,y-TOLERANCE,obj_block)){
+		mspeedX = maxSpeed;
+		mspeedY = 0;	
+	}
+}else{
+	mspeedX = moveX*maxSpeed;
+	mspeedY = moveY*maxSpeed;		
+}
+
 
 ///COLLISION
 //Horizontal
