@@ -20,8 +20,8 @@ function scr_determineSpawnArea() {
 	}
 
 	//
-	//rand = irandom_range(lower,higher);
-	rand = 1;
+	rand = irandom_range(lower,higher);
+	//rand = 1;
 	switch(rand){
 		
 		///EASY ENEMIES
