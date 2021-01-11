@@ -14,3 +14,4 @@ blastDuration = 0.25*room_speed;
 blastRadius = 1;
 blastDmgTick = 3;
 pelletCount = 1;
+nickname = "Ultra-Borther";

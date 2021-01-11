@@ -10,4 +10,5 @@ reloadRate = 1.5*room_speed;
 pelletVelocity = 40;
 pelletCount = 1;
 weaponSpread = 20;
+nickname = "Quirky";
 

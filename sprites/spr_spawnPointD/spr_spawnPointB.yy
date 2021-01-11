@@ -60,7 +60,7 @@
     "eventStubScript": null,
     "parent": {"name":"spr_spawnPointB","path":"sprites/spr_spawnPointB/spr_spawnPointB.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_spawnPointB",
+    "name": "",
     "tags": [],
     "resourceType": "GMSequence",
   },

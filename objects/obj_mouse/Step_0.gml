@@ -14,7 +14,7 @@ if(arrow != noone){
 		if(global.W_OR_B){
 			if(arrow.selection_dir < 0){
 				if(obj_shop_preview.position-1 < 0){
-					obj_shop_preview.position = global.BLOCKS_AVAILABLE_AT_TIER[global.PLAYER_TIER]-1;	
+					obj_shop_preview.position = global.WEAPONS_AVAILABLE_AT_TIER[global.PLAYER_TIER]-1;	
 				}else{
 					obj_shop_preview.position += arrow.selection_dir;
 				}

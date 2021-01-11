@@ -12,4 +12,4 @@ fireRate = 1.2*room_speed;
 blastRadius = 2.5;
 pelletVelocity = 20;
 hasExplosive = true;
-
+nickname = "Bomb";

@@ -51,9 +51,9 @@ function scr_univar() {
 	global.WEAPONS_AVAILABLE_AT_TIER[4] = 15;
 	
 	//COMMENT OUT THE CODE BELOW WHEN NOT DEBUGGING
-	for(var i=0; i < array_length(global.WEAPONS_AVAILABLE_AT_TIER); i++){
+	/*for(var i=0; i < array_length(global.WEAPONS_AVAILABLE_AT_TIER); i++){
 		array_set(global.WEAPONS_AVAILABLE_AT_TIER,i,15);
-	}
+	}*/
 
 	global.BLOCKS_AVAILABLE_AT_TIER[0] = 3;
 	global.BLOCKS_AVAILABLE_AT_TIER[1] = 6;

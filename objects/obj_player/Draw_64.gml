@@ -4,7 +4,7 @@ if(instance_exists(myWeapon)){
 	draw_set_font(Font_HUD);
 	marginX = 40;
 	marginY = view_get_hport(0) - 40;
-	ammoString = string(myWeapon.ammo)+" / "+string(myWeapon.ammoK);
+	ammoString = string(myWeapon.nickname)+": "+string(myWeapon.ammo)+" / "+string(myWeapon.ammoK);
 	ammoBoxHeight = string_height(ammoString);
 	ammoBoxWidth = string_width(ammoString);
 	draw_rectangle_color(marginX,marginY,marginX+ammoBoxWidth,marginY+ammoBoxHeight,c_green,c_green,c_green,c_green,false);

@@ -1,121 +1,169 @@
 function scr_determineSpawnArea() {
+	
+	randomize();
+	
 
-
-	//DETERMINE WHAT ENEMIES WILL SPAWN WHEN
+	//DETERMINE THE RANGE OF ENEMIES
 	if(global.WAVE > 24){
-		lower = 14;
-		higher = 19;
+		lower = 15;
+		higher = 21;
 	}else if(global.WAVE > 18){
 		lower = 8;
-		higher = 19;
+		higher = 21;
 	}else if(global.WAVE > 12){
-		lower = 0;
-		higher = 19;
+		lower = 8;
+		higher = 14;
 	}else if(global.WAVE > 6){
 		lower = 0;
-		higher = 12;
+		higher = 14;
 	}else{
 		lower = 0;
 		higher = 7;
 	}
-
-	//
-	rand = irandom_range(lower,higher);
-	//rand = 1;
-	switch(rand){
-		
-		///EASY ENEMIES
-		
-		case 0:
-			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_steve);
-		break;
-		
-		case 1:
-			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_wanderer_y);
+	
+	//DETERMINE WHERE ENEMIES WILL SPAWN
+	switch(irandom_range(1,4)){
+		default:
+			spawnPoint = obj_spawnPointA;
 		break;
 		
 		case 2:
-			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_joe);
+			spawnPoint = obj_spawnPointB;
 		break;
 		
 		case 3:
-			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_tax);
+			spawnPoint = obj_spawnPointC;
+		break;
+		
+		case 4:
+			spawnPoint = obj_spawnPointD;
+		break; 
+	}
+	
+	
+	spawnOffsetX = irandom_range(-128,128);
+	spawnOffsetY = irandom_range(-128,128);
+	//
+	rand = irandom_range(lower,higher);
+	//rand = 1;
+	//PICK THE ENEMY TO SPAWN
+	switch(rand){
+		
+		///EASY ENEMIES				
+		case 1:
+		enemy = obj_enem_wanderer_a;
+			//instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_wanderer_a);
+		break;
+		
+		case 2:
+		enemy = obj_enem_joe;
+			//instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_joe);
+		break;
+		
+		case 3:
+		enemy = obj_enem_tax;
+			//instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_tax);
 		break;
 	
 		case 4:
-			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_jack);
+		enemy = obj_enem_jack;
+			//instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_jack);
 		break;
 	
 		case 5:
-			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_bomber);
+		enemy = obj_enem_bomber;
+			//instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_bomber);
 		break;
 	
 		case 6:
-			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_jill);
+		enemy = obj_enem_jill;
+			//instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_jill);
+		break;		
+	
+		case 7:
+		enemy = obj_enem_walt;
+			//instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_walt);
 		break;
 		
 		///MEDIUM ENEMIES
 	
-		case 7:
-			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_walt);
-		break;
-	
 		case 8:
-			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_steve_b);
+		enemy = obj_enem_steve_b;
+			//instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_steve_b);
 		break;
 		
 		case 9:
-			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_joe_b);
+		enemy = obj_enem_joe_b;
+			//instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_joe_b);
 		break;
 	
 		case 10:
-			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_jack_b);
+		enemy = obj_enem_jack_b;
+			//instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_jack_b);
 		break;
 	
 		case 11:
-			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_bomber_b);
+		enemy = obj_enem_bomber_b;
+			//instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_bomber_b);
 		break;
 	
 		case 12:
-			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_jill_b);
+		enemy = obj_enem_jill_b;
+			//instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_jill_b);
 		break;
 		
 		case 13:
-			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_tax_b);
-		break;
-	
-		case 18:
-			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_steve_y);
+		enemy = obj_enem_tax_b;
+			//instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_tax_b);
 		break;
 		
-		///HARD ENEMIES
-	
 		case 14:
-			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_joe_y);
+		enemy = obj_enem_wanderer_b;
 		break;
 	
+		///HARD ENEMIES
+	
+		case 19:
+		enemy = obj_enem_steve_y;
+			//instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_steve_y);
+		break;		
+	
 		case 15:
-			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_jack_y);
+		enemy = obj_enem_joe_y;
+			//instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_joe_y);
 		break;
 	
 		case 16:
-			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_bomber_y);
+		enemy = obj_enem_jack_y;
+			//instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_jack_y);
 		break;
 	
 		case 17:
-			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_jill_y);
+		enemy = obj_enem_bomber_y;
+			//instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_bomber_y);
+		break;
+	
+		case 18:
+		enemy = obj_enem_jill_y;
+			//instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_jill_y);
 		break;
 		
-		case 19:
-			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_tax_y);
+		case 20:
+		enemy = obj_enem_tax_y;
+			//instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_tax_y);
+		break;
+		
+		case 21:		
+		enemy = obj_enem_wanderer_y;
 		break;
 		
 		default:
-			instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_steve);
+			enemy = obj_enem_steve;
+			//instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_enem_steve);
 		break;
 		
 	}
 
-
-
+	//SPAWN ENEMY
+	instance_create_layer(spawnPoint.x+spawnOffsetX,spawnPoint.y+spawnOffsetY,"instance_layer",enemy);
 }

@@ -4,4 +4,4 @@
 // Inherit the parent event
 type = weaponType.manual;
 event_inherited();
-
+nickname = "Ultra-Chuck";

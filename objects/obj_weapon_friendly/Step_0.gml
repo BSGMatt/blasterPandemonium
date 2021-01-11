@@ -47,6 +47,10 @@ if(delay <= 0){
 				}
 			}
 			if(timer >= 0) timer--;
+		}else{
+			if(mouse_check_button_pressed(mb_left)) {
+				if(!audio_is_playing(sfx_cancel)) audio_play_sound(sfx_cancel,30,false);
+			}
 		}
 	}
 }else delay--;

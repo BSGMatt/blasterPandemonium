@@ -4,4 +4,7 @@
 // Inherit the parent event
 type = weaponType.manual;
 event_inherited();
-
+fireRate = 0.75*room_speed;
+damage = 8;
+pelletCount = 12;
+nickname = "Chuck";

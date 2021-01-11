@@ -39,11 +39,15 @@ if(global.W_OR_B){
 		break;
 		
 		case weaponID.sine_shotgun:
-		myString = "THE \"WAVY SHOTGUN\"";
+		myString = "THE \"WAVY CHUCK\"";
 		break;
 		
 		case weaponID.std_cannon:
 		myString = "THE \"KA-BOOM\"";
+		break;
+		
+		case weaponID.quirky_ak:
+		myString = "THE \"QUIRK\"";
 		break;
 		
 		default:

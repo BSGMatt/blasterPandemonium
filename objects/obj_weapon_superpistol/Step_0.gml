@@ -69,6 +69,8 @@ if(delay <= 0){
 				}
 			}
 			if(timer >= 0) timer--;
+		}else{
+			if(mouse_check_button(mb_left)) audio_play_sound_on(wep_emit,sfx_cancel,false,30);
 		}
 	}
 }else delay--;

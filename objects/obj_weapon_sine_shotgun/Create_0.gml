@@ -8,3 +8,4 @@ damage = 16;
 maxDamage = 48;
 pelletCount = 3;
 dev = 30;
+nickname = "Wavy Chuck";

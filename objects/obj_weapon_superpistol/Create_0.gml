@@ -11,3 +11,4 @@ blastDmgTick = 10;
 blastRadius = 2.5;
 maxDamage = 40;
 dev = 20;
+nickname = "Ultra-Pew";

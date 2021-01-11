@@ -13,7 +13,7 @@ timer = 0;
 reloadTimer = 0;
 reloadRate = room_speed;
 reloading = false;
-name = "";
+nickname = "";
 delay = 0;
 wep_emit = audio_emitter_create();
 blastDamage = 0;
@@ -22,6 +22,7 @@ blastDuration = 0;
 blastRadius = 0;
 pelletVelocity = 20;
 hasExplosive = false;
+
 
 pelletLifeTime = -1;//-1 denotes infinite lifetime
 

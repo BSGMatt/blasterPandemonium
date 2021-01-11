@@ -9,4 +9,4 @@ damage = 20;
 maxDamage = 50;
 dev = 25;
 pelletCount = 1;
-
+nickname = "Wave";
