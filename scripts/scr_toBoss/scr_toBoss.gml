@@ -24,6 +24,10 @@ function scr_toBoss() {
 
 	if(!global.BOSS_SPAWNED){
 		switch(global.WAVE){
+			case 4: case 5:
+			instance_create_layer(spawnX,spawnY,"instance_layer",obj_boss_nokki);
+			break;
+			
 			default:
 			instance_create_layer(spawnX,spawnY,"instance_layer",obj_boss_shiggy);
 			break;

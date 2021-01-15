@@ -235,6 +235,7 @@
     {"id":{"name":"obj_mouse","path":"objects/obj_mouse/obj_mouse.yy",},"order":0,},
     {"id":{"name":"obj_nono_square","path":"objects/obj_nono_square/obj_nono_square.yy",},"order":4,},
     {"id":{"name":"obj_mouse1","path":"objects/obj_mouse1/obj_mouse1.yy",},"order":1,},
+    {"id":{"name":"tm_boss_nokki","path":"timelines/tm_boss_nokki/tm_boss_nokki.yy",},"order":1,},
     {"id":{"name":"obj_enem_wanderer_a","path":"objects/obj_enem_wanderer_a/obj_enem_wanderer_a.yy",},"order":0,},
     {"id":{"name":"obj_field","path":"objects/obj_field/obj_field.yy",},"order":2,},
     {"id":{"name":"obj_VersionString","path":"objects/obj_VersionString/obj_VersionString.yy",},"order":3,},

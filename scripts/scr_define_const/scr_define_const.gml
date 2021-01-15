@@ -1,6 +1,6 @@
 function scr_define_const() {
 	audio_stop_all();
-#macro MAX_CRYSTAL_HP 500
+#macro MAX_CRYSTAL_HP 1500
 #macro MAX_FUN 120
 #macro STARTING_FUN 50
 #macro FUN_TICK_RATE .030//RATE OF FUN OVER TIME

@@ -16,14 +16,14 @@ if(!global.BUILDER_EN){
 						bullet.blastDmgTick = blastDmgTick;
 						bullet.blastDuration = blastDuration;								
 					}else{
-						var bullet = instance_create_layer(x,y,"instance_layer",obj_bullet_sine_enem);
+						var bullet = instance_create_layer(x,y,"instance_layer",obj_bullet_large);
 					}		
 					bullet.def_velX = pelletVelocity*dcos(direction-angle);
 					bullet.def_velY = -pelletVelocity*dsin(direction-angle);
 					bullet.velX = bullet.def_velX;
 					bullet.velY = bullet.def_velY;
 					bullet.def_damage = damage;
-					bullet.maxDamage = damage+damageRange;
+					bullet.damage = damage;
 					angle += offset;
 				}
 				ammo--;
