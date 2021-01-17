@@ -2,9 +2,9 @@
 // You can write your code in this editor
 //color of the image will change from white (normal way) to red as block will take more damage
 //COLLISION
-if(isDestructible){
-	var bullet = instance_place(x,y,obj_bullet_enemy);
-	if(bullet != noone){
+var bullet = instance_place(x,y,obj_bullet_enemy);
+if(bullet != noone){
+	if(isDestructible){
 		hp -= bullet.damage;	
 		instance_destroy(bullet);
 		percent = hp/block_max_hp;
