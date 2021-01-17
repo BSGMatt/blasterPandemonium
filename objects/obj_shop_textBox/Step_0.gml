@@ -96,12 +96,12 @@ if(global.W_OR_B){
 		break;
 		
 		case buildingID.block_water:
-		myString[0] = "Speed Modifier: "+string(obj_bWater.spdMod*100)+"%";
-		myString[2] = "A Slime Block. Slows down all projectiles and characters, good and bad";
+		myString[0] = "Speed/Damage Modifier: "+string(obj_bWater.spdMod*100)+"%";
+		myString[2] = "This block reduces of the speed of any projectile it collides with. It also reduces the damage of enemy projectiles.";
 		break;
 		
 		case buildingID.turret_std:
-		myString[0] = "Max HP: "+string(obj_bTurret.block_max_hp)+",	DPS: "+string_format(obj_bTurret.wepDamage/(obj_bTurret.wepFR/room_speed),2,2);
+		myString[0] = "Max HP: "+string(obj_bTurret.block_max_hp)+", DPS: "+string_format(obj_bTurret.wepDamage/(obj_bTurret.wepFR/room_speed),2,2);
 		myString[2] = "A Turret that targets the closest enemy.";
 		break;
 		
@@ -111,12 +111,12 @@ if(global.W_OR_B){
 		break;
 		
 		case buildingID.dashpad_std:
-		myString[0] = "Speed Modifier: "+string(obj_bDashpad.spdMod*100)+"%";
-		myString[2] = "A block that speeds up whatever object comes into contact.";
+		myString[0] = "Speed/Damage Modifier: "+string(obj_bWater.spdMod*100)+"%";
+		myString[2] = "A block that increases the speed and damage of friendly projectiles.";
 		break;
 		
 		case buildingID.turret_super:
-		myString[0] = "Max HP: "+string(obj_bTurretSuper.block_max_hp)+",	DPS: "+string_format(obj_bTurretSuper.wepDamage/(obj_bTurret.wepFR/room_speed),2,2);
+		myString[0] = "Max HP: "+string(obj_bTurretSuper.block_max_hp)+", DPS: "+string_format(obj_bTurretSuper.wepDamage/(obj_bTurret.wepFR/room_speed),2,2);
 		myString[2] = "A buffed up turret. Can detect enemies from farther away and does more damage.";
 		break;
 		

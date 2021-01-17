@@ -5,7 +5,7 @@
 event_inherited();
 radius = 384;
 funRate = 0.2;
-block_max_hp = 1000;
+block_max_hp = 350;
 hp = block_max_hp;
 isDestructible = true;
 bk_emit = audio_emitter_create();

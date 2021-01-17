@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
 event_inherited();
-block_max_hp = 250;
+block_max_hp = 350;
 hp = block_max_hp;
 blockID = buildingID.block_std;

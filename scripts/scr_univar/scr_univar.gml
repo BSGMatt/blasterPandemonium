@@ -62,9 +62,9 @@ function scr_univar() {
 	global.BLOCKS_AVAILABLE_AT_TIER[4] = 8;
 
 	//COMMENT OUT THE CODE BELOW WHEN NOT DEBUGGING
-	for(var i=0; i < array_length(global.BLOCKS_AVAILABLE_AT_TIER); i++){
+	/*for(var i=0; i < array_length(global.BLOCKS_AVAILABLE_AT_TIER); i++){
 		array_set(global.BLOCKS_AVAILABLE_AT_TIER,i,15);
-	}
+	}*/
 
 	global.BUILDER_EN = false;
 	global.IFP_WEAPON = array_create(20, false);//IFP stands for "Items For Purchase";

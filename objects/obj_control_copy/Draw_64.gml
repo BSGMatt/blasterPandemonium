@@ -3,7 +3,9 @@
 marginX = 40;
 marginY = 0;
 barHeight = 24;
-barWidth = 320;
+barWidth = 400;
+barHealthSegment = 25;
+barXPSegment = 100;
 viewX = view_get_xport(0);
 viewY = view_get_yport(0);
 draw_set_valign(fa_top);
@@ -18,34 +20,59 @@ if(room == room_main){
 	}else{
 		if(instance_exists(obj_player)){
 			draw_set_halign(fa_left);
-			//draw_text(viewX,viewY,"Health: "+string(global.plyHP)+"/"+string(global.plyMaxHP));
-			//Draw Player Healthbar/////////////////
+			/// Draw Player Healthbar/////////////////
+			var numOfSegments = global.plyMaxHP div barHealthSegment;
+			var remainder = global.plyMaxHP mod barHealthSegment;
+			var space = 0;
 			marginY+=barHeight;
 			var iconW = sprite_get_height(spr_hud_icon_funbar);
 			draw_sprite(spr_hud_icon_healthbar,0,viewX-iconW+marginX,viewY+marginY);
-			draw_healthbar(viewX+marginX,(viewY+marginY),(viewX+marginX)+barWidth,(viewY+marginY)+barHeight,(global.plyHP/global.plyMaxHP)*100,c_black,c_red,c_green,0,true,true);
-			marginY += barHeight;
+			draw_healthbar(viewX+marginX,(viewY+marginY),(viewX+marginX)+barWidth+numOfSegments+remainder,(viewY+marginY)+barHeight,(global.plyHP/global.plyMaxHP)*100,c_black,c_red,c_green,0,true,true);
+			//Add Healthbar "Segments" (Think Overwatch health pools)
+			for(var i = 0; i < numOfSegments; i++){
+				draw_set_color(c_black);
+				if(remainder != 0){
+					if(i%remainder == 0 && i != 0) space = 1;
+				}else{
+					space = 0;	
+				}
+				draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+(barWidth/numOfSegments)+space,(viewY+marginY)+barHeight,true);
+				marginX += ((barWidth/numOfSegments)+space)+1;
+			}
+			/// XP ///
+			marginX = 40;
+			marginY += barHeight+4;
+			numOfSegments = global.xpThreshold[global.plyLevel] div barXPSegment;	
+			remainder = global.plyMaxHP mod barHealthSegment;
 			draw_sprite(spr_hud_icon_xpbar,0,viewX-iconW+marginX,viewY+marginY);
-			draw_healthbar(viewX+marginX,viewY+marginY,(viewX+marginX)+barWidth,(viewY+marginY)+barHeight,(global.xp/global.xpThreshold[global.plyLevel])*100,c_black,c_teal,c_teal,0,true,true);
-			marginY += barHeight;
+			draw_healthbar(viewX+marginX,viewY+marginY,(viewX+marginX)+barWidth+numOfSegments+remainder,(viewY+marginY)+barHeight,(global.xp/global.xpThreshold[global.plyLevel])*100,c_black,c_teal,c_teal,0,true,true);
+			for(var i = 0; i < numOfSegments; i++){
+				draw_set_color(c_white);
+				if(remainder != 0){
+					if(i%remainder == 0 && i != 0) space = 1;
+				}else{
+					space = 0;	
+				}
+				draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+(barWidth/numOfSegments)+space,(viewY+marginY)+barHeight,true);
+				marginX += ((barWidth/numOfSegments)+space)+1;
+			}
+			/// FUN Meter ///
+			marginX = 40;
+			marginY += barHeight+4;
 			draw_sprite(spr_hud_icon_funbar,0,viewX-iconW+marginX,viewY+marginY);
-			draw_healthbar(viewX+marginX,(viewY+marginY),(viewX+marginX)+barWidth,(viewY+marginY)+barHeight,(global.FUN/MAX_FUN)*100,c_black,$FF00FF,$00FFFF,0,true,true);
+			draw_healthbar(viewX+marginX,(viewY+marginY),(viewX+marginX)+barWidth+4,(viewY+marginY)+barHeight,(global.FUN/MAX_FUN)*100,c_black,$FF00FF,$00FFFF,0,true,true);
 			//Draw Fun "sections"
-			draw_set_color(c_black);
-			draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+barWidth/4,(viewY+marginY)+barHeight,true);
-			marginX += 80;
-			draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+barWidth/4,(viewY+marginY)+barHeight,true);
-			marginX += 80;
-			draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+barWidth/4,(viewY+marginY)+barHeight,true);
-			marginX += 80;
-			draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+barWidth/4,(viewY+marginY)+barHeight,true);
-			marginX += 80;
+			for(var i = 0; i < 4; i++){
+				draw_set_color(c_black);
+				draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+barWidth/4,(viewY+marginY)+barHeight,true);
+				marginX += (barWidth/4)+1;
+			}
 			/////////////////
-			///WAVE//////////
-			marginX=view_get_wport(0)/2;
+			///WAVE//////////			
 			draw_set_halign(fa_center);
+			marginX=viewX + view_get_wport(0)/2;
 			marginY = 0;
-			draw_text(viewX+marginX,viewY+marginY,"Wave: "+string(global.WAVE + 1));
+			draw_text(marginX,marginY,"Wave: "+string(global.WAVE + 1));
 			///////////
 			///CASH///////
 			cashString = "$"+string(global.CURRENCY);
@@ -73,7 +100,7 @@ if(room == room_main){
 			switch(global.WAVE_PHASE){			
 				case Phase.PREP:
 				draw_set_halign(fa_center);
-				draw_text(viewX+view_get_wport(0)/2,viewY+string_height("A")+4,"Prepare your defenses! "+string_format(global.TIMER/room_speed,2,1));
+				draw_text_ext(viewX+view_get_wport(0)/2,viewY+string_height("A")+4,"Prepare your defenses! "+string_format(global.TIMER/room_speed,2,1),string_height("A")+4,string_width("AAAAAAAAAAAAAAA"));
 				break;				
 				case Phase.SWARM:
 				draw_set_halign(fa_center);
@@ -96,12 +123,6 @@ if(room == room_main){
 	else
 		draw_text(viewX+marginX,viewY,"PRICE: "+string(global.PRICES_B[obj_shop_preview.position]));
 }
-/*else if(room == rm_tutorial || room == rm_shop_tutorial){
-	draw_set_halign(fa_left);
-	draw_set_color(c_white);
-	draw_text(viewX,viewY,"PRESS ESCAPE TO RETURN TO MENU");
-	draw_text(viewX,viewY+40,tutString);
-}*/
 
 
 if(gamePause == true){

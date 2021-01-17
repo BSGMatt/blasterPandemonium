@@ -25,7 +25,7 @@ timeline_position = 0;
 
 gamePause = false;
 instance_create_layer(global.PLAYER_SPAWN_X,global.PLAYER_SPAWN_Y,"instance_layer",obj_player);
-cam = camera_create_view(0,0,1600,900,0,obj_player,-1,-1,640,360);
+cam = camera_create_view(0,0,1920,1080,0,obj_player,-1,-1,640,360);
 view_set_camera(0,cam);
 if(!view_visible[0]){
 	view_visible[0] = true;	

@@ -6,7 +6,7 @@ if(global.BUILDER_EN){
 	move_snap(GRID,GRID);
 	
 		//Sroll through invetory slot
-	if(array_length_1d(global.INV_BLOCK) > 1){
+	if(array_length(global.INV_BLOCK) > 1){
 		if(keyboard_check_pressed(ord("Q"))){
 			//
 			if(slotPos > 0) slotPos--;
@@ -14,7 +14,7 @@ if(global.BUILDER_EN){
 		}else if(keyboard_check_pressed(ord("E"))){
 			//SAVE AMMO
 			//
-			if(slotPos < array_length_1d(global.INV_BLOCK)-1) slotPos++;
+			if(slotPos < array_length(global.INV_BLOCK)-1) slotPos++;
 			switched = true;
 		}else{
 			switched = false;	
