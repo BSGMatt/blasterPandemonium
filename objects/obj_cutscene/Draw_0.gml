@@ -12,7 +12,7 @@ var camH = view_get_hport(0);
 draw_set_alpha(1);
 draw_set_color(c_white);
 var spacing = 0;
-for(var i = 0; i < array_length_1d(textString); i++){
+for(var i = 0; i < array_length(textString); i++){
 	draw_text_ext_color(viewX+camW/2,spacing+viewY+camH/4,textString[i],string_height(textString[i])+4,camW/2,c_white,c_white,c_white,c_white,textAlpha[i]);
 	spacing+=camH/4
 }
