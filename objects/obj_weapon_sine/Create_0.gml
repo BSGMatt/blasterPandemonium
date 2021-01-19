@@ -5,8 +5,8 @@
 type = weaponType.semi;
 event_inherited();
 fireRate = 0.6*room_speed;
-damage = 20;
-maxDamage = 50;
+damage = 25;
+maxDamage = 75;
 dev = 25;
 pelletCount = 1;
 nickname = "Wave";

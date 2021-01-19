@@ -43,7 +43,7 @@ if(delay <= 0){
 						ammo--;
 					///
 					timer = fireRate;
-					audio_play_sound(sfx_blaster,10,false);
+					audio_play_sound(mySound,10,false);
 				}
 			}
 			if(timer >= 0) timer--;

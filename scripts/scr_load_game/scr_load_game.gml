@@ -156,44 +156,52 @@ function scr_load_game() {
 	}
 
 
-	//C - tier
+	//set prices for items
+	//F - tier
 	global.PRICES_W[weaponID.std_pistol] = 0;
 	global.PRICES_W[weaponID.std_shotgun] = 100;
 	global.PRICES_W[weaponID.std_sniper] = 150;
-	global.PRICES_W[weaponID.std_ak] = 200;
-	//B - tier
-	global.PRICES_W[weaponID.std_sine] = 300;
+	//D - tier
+	global.PRICES_W[weaponID.std_ak] = 300;
+	global.PRICES_W[weaponID.std_sine] = 400;
 	global.PRICES_W[weaponID.std_grenade_launcher] = 450;
-	global.PRICES_W[weaponID.quirky_ak] = 500;
+	//C - tier
+	global.PRICES_W[weaponID.quirky_ak] = 600;
+	global.PRICES_W[weaponID.sine_shotgun] = 650;
+	global.PRICES_W[weaponID.std_cannon] = 700;	
+	//B - tier
+	global.PRICES_W[weaponID.super_pistol] = 850;
+	global.PRICES_W[weaponID.super_shotgun] = 900;
+	global.PRICES_W[weaponID.super_sniper] = 950;
 	//A - tier
-	global.PRICES_W[weaponID.super_pistol] = 600;
-	global.PRICES_W[weaponID.super_shotgun] = 600;
-	global.PRICES_W[weaponID.super_ak] = 600;
+	global.PRICES_W[weaponID.super_ak] = 1100;
+	global.PRICES_W[weaponID.super_sine] = 1250;
+	global.PRICES_W[weaponID.super_cannon] = 1500;
 
 	global.WEAPONS_AVAILABLE_AT_TIER[4] = array_length(global.PRICES_W);
 	//I put this here to prevent an out-of-bounds error in the shop. 
 	//C - tier
 	global.PRICES_B[buildingID.block_std] = 0;
-	global.PRICES_B[buildingID.block_water] = 50;
-	global.PRICES_B[buildingID.tv_std] = 125;
+	global.PRICES_B[buildingID.block_water] = 100;
+	global.PRICES_B[buildingID.tv_std] = 150;
 	//B - tier
-	global.PRICES_B[buildingID.turret_std] = 150;
-	global.PRICES_B[buildingID.dashpad_std] = 200;
-	global.PRICES_B[buildingID.healpod_std] = 250;
+	global.PRICES_B[buildingID.turret_std] = 200;
+	global.PRICES_B[buildingID.dashpad_std] = 300;
+	global.PRICES_B[buildingID.healpod_std] = 200;
 	//A - tier
-	global.PRICES_B[buildingID.block_super] = 250;
-	global.PRICES_B[buildingID.turret_super] = 250;
+	global.PRICES_B[buildingID.block_super] = 500;
+	global.PRICES_B[buildingID.turret_super] = 500;
 
 
 
 	global.BLDNG_PRICES[buildingID.block_std] = 25;
-	global.BLDNG_PRICES[buildingID.block_water] = 25;
-	global.BLDNG_PRICES[buildingID.tv_std] = 25;
-	global.BLDNG_PRICES[buildingID.turret_std] = 50;
-	global.BLDNG_PRICES[buildingID.dashpad_std] = 50;
-	global.BLDNG_PRICES[buildingID.block_super] = 75;
-	global.BLDNG_PRICES[buildingID.turret_super] = 75;
-	global.BLDNG_PRICES[buildingID.healpod_std] = 50;
+	global.BLDNG_PRICES[buildingID.block_water] = 50;
+	global.BLDNG_PRICES[buildingID.tv_std] = 100;
+	global.BLDNG_PRICES[buildingID.turret_std] = 150;
+	global.BLDNG_PRICES[buildingID.dashpad_std] = 150;
+	global.BLDNG_PRICES[buildingID.block_super] = 50;
+	global.BLDNG_PRICES[buildingID.turret_super] = 200;
+	global.BLDNG_PRICES[buildingID.healpod_std] = 100;
 
 
 

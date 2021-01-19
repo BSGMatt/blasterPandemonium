@@ -4,11 +4,11 @@
 // Inherit the parent event
 type = weaponType.auto;
 event_inherited();
-damage = 6;
+damage = 24;
 fireRate = 0.15*room_speed;
 reloadRate = 1.5*room_speed;
 pelletVelocity = 40;
 pelletCount = 1;
-weaponSpread = 20;
+weaponSpread = 10;
 nickname = "Quirky";
 

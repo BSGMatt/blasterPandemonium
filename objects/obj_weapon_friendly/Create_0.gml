@@ -22,6 +22,7 @@ blastDuration = 0;
 blastRadius = 0;
 pelletVelocity = 20;
 hasExplosive = false;
+mySound = sfx_blaster;
 
 
 pelletLifeTime = -1;//-1 denotes infinite lifetime

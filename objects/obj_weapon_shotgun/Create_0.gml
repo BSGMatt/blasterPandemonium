@@ -5,6 +5,6 @@
 type = weaponType.manual;
 event_inherited();
 fireRate = 0.75*room_speed;
-damage = 8;
+damage = 6;
 pelletCount = 12;
 nickname = "Chuck";
