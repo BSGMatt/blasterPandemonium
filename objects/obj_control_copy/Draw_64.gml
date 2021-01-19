@@ -21,40 +21,50 @@ if(room == room_main){
 		if(instance_exists(obj_player)){
 			draw_set_halign(fa_left);
 			/// Draw Player Healthbar/////////////////
-			var numOfSegments = global.plyMaxHP div barHealthSegment;
-			var remainder = global.plyMaxHP mod barHealthSegment;
+			numOfHealthSegments = global.plyMaxHP/barHealthSegment;
+			numOfHealthSegments = floor(numOfHealthSegments);
+			healthSegmentLength = (barWidth/numOfHealthSegments);
+			healthSegmentLength = floor(healthSegmentLength);
+			HealthSegmentremainder = global.plyMaxHP mod barHealthSegment;
 			var space = 0;
+			//Draw Background Health
 			marginY+=barHeight;
 			var iconW = sprite_get_height(spr_hud_icon_funbar);
 			draw_sprite(spr_hud_icon_healthbar,0,viewX-iconW+marginX,viewY+marginY);
-			draw_healthbar(viewX+marginX,(viewY+marginY),(viewX+marginX)+barWidth+numOfSegments+remainder,(viewY+marginY)+barHeight,(global.plyHP/global.plyMaxHP)*100,c_black,c_red,c_green,0,true,true);
+			draw_healthbar(viewX+marginX,(viewY+marginY),(viewX+marginX)+barWidth+(numOfHealthSegments-HealthSegmentremainder)+(healthSegmentLength*(HealthSegmentremainder/barHealthSegment)),(viewY+marginY)+barHeight,(global.plyHP/global.plyMaxHP)*100,c_black,c_red,c_green,0,true,true);
 			//Add Healthbar "Segments" (Think Overwatch health pools)
-			for(var i = 0; i < numOfSegments; i++){
-				draw_set_color(c_black);
-				if(remainder != 0){
-					if(i%remainder == 0 && i != 0) space = 1;
-				}else{
-					space = 0;	
-				}
-				draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+(barWidth/numOfSegments)+space,(viewY+marginY)+barHeight,true);
-				marginX += ((barWidth/numOfSegments)+space)+1;
+			draw_set_color(c_white);
+			for(var i = 1; i <= numOfHealthSegments; i++){				
+				//Adjust length of each segment to account values not divisible by 25
+				draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+healthSegmentLength+space,(viewY+marginY)+barHeight,true);
+				marginX += healthSegmentLength+space+1;
+			}
+			if(HealthSegmentremainder > 0){
+				var leftover = healthSegmentLength*(HealthSegmentremainder/barHealthSegment);
+				draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+leftover,(viewY+marginY)+barHeight,true);
+				marginX += leftover+1;
 			}
 			/// XP ///
 			marginX = 40;
 			marginY += barHeight+4;
-			numOfSegments = global.xpThreshold[global.plyLevel] div barXPSegment;	
-			remainder = global.plyMaxHP mod barHealthSegment;
+			
+			numOfXPSegments = global.xpThreshold[global.plyLevel]/barXPSegment;	
+			numOfXPSegments = floor(numOfXPSegments);			
+			XPsegmentLength = barWidth/numOfXPSegments;
+			XPsegmentLength = floor(XPsegmentLength);
+			XPremainder = global.xpThreshold[global.plyLevel] mod barXPSegment;
+			var indent = 0;
 			draw_sprite(spr_hud_icon_xpbar,0,viewX-iconW+marginX,viewY+marginY);
-			draw_healthbar(viewX+marginX,viewY+marginY,(viewX+marginX)+barWidth+numOfSegments+remainder,(viewY+marginY)+barHeight,(global.xp/global.xpThreshold[global.plyLevel])*100,c_black,c_teal,c_teal,0,true,true);
-			for(var i = 0; i < numOfSegments; i++){
-				draw_set_color(c_white);
-				if(remainder != 0){
-					if(i%remainder == 0 && i != 0) space = 1;
-				}else{
-					space = 0;	
-				}
-				draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+(barWidth/numOfSegments)+space,(viewY+marginY)+barHeight,true);
-				marginX += ((barWidth/numOfSegments)+space)+1;
+			draw_healthbar(viewX+marginX,viewY+marginY,(viewX+marginX)+barWidth+(numOfXPSegments-XPremainder)+(XPsegmentLength*(XPremainder/barXPSegment)),(viewY+marginY)+barHeight,(global.xp/global.xpThreshold[global.plyLevel])*100,c_black,c_teal,c_teal,0,true,true);
+			draw_set_color(c_white);
+			for(var i = 1; i <= numOfXPSegments; i++){
+				draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+XPsegmentLength+indent,(viewY+marginY)+barHeight,true);
+				marginX += XPsegmentLength+indent+1;
+			}
+			if(XPremainder > 0){
+				var leftover = XPsegmentLength*(XPremainder/barXPSegment);
+				draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+leftover,(viewY+marginY)+barHeight,true);
+				marginX += leftover+1;
 			}
 			/// FUN Meter ///
 			marginX = 40;

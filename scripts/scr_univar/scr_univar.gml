@@ -4,8 +4,8 @@ function scr_univar() {
 	randomise();
 	global.plyLevel = 0;
 	global.PLAYER_TIER = 0;
-	global.plyHP = 200;
 	global.plyMaxHP = 200;
+	global.plyHP = global.plyMaxHP;
 	global.currentEnemyKills = 0;
 	global.packHealing = 50;
 	global.xp = 0;
