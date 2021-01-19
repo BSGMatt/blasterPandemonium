@@ -3,9 +3,9 @@
 marginX = 40;
 marginY = 0;
 barHeight = 24;
-barWidth = 400;
+barWidth = 300;
 barHealthSegment = 25;
-barXPSegment = 100;
+barXPSegment = 250;
 viewX = view_get_xport(0);
 viewY = view_get_yport(0);
 draw_set_valign(fa_top);
@@ -26,18 +26,17 @@ if(room == room_main){
 			healthSegmentLength = (barWidth/numOfHealthSegments);
 			healthSegmentLength = floor(healthSegmentLength);
 			HealthSegmentremainder = global.plyMaxHP mod barHealthSegment;
-			var space = 0;
 			//Draw Background Health
 			marginY+=barHeight;
 			var iconW = sprite_get_height(spr_hud_icon_funbar);
 			draw_sprite(spr_hud_icon_healthbar,0,viewX-iconW+marginX,viewY+marginY);
-			draw_healthbar(viewX+marginX,(viewY+marginY),(viewX+marginX)+barWidth+(numOfHealthSegments-HealthSegmentremainder)+(healthSegmentLength*(HealthSegmentremainder/barHealthSegment)),(viewY+marginY)+barHeight,(global.plyHP/global.plyMaxHP)*100,c_black,c_red,c_green,0,true,true);
+			draw_healthbar(viewX+marginX,(viewY+marginY),(viewX+marginX)+numOfHealthSegments+(healthSegmentLength*(numOfHealthSegments+(HealthSegmentremainder/barHealthSegment))),(viewY+marginY)+barHeight,(global.plyHP/global.plyMaxHP)*100,c_black,c_red,c_green,0,true,true);
 			//Add Healthbar "Segments" (Think Overwatch health pools)
 			draw_set_color(c_white);
 			for(var i = 1; i <= numOfHealthSegments; i++){				
 				//Adjust length of each segment to account values not divisible by 25
-				draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+healthSegmentLength+space,(viewY+marginY)+barHeight,true);
-				marginX += healthSegmentLength+space+1;
+				draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+healthSegmentLength,(viewY+marginY)+barHeight,true);
+				marginX += healthSegmentLength+1;
 			}
 			if(HealthSegmentremainder > 0){
 				var leftover = healthSegmentLength*(HealthSegmentremainder/barHealthSegment);
@@ -55,7 +54,7 @@ if(room == room_main){
 			XPremainder = global.xpThreshold[global.plyLevel] mod barXPSegment;
 			var indent = 0;
 			draw_sprite(spr_hud_icon_xpbar,0,viewX-iconW+marginX,viewY+marginY);
-			draw_healthbar(viewX+marginX,viewY+marginY,(viewX+marginX)+barWidth+(numOfXPSegments-XPremainder)+(XPsegmentLength*(XPremainder/barXPSegment)),(viewY+marginY)+barHeight,(global.xp/global.xpThreshold[global.plyLevel])*100,c_black,c_teal,c_teal,0,true,true);
+			draw_healthbar(viewX+marginX,viewY+marginY,(viewX+marginX)+numOfXPSegments+(XPsegmentLength*(numOfXPSegments+(XPremainder/barXPSegment))),(viewY+marginY)+barHeight,(global.xp/global.xpThreshold[global.plyLevel])*100,c_black,c_teal,c_teal,0,true,true);
 			draw_set_color(c_white);
 			for(var i = 1; i <= numOfXPSegments; i++){
 				draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+XPsegmentLength+indent,(viewY+marginY)+barHeight,true);
