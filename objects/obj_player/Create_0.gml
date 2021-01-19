@@ -6,7 +6,7 @@ if(x < room_width/2){
 }else{
 	push = -64;
 }
-while(!place_free(x,y)){
+while(place_meeting(x,y,all)){
 		x+=push;
 		y+=push;
 }
@@ -53,3 +53,5 @@ if(!layer_exists("instance_layer")){
 	layer_create(depth-100,"instance_layer");	
 }
 myfield = instance_create_layer(x,y,"instance_layer",obj_field);
+
+scr_update_level_stats();

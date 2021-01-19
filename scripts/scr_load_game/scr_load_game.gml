@@ -1,4 +1,4 @@
-///This script declares all global variables. 
+///This script loads necessary data from the save file.
 function scr_load_game() {
 	show_debug_message("Loading...");
 	//INIT
@@ -151,6 +151,7 @@ function scr_load_game() {
 		show_debug_message("BLOCK "+string(i)+"'s Object Index: "+string(inst.object_index));
 		inst.image_xscale = ds_map_find_value(obj_saveLoad.state,"block_"+string(i)+"_x_scale");
 		inst.image_yscale = ds_map_find_value(obj_saveLoad.state,"block_"+string(i)+"_y_scale");
+		inst.fromBuilder = ds_map_find_value(obj_saveLoad.state,"block_"+string(i)+"_fromBuilder");
 		if(inst.image_xscale > 1 or inst.image_yscale > 1) layer_add_instance("waterBlockLayer",inst);
 	}
 
@@ -204,12 +205,10 @@ function scr_load_game() {
 	global.ENEM_POP = array_create(100,0);
 	global.ENEM_POP[0] = 5;
 	global.ENEM_POP[1] = 8;
-	global.ENEM_POP[2] = 10;
+	global.ENEM_POP[2] = 12;
 	global.ENEM_POP[3] = 15;
 	for(var i = 4; i < array_length(global.ENEM_POP); i++){
-		if(global.ENEM_POP[i-1] < 30) {
-			global.ENEM_POP[i] = global.ENEM_POP[i-1]+3;
-		}else global.ENEM_POP[i] = 20;
+		global.ENEM_POP[i] = 20;
 	}
 
 	//Checking enemy count

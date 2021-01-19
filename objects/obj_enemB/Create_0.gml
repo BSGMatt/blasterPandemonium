@@ -9,11 +9,9 @@ if(x < room_width /2){
 	howFarToPush = 32;
 }
 
-if(place_meeting(x,y,obj_block)){
-	while(!place_meeting(x,y,obj_block)){
-		x += howFarToPush;
-		y += howFarToPush;
-	}
+if(place_meeting(x,y,all)){
+	x += howFarToPush;
+	y += howFarToPush;
 }
 myWeapon = noone;
 maxHealth = 100;

@@ -97,13 +97,6 @@ if(place_meeting(x,y+mspeedY,obj_bGroundSuper)){
 	mspeedY = 0;
 }
 
-//non-solid blocks
-var block = instance_place(x,y,obj_block)
-if(block != noone){
-	mspeedX = sign(mspeedX)*maxSpeed*block.spdMod;	
-	mspeedY = sign(mspeedY)* maxSpeed*block.spdMod;
-}
-
 
 x += mspeedX;
 y += mspeedY;

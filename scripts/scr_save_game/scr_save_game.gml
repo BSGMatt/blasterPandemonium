@@ -52,6 +52,7 @@ function scr_save_game() {
 			ds_map_add(obj_saveLoad.state,"block_"+string(block_count)+"_hp",inst.hp);
 			ds_map_add(obj_saveLoad.state,"block_"+string(block_count)+"_x_scale",inst.image_xscale);
 			ds_map_add(obj_saveLoad.state,"block_"+string(block_count)+"_y_scale",inst.image_yscale);
+			ds_map_add(obj_saveLoad.state,"block_"+string(block_count)+"_fromBuilder",inst.fromBuilder);
 			block_count++;
 			
 	}

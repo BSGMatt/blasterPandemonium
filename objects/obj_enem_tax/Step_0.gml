@@ -63,7 +63,7 @@ if(instance_exists(target)){
 }
 
 //when you see my face hope it gives you hell
-if(distance_to_object(target) <= spaceFromBlock && target != obj_crystal){
+if(distance_to_object(target) <= spaceFromBlock){
 	mspeedX = 0;
 	mspeedY = 0;
 }

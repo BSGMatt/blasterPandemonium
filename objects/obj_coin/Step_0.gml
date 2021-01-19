@@ -1,14 +1,8 @@
 /// @description Insert description here
-// You can write your code in this editor
-if(x <= room_width /2){
-	howFarToPush = -32;
-}else{
-	howFarToPush = 32;
-}
-
-if(!place_free(x,y)){
-	while(!place_free(x,y)){
-		x += howFarToPush;
-		y += howFarToPush;
+if(instance_exists(obj_player)){
+	if(distance_to_object(obj_player) < range){
+		var dir = point_direction(x,y,obj_player.x,obj_player.y);
+		x += mspeed*dcos(dir);
+		y += -mspeed*dsin(dir);
 	}
 }
