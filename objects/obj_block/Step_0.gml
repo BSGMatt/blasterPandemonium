@@ -28,5 +28,7 @@ if(isDestructible){
 }
 if (hp <= 0) {
 	if(instance_exists(myWeapon)) instance_destroy(myWeapon);
+	audio_play_sound_on(block_emit,sfx_block_destroy,false,25);
+	audio_emitter_free(block_emit);
 	instance_destroy();
 }

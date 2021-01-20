@@ -18,6 +18,7 @@ blastDmgTick = 0;//How many frames an instance of damage is dealt.
 blastDuration = 0;//How long in frames the explosion will last. 
 blastRadius = 0;//The size of the explosion. This is a multiplier, where a radius of 1 is 32 pixels, 2 is 64, etc. 
 hasExplosive = false;
+pelletLifeTime = -1;
 
 switch(type){
 	case weaponType.manual:

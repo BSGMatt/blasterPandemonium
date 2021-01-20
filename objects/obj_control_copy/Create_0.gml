@@ -34,6 +34,7 @@ if(!view_visible[0]){
 packRespawnTime = 30*room_speed;//seconds for a health pack to respawn
 
 timer = packRespawnTime;
+blockXPTimer = 20*room_speed;
 
 playerRespawnTime = 5*room_speed;
 respawnTimer = playerRespawnTime;

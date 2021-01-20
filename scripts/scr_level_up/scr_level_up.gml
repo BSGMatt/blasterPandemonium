@@ -1,10 +1,10 @@
 function scr_level_up() {
 	//DETERMINE PLAYER LEVEL AND TIER
 	global.plyLevel++;
-	if(global.plyLevel < 20){
-		if(global.plyLevel < 15){
-			if(global.plyLevel < 10){
-				if(global.plyLevel < 5){
+	if(global.plyLevel < 25){
+		if(global.plyLevel < 20){
+			if(global.plyLevel < 15){
+				if(global.plyLevel < 10){
 					global.PLAYER_TIER = 0;
 				}else{
 					global.PLAYER_TIER = 1;		

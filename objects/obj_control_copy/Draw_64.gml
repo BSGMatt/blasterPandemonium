@@ -114,6 +114,8 @@ if(room == room_main){
 				case Phase.SWARM:
 				draw_set_halign(fa_center);
 				draw_text(viewX+view_get_wport(0)/2,viewY+string_height("A")+4,"Enemies: "+string(global.currentEnemyKills)+"/"+string(global.ENEM_POP[global.WAVE]));
+				draw_set_color(c_black);
+				draw_text(viewX+view_get_wport(0)/2,viewY+(string_height("A")*2)+4,scr_change_hud_content());
 				break;
 				case Phase.BOSS:
 				draw_set_halign(fa_center);

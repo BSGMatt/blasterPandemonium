@@ -13,7 +13,7 @@ myWeapon.blastDmgTick = 3;
 myWeapon.blastDamage = 6;
 myWeapon.fireRate = 1.5*room_speed;
 myWeapon.blastDuration = 0.75*room_speed;
-myWeapon.blastRadius = 4;
+myWeapon.blastRadius = 7;
 myWeapon.pelletVelocity = 20;
 
 killP = 850;

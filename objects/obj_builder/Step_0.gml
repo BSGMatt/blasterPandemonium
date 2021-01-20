@@ -67,14 +67,15 @@ if(global.BUILDER_EN){
 			}
 			
 			block = noone;
-			audio_play_sound(sfx_select,5,false);
+			audio_play_sound(sfx_block_create,50,false);
 		}
 	}else if(mouse_check_button_pressed(mb_right)){
 		select = instance_place(x,y,obj_block);
 		if(select != noone && select.fromBuilder = true){
 			var refund = round(global.BLDNG_PRICES[select.blockID]*REFUND_RATE);
 			global.CURRENCY += refund;
-			if(variable_instance_exists(select,"bk_emit")) audio_emitter_free(select.bk_emit);
+			audio_play_sound(sfx_block_destroy,50,false);
+			if(variable_instance_exists(select,"block_emit")) audio_emitter_free(select.block_emit);
 			if(variable_instance_exists(select,"myWeapon")) instance_destroy(select.myWeapon);
 			instance_destroy(select);
 		}

@@ -32,6 +32,18 @@ function scr_attackPhase() {
 		timer = healthPackTime*room_speed;
 	}
 	
+	//Calculate Block XP Bonus
+	blockXPTimer--;
+	if(blockXPTimer < 0){
+		var blockCount = 0;
+		for(var i = 0; i < instance_number(obj_block); i++){
+			var inst = instance_find(obj_block,i);
+			if(inst.fromBuilder) blockCount++;
+		}
+		global.xp += (blockCount*BLOCK_XP_BONUS);
+		blockXPTimer = BLOCK_XP_BONUS_TIME;	
+	}
+	
 	///LEVELS
 	if(global.xp >= global.xpThreshold[global.plyLevel]){
 		scr_level_up();
@@ -46,6 +58,9 @@ function scr_attackPhase() {
 	}else if(global.FUN < 0){
 		global.FUN = 0;	
 	}
+	
+	//Block XP Bonuses
+	
 
 	if(global.PLAYER_DIED){
 		if(global.CRYSTAL_HP > 0){

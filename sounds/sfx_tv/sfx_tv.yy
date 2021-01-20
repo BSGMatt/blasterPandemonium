@@ -13,8 +13,8 @@
   "soundFile": "sfx_tv",
   "duration": 3.328288,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "blocks",
+    "path": "folders/Sounds/blocks.yy",
   },
   "resourceVersion": "1.0",
   "name": "sfx_tv",

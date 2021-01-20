@@ -12,6 +12,5 @@ myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_enem_manual);
 myWeapon.fireRate = 0.1*room_speed;
 myWeapon.reloadRate = 0.25*room_speed;
 myWeapon.ammoK = 3;
-myWeapon.damage = 8;
+myWeapon.damage = 40;
 myWeapon.pelletCount = 1;
-myWeapon.spread = 30;

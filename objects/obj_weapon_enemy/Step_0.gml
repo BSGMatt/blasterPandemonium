@@ -14,7 +14,8 @@ if(!global.BUILDER_EN){
 						bullet.blastDamage = blastDamage;
 						bullet.blastRadius = blastRadius;
 						bullet.blastDmgTick = blastDmgTick;
-						bullet.blastDuration = blastDuration;								
+						bullet.blastDuration = blastDuration;
+						if(pelletLifeTime > 0) bullet.lifeTime = pelletLifeTime;
 					}else{
 						var bullet = instance_create_layer(x,y,"instance_layer",obj_bullet_enemy);
 					}		
@@ -23,7 +24,7 @@ if(!global.BUILDER_EN){
 					bullet.velX = bullet.def_velX;
 					bullet.velY = bullet.def_velY;
 					bullet.def_damage = damage;
-					bullet.damage = damage;
+					bullet.damage = damage;				
 					angle += offset;
 				}
 				ammo--;

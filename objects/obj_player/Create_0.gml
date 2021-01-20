@@ -14,8 +14,8 @@ while(place_meeting(x,y,all)){
 
 audio_listener_orientation(0,1,0,0,0,1);
 audio_falloff_set_model(audio_falloff_exponent_distance);
-#macro MULT_AT_HYPED 1
-#macro MULT_AT_HAVING_FUN 1.25
+#macro MULT_AT_HYPED 1.25
+#macro MULT_AT_HAVING_FUN 1
 #macro MULT_AT_BORED 0.75
 #macro MULT_AT_DOB 0.5
 

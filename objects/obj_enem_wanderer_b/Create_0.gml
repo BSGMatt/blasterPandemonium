@@ -18,3 +18,4 @@ myWeapon.blastDamage = 2;
 myWeapon.blastDmgTick = 1;
 myWeapon.blastDuration = 0.5*room_speed;
 myWeapon.blastRadius = 1;
+myWeapon.pelletLifeTime = 3*room_speed;

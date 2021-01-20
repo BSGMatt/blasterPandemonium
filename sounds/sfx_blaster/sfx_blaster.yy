@@ -13,8 +13,8 @@
   "soundFile": "sfx_blaster",
   "duration": 0.405,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "weapon",
+    "path": "folders/Sounds/weapon.yy",
   },
   "resourceVersion": "1.0",
   "name": "sfx_blaster",

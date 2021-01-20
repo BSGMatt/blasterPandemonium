@@ -66,10 +66,10 @@ if(inst != noone){
 }
 
 //explosions
-var boom = instance_place(x,y,obj_blast);
+var boom = instance_place(x,y,obj_blast_friendly);
 if(boom != noone){
 	hp -= boom.damage;	
-	audio_play_sound(sfx_hit,1,false);
+	if(!audio_is_playing(sfx_hit_blast)) audio_play_sound(sfx_hit_blast,1,false);
 }
 
 ///COLLISION

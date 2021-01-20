@@ -33,6 +33,13 @@ if(inst != noone){
 	instance_destroy(inst);
 }
 
+//explosions
+var boom = instance_place(x,y,obj_blast_friendly);
+if(boom != noone){
+	hp -= boom.damage;	
+	if(!audio_is_playing(sfx_hit_blast)) audio_play_sound(sfx_hit_blast,1,false);
+}
+
 ///COLLISION
 //Horizontal
 if(place_meeting(x+mspeedX,y,obj_bGround)){

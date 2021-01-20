@@ -4,17 +4,21 @@ if(delay <= 0){
 	if(!global.BUILDER_EN && !global.PLAYER_DIED && room == room_main){
 		audio_emitter_position(wep_emit,-x,y,0);
 		if(keyboard_check_pressed(ord("R"))){
+			audio_play_sound(sfx_reload_begin,30,false);
 			reloading = true;
 			if(reloadTimer <= 0) reloadTimer = reloadRate;
+			if(!audio_is_playing(sfx_reload_loop)) audio_play_sound(sfx_reload_loop,30,true);
 			//Condition added here to prevent player from restarting reload timer
 		}
 		if(reloading){
 			if(reloadTimer <=0){
 				ammo = ammoK;
 				reloading = false;
+				if(audio_is_playing(sfx_reload_loop)) audio_stop_sound(sfx_reload_loop);
+				 audio_play_sound(sfx_reload_end,30,false);
 			}else{
 				reloadTimer--;
-			}
+			}			
 		}
 		if(ammo > 0){
 			if(mouse_check_button(mb_left)){
@@ -36,8 +40,8 @@ if(delay <= 0){
 							bullet.def_velY = -pelletVelocity*dsin(direction-angle);
 							bullet.velX = bullet.def_velX;
 							bullet.velY = bullet.def_velY;
-							bullet.def_damage = damage;
-							bullet.damage = damage;
+							bullet.def_damage = damage * obj_player.funMultiplier;
+							bullet.damage = bullet.def_damage;
 							angle += offset;
 						}
 						ammo--;

@@ -130,6 +130,7 @@ if(inst != noone){
 var boom = instance_place(x,y,obj_blast);
 if(boom != noone){
 	global.plyHP -= boom.damage;	
+	if(!audio_is_playing(sfx_hit_blast)) audio_play_sound(sfx_hit_blast,1,false);
 }
 //Coins
 var inst = instance_place(x,y,obj_coin);

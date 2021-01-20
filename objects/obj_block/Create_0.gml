@@ -8,4 +8,5 @@ blockID = -1;
 fromBuilder = false;
 isDestructible = true;
 myWeapon = noone;
-
+block_emit = audio_emitter_create();
+audio_emitter_position(block_emit,x,y,0);
