@@ -50,7 +50,30 @@ function scr_attackPhase() {
 	}
 
 	//tick fun meter
-	global.FUN -= FUN_TICK_RATE;
+	var funTick = 0;
+	if(global.FUN < 25){
+		if(global.FUN < 20){
+			if(global.FUN < 15){
+				if(global.FUN < 10){
+					if(global.FUN < 5){
+						funTick = FUN_TICK_RATE;
+					}else{
+						funTick = FUN_TICK_RATE * 1.25;	
+					}
+				}else{
+					funTick = FUN_TICK_RATE * 1.5;		
+				}
+			}else{
+				funTick = FUN_TICK_RATE * 1.5;		
+			}
+		}else{
+			funTick = FUN_TICK_RATE *	1.75;
+		}
+	}else{
+		funTick = FUN_TICK_RATE * 2;
+	}
+	
+	global.FUN -= funTick;
 
 	//"FUN" stuff
 	if(global.FUN > MAX_FUN){
