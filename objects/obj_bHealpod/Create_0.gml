@@ -3,7 +3,7 @@
 
 // Inherit the parent event
 event_inherited();
-healRate = 0.375;
+healRate = 0.125;
 radius = 384;
 isDestructible = true;
 block_max_hp = 350;

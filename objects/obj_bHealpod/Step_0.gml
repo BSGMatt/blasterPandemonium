@@ -9,5 +9,4 @@ if(instance_exists(obj_player)){
 		if(!audio_is_playing(sfx_healpod)) audio_play_sound_on(bk_emit,sfx_healpod,true,20);
 	}
 }
-block_max_hp = 1000;
-hp = block_max_hp;
+

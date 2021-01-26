@@ -4,7 +4,7 @@
 // Inherit the parent event
 event_inherited();
 radius = 384;
-funRate = 0.2;
+funRate = 0.1;
 block_max_hp = 350;
 hp = block_max_hp;
 isDestructible = true;
