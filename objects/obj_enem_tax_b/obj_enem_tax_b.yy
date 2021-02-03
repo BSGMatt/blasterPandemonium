@@ -8,8 +8,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_enemB",
-    "path": "objects/obj_enemB/obj_enemB.yy",
+    "name": "obj_enem_tax",
+    "path": "objects/obj_enem_tax/obj_enem_tax.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -25,13 +25,12 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_enem_tax_b","path":"objects/obj_enem_tax_b/obj_enem_tax_b.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"obj_enem_tax_b","path":"objects/obj_enem_tax_b/obj_enem_tax_b.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "targetBlock",
-    "path": "folders/Objects/character/enemy/targetBlock.yy",
+    "name": "tax",
+    "path": "folders/Objects/character/enemy/targetBlock/tax.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_enem_tax_b",

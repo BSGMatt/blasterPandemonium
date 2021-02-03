@@ -23,7 +23,8 @@ if(x < 0){
 }
 
 //Direction
-if(instance_exists(obj_player)) facingDirection = point_direction(x,y,obj_player.x,obj_player.y);
+target = obj_player;
+if(instance_exists(target)) facingDirection = point_direction(x,y,target.x,target.y);
 var offset = 22.5;
 if(facingDirection >= (90 - offset) && facingDirection <= (90 + offset)){
 	image_index = 1;
@@ -56,7 +57,7 @@ if(facingDirection >= (90 - offset) && facingDirection <= (90 + offset)){
 if(myWeapon != noone){
 	myWeapon.x = x - (sprite_width/2);
 	myWeapon.y = y;
-	if(instance_exists(obj_player)) myWeapon.direction = facingDirection;
+	if(instance_exists(myWeapon)) myWeapon.direction = facingDirection;
 }
 
 
@@ -73,6 +74,7 @@ if(inst != noone){
 			myExplosive.duration = inst.blastDuration;
 			myExplosive.dmgTick = inst.blastDmgTick;
 		}
+	instance_create_depth(inst.x,inst.y,depth-100,obj_poof_strong);
 	instance_destroy(inst);
 	audio_play_sound(sfx_hit,1,false);
 }
@@ -155,25 +157,26 @@ if(place_meeting(x+mspeedX,y,obj_bPerm)){
 		mspeedX = 0;
 	}
 }
-if(place_meeting(x,y+mspeedY,obj_bPerm)){
+if(place_meeting(x, y+mspeedY, obj_bPerm)){
 	if(onPath){
 		path_speed *= -1;	
 	}else{
-		while(!place_meeting(x,y+sign(mspeedY),obj_bPerm)) y+= sign(mspeedY);
+		while(!place_meeting(x, y+sign(mspeedY), obj_bPerm)) y+= sign(mspeedY);
 		mspeedY = 0;
 	}
 	
 }
 
-if(!place_free(x,y)){
-	while(!place_free(x,y)){
+if(!place_free(x, y)){
+	while(!place_free(x, y)){
 		x+=4;
 		y+=4;
 	}
 }
-if(place_meeting(x,y,obj_bWater)){
-	mspeedX = sign(mspeedX)*maxSpeed/2;
-	mspeedY = sign(mspeedY)*maxSpeed/2;
+var block = instance_place(x,y,obj_block);
+if(block != noone){
+	mspeedX = mspeedX * block.spdMod;	
+	mspeedY = mspeedY * block.spdMod;	
 }
 
 x += mspeedX;
@@ -182,10 +185,10 @@ y += mspeedY;
 if(hp <= 0) {
 	global.xp+=killP;
 	global.currentEnemyKills++;
-	var inst = instance_create_depth(x,y,depth-100,obj_coin_reg);
-	inst.value = irandom_range(minCoinVal,maxCoinVal);
-	global.FUN += ((-.25*power(global.currentEnemyKills,2))+(4*global.currentEnemyKills)+4)/100;
-	audio_play_sound_on(au_emit,sfx_die,false,20);
+	var inst = instance_create_depth(x, y, depth-100, obj_coin_reg);
+	inst.value = irandom_range(minCoinVal, maxCoinVal);
+	global.FUN += ((-.25 * power(global.currentEnemyKills, 2)) + (4*global.currentEnemyKills) + 4) / 100;
+	audio_play_sound_on(au_emit, sfx_die,false,20);
 	audio_emitter_free(au_emit);
 	instance_destroy();
 	instance_destroy(myWeapon);

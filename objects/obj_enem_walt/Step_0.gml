@@ -77,6 +77,7 @@ if(inst != noone){
 			myExplosive.dmgTick = inst.blastDmgTick;
 		}
 	instance_destroy(inst);
+	instance_create_depth(x,y,depth-100,obj_poof_strong);
 }
 
 //explosions

@@ -8,8 +8,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_enemB",
-    "path": "objects/obj_enemB/obj_enemB.yy",
+    "name": "obj_enem_walt",
+    "path": "objects/obj_enem_walt/obj_enem_walt.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -24,14 +24,13 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"obj_enem_walt_b","path":"objects/obj_enem_walt_b/obj_enem_walt_b.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_enem_walt_b","path":"objects/obj_enem_walt_b/obj_enem_walt_b.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "targetBlock",
-    "path": "folders/Objects/character/enemy/targetBlock.yy",
+    "name": "walt",
+    "path": "folders/Objects/character/enemy/targetBlock/walt.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_enem_walt_b",

@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "targetBlock",
-    "path": "folders/Objects/character/enemy/targetBlock.yy",
+    "name": "tax",
+    "path": "folders/Objects/character/enemy/targetBlock/tax.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_enem_tax",

@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "targetBlock",
-    "path": "folders/Objects/character/enemy/targetBlock.yy",
+    "name": "walt",
+    "path": "folders/Objects/character/enemy/targetBlock/walt.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_enem_walt",

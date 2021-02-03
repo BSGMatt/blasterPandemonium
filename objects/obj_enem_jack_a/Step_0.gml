@@ -1,10 +1,41 @@
 /// @description - MAIN
 // You can write your code in this editor
-myWeapon.spread = irandom_range(0,30);
+//Direction
+
+if(instance_exists(obj_crystal)) facingDirection = point_direction(x,y,obj_crystal.x,obj_crystal.y);
+var offset = 22.5;
+if(facingDirection >= (90 - offset) && facingDirection <= (90 + offset)){
+	image_index = 1;
+	image_xscale = 1;
+}else if(facingDirection >= (45 - offset) && facingDirection <= (45 + offset)){
+	image_index = 4;
+	image_xscale = -1;
+}else if(facingDirection <= (offset) ||	facingDirection >= (360 - offset)){
+	image_index = 3;
+	image_xscale = -1;
+}else if(facingDirection >= (135 - offset) && facingDirection <= (135 + offset)){
+	image_index = 4;
+	image_xscale = 1;
+}else if(facingDirection >= (180 - offset) && facingDirection <= (180 + offset)){
+	image_index = 3;
+	image_xscale = 1;
+}else if(facingDirection >= (225 - offset) && facingDirection <= (225 + offset)){
+	image_index = 5;
+	image_xscale = 1;
+}else if(facingDirection >= (270 - offset) && facingDirection <= (270 + offset)){
+	image_index = 2;
+	image_xscale = 1;
+}else if(facingDirection >= (315 - offset) && facingDirection <= (315 + offset)){
+	image_index = 5;
+	image_xscale = -1;
+}else{
+	image_index = 3;
+	image_xscale = -1;
+}
 if(myWeapon != noone){
 	myWeapon.x = x - (sprite_width/2);
 	myWeapon.y = y;
-	if(instance_exists(obj_player)) myWeapon.direction = point_direction(myWeapon.x,myWeapon.y,obj_crystal.x,obj_crystal.y);
+	if(instance_exists(obj_crystal)) myWeapon.direction = facingDirection;
 }
 
 if(instance_exists(obj_crystal)){
@@ -23,6 +54,7 @@ if(distance_to_object(obj_crystal) <= spaceFromCrystal){
 var inst = instance_place(x,y,obj_bullet_friendly);
 if(inst != noone){
 	hp -= inst.damage;
+	audio_play_sound(sfx_hit,1,false);
 		if(inst.hasExplosive){
 			var myExplosive = instance_create_depth(x,y,depth-100,obj_blast);
 			myExplosive.damage = inst.blastDamage;
@@ -30,7 +62,6 @@ if(inst != noone){
 			myExplosive.duration = inst.blastDuration;
 			myExplosive.dmgTick = inst.blastDmgTick;
 		}
-	audio_play_sound(sfx_hit,1,false);
 	instance_destroy(inst);
 }
 
