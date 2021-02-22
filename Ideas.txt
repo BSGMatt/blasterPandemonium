@@ -1,0 +1,11 @@
+///Blasters: Pandemonium Ideas Page
+1)Make ammo finite and instead have the player build an ammo generator
+	-Crystal can generate ammo much like an Dispenser from TF2
+2)Flamethrower block / weapon
+	-Excels at hitting multiple targets at once, but lacks burst damage
+	-Maybe replace the speed-modifier blocks with flamethrower
+	-That or SEE (4)
+3)Redesign the map to feature permanent sold environment. 
+4)Redesign the Slime and Dashpad blocks to be turret-based
+	-The slime blocks shoot bullets at enemies that do a
+	little damage, but slow them down temporarily. 
