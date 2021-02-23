@@ -41,6 +41,10 @@ function scr_toAttack() {
 		timeline_moment_add_script(tm_healthpack,i,scr_createHealthPacks);	
 	}*/
 	
+	//Set global.FUN_TICK
+	
+	global.FUN_TICK = FUN_TICK_RATE * (1 + (global.WAVE / 12.5));
+	
 	if(!timeline_running){
 		timeline_running = true;
 	}
