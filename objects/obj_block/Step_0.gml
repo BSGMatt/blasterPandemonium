@@ -15,7 +15,7 @@ if(isDestructible){
 			for(var i=0; i < n; i++) colorVal = colorVal + $111100;
 
 	}
-	var blast = instance_place(x,y,obj_blast);
+	var blast = instance_place(x,y,obj_blast_enemy);
 	if(blast != noone){
 			hp -= blast.damage;	
 			percent = hp/block_max_hp;

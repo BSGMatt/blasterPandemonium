@@ -10,5 +10,6 @@ blastDuration = 1*room_speed;
 blastDamage = 60;
 blastDmgTick = 6;
 hasExplosive = true;
-
+blastShakeAngle = 0;
+blastShakeShift = 0;
 

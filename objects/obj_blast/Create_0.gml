@@ -10,3 +10,5 @@ timer = 0;
 blast_emit = audio_emitter_create();
 audio_emitter_position(blast_emit,x,y,0);
 mySound = audio_play_sound(sfx_blast,10,true);
+shakeAngle = round(def_damage/10);
+shakeShift = 0.1;

@@ -82,6 +82,13 @@ if(global.W_OR_B){
 		myString[2]  = "The Borther's big Borther. Fires tiny grenades.";
 		break;
 		
+		case weaponID.std_flamethrower:
+		dps = 0;
+		myString[0] = "Damage: "+string(dps);
+		myString[1] = "Blast Damage: "+string((obj_weapon_superak.blastDamage/obj_weapon_superak.blastDmgTick)*obj_weapon_superak.blastDuration);
+		myString[2]  = "The Borther's big Borther. Fires tiny grenades.";
+		break;
+		
 		default:
 		myString[2]  = "This is a test string for weapons. if this isn't supposed to pop up, something's up.";
 		break;

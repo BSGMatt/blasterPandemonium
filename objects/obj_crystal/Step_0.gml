@@ -69,7 +69,7 @@ if(bullet != noone){
 		gotHit = true;
 }
 
-var boom = instance_place(x,y,obj_blast);
+var boom = instance_place(x,y,obj_blast_enemy);
 if(boom != noone){
 	gotHit = true;
 	global.CRYSTAL_HP -= boom.damage;	

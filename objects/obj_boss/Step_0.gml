@@ -26,6 +26,7 @@ if(boom != noone){
 
 
 //This code right determines the direction the enemy will go, basically replace the key inputs the player has. 
+/*
 if(place_meeting(x,y,obj_field)){
 	path_end();
 	onPath = false;
@@ -64,6 +65,7 @@ if(place_meeting(x,y,obj_field)){
 
 mspeedX = moveX*maxSpeed;
 mspeedY = moveY*maxSpeed;
+*/
 
 ///COLLISION
 //Horizontal

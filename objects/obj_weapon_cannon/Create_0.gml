@@ -8,3 +8,4 @@ damage = 250;
 pelletVelocity = 10;
 fireRate = 1.25*room_speed;
 nickname = "Ka-Boom";
+pelletType = obj_bullet_large_friendly;

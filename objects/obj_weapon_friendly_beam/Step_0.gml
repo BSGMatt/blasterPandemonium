@@ -32,6 +32,9 @@ if(delay <= 0){
 						bullet.blastRadius = blastRadius;
 						bullet.blastDmgTick = blastDmgTick;
 						bullet.blastDuration = blastDuration;
+						bullet.blastShakeAngle = shakeAngle;
+						bullet.blastShakeShift = shakeShift;
+						bullet.lifeTime = pelletLifeTime * ((i + 1) / pelletCount);
 					}else if(pelletType == obj_bullet_sine_friendly){
 						bullet.maxVelX = pelletVelocity*dcos(direction-angle+dev);
 						bullet.maxVelY = -pelletVelocity*dsin(direction-angle+dev);						

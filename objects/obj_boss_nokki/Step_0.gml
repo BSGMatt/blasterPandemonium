@@ -34,12 +34,14 @@ switch(mode){
 		if(instance_exists(myWeapon)){
 			myWeapon.x = x;
 			myWeapon.y = y;
-			myWeapon.direction += 360/300;
+			myWeapon.direction += 360/150;
 		}
 	break;
 }
 
-if(timeline_position > MAX_SHIGGY_TIME) timeline_position = 0;
+if(timeline_position > MAX_SHIGGY_TIME) {
+	timeline_position = 0;
+}
 
 if(place_meeting(x+mspeedX,y,obj_bGround)){
 	path_speed *= -1;

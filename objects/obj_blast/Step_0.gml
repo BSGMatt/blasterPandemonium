@@ -15,6 +15,6 @@ if(timer >= duration){
 	instance_destroy();	
 }else{
 	timer++;	
-	scr_cam_shake_params(round(def_damage/10), 0.1);
+	scr_cam_shake_params(shakeShift, shakeAngle);
 }
 

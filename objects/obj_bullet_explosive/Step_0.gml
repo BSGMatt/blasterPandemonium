@@ -11,6 +11,8 @@ if(timer >= lifeTime && lifeTime > -1){
 	myExplosive.radius = blastRadius;
 	myExplosive.duration = blastDuration;
 	myExplosive.dmgTick = blastDmgTick;
+	myExplosive.shakeAngle = blastShakeAngle;
+	myExplosive.shakeShift = blastShakeShift;
 	instance_destroy();
 }else{
 	timer++;	

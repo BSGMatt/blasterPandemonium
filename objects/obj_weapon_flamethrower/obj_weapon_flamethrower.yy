@@ -1,15 +1,15 @@
 {
   "spriteId": {
-    "name": "spr_weapon_boss_bob",
-    "path": "sprites/spr_weapon_boss_bob/spr_weapon_boss_bob.yy",
+    "name": "spr_weapon_flamethrower",
+    "path": "sprites/spr_weapon_flamethrower/spr_weapon_flamethrower.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_weapon_friendly",
-    "path": "objects/obj_weapon_friendly/obj_weapon_friendly.yy",
+    "name": "obj_weapon_friendly_beam",
+    "path": "objects/obj_weapon_friendly_beam/obj_weapon_friendly_beam.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -24,16 +24,16 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_weapon_cannon","path":"objects/obj_weapon_cannon/obj_weapon_cannon.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_weapon_flamethrower","path":"objects/obj_weapon_flamethrower/obj_weapon_flamethrower.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Ctier",
-    "path": "folders/Objects/weapons/friendly/Ctier.yy",
+    "name": "Btier",
+    "path": "folders/Objects/weapons/friendly/Btier.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_weapon_cannon",
+  "name": "obj_weapon_flamethrower",
   "tags": [],
   "resourceType": "GMObject",
 }

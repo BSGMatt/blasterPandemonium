@@ -127,7 +127,7 @@ if(inst != noone){
 	}
 }
 //Explosions
-var boom = instance_place(x,y,obj_blast);
+var boom = instance_place(x,y,obj_blast_enemy);
 if(boom != noone){
 	global.plyHP -= boom.damage;	
 	if(!audio_is_playing(sfx_hit_blast)) audio_play_sound(sfx_hit_blast,1,false);
@@ -169,7 +169,7 @@ if(switched){
 	instance_destroy(myWeapon);
 	switch(global.INV_WEAPON[slotPos]){
 		case weaponID.std_pistol:
-			myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_pistol);
+			myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_flamethrower);//temp
 		break;
 		
 		case weaponID.std_shotgun:
