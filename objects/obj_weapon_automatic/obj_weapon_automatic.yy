@@ -24,8 +24,9 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_weapon_turret","path":"objects/obj_weapon_turret/obj_weapon_turret.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"obj_weapon_turret","path":"objects/obj_weapon_turret/obj_weapon_turret.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_weapon_automatic","path":"objects/obj_weapon_automatic/obj_weapon_automatic.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"obj_weapon_automatic","path":"objects/obj_weapon_automatic/obj_weapon_automatic.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"obj_weapon_automatic","path":"objects/obj_weapon_automatic/obj_weapon_automatic.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -34,7 +35,7 @@
     "path": "folders/Objects/weapons/block.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_weapon_turret",
+  "name": "obj_weapon_automatic",
   "tags": [],
   "resourceType": "GMObject",
 }

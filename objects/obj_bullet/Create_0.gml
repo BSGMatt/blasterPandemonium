@@ -10,5 +10,8 @@ minDamage = 0;
 velX = def_velX;
 velY = def_velY;
 myExplosive = noone;
-myColor = c_white;//color is used as a visual indicator of speed/damage being modified. 
+myColor = c_white;
+effect = CharacterEffect.NORMAL;
+effectValue = 1;
+//color is used as a visual indicator of speed/damage being modified. 
 //Blue should indicate lower speed/damage, while yellow indicates a higher speed/damage. 

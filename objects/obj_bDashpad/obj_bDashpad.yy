@@ -8,8 +8,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_block",
-    "path": "objects/obj_block/obj_block.yy",
+    "name": "obj_bTurreParent",
+    "path": "objects/obj_bTurreParent/obj_bTurreParent.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,

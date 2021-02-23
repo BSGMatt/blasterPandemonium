@@ -10,7 +10,7 @@ function scr_change_hud_content(){
 	}else if(global.WAVE_PHASE == Phase.BOSS){
 		content = "Large Hostile Incoming!";
 	}else{		
-		if(global.FUN <= MAX_FUN/5){
+		if(global.FUN <= global.MAX_FUN/5){
 			content = "Looks like your getting bored!";
 		}
 	

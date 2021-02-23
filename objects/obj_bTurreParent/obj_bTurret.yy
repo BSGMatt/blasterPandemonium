@@ -8,8 +8,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_bTurreParent",
-    "path": "objects/obj_bTurreParent/obj_bTurreParent.yy",
+    "name": "obj_block",
+    "path": "objects/obj_block/obj_block.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -25,6 +25,7 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_bTurret","path":"objects/obj_bTurret/obj_bTurret.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"obj_bTurret","path":"objects/obj_bTurret/obj_bTurret.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"obj_bTurret","path":"objects/obj_bTurret/obj_bTurret.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],

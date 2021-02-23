@@ -42,17 +42,18 @@ moveY = keyboard_check(ord("S")) - keyboard_check(ord("W"));
 mspeedX = maxSpeed*moveX;
 mspeedY = maxSpeed*moveY;
 
-
-
-/*if(mspeedX < maxSpeed*moveX) mspeedX += accX*moveX;
-if(mspeedY < maxSpeed*moveY) mspeedY += accY*moveY;*/
-
 //DASH
 if(keyboard_check_pressed(vk_shift)){
 	dashing = true;
 	alarm[0] = room_speed*0.25;
-	mspeedX = dashSpeed;
-	mspeedY = dashSpeed;
+	mspeedX = moveX*dashSpeed;
+	mspeedY = moveY*dashSpeed;
+}
+
+var block = instance_place(x,y,obj_block);
+if(block != noone){
+	mspeedX = block.spdMod*maxSpeed*moveX;	
+	mspeedY = block.spdMod*maxSpeed*moveY;	
 }
 
 ///COLLISION
@@ -85,6 +86,7 @@ if(place_meeting(x,y+mspeedY,obj_bGroundSuper)){
 	while(!place_meeting(x,y+sign(mspeedY),obj_bGroundSuper)) y+= sign(mspeedY);
 	mspeedY = 0;
 }
+
 
 
 x += mspeedX;
@@ -159,7 +161,7 @@ if(switched){
 	objID = noone;
 	switch(global.INV_WEAPON[slotPos]){
 		case weaponID.std_pistol:
-			objID = obj_weapon_flamethrower;//temp
+			objID = obj_weapon_pistol;
 		break;
 		
 		case weaponID.std_shotgun:			
@@ -206,11 +208,8 @@ if(switched){
 			objID = obj_weapon_cannon;
 		break;
 		
-		default:
-			objID = obj_weapon_pistol;
-		break;
 	}
-	myWeapon = instance_create_depth(x,y,depth-100,objID);
+	if(objID != noone) myWeapon = instance_create_depth(x,y,depth-100,objID);
 	if(myWeapon != noone){
 		myWeapon.ammo = ammo[myWeapon.type];
 		switched = false;
@@ -248,6 +247,7 @@ if(facingDirection >= (90 - offset) && facingDirection <= (90 + offset)){
 	image_index = 3;
 	image_xscale = -1;
 }
+
 
 
 

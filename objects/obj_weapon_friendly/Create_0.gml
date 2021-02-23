@@ -28,6 +28,8 @@ shaking = false;
 shakeAngle = 0;
 shakeTimer = 0;
 dev = 0;
+effect = CharacterEffect.NORMAL;
+effectValue = 1;
 
 
 pelletLifeTime = -1;//-1 denotes infinite lifetime

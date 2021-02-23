@@ -4,7 +4,6 @@
 // Inherit the parent event
 event_inherited();
 //DEFINE WEAPON
-myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_enem_manual);
 myWeapon.spread = 30;
 myWeapon.damage = 3;
 myWeapon.pelletCount = 9;

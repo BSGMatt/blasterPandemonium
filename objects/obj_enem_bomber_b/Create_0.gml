@@ -7,7 +7,6 @@ maxSpeed = 5;
 maxHealth = 150;
 minCoinVal = 30;
 maxCoinVal = 40;
-myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_bomber);
 myWeapon.damage = 8;
 myWeapon.blastDmgTick = 3;
 myWeapon.blastDamage = 6;

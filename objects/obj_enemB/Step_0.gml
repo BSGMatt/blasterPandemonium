@@ -54,38 +54,35 @@ if(facingDirection >= (90 - offset) && facingDirection <= (90 + offset)){
 	image_index = 0;
 	image_xscale = 1;
 }
+
+//CONTROL STATUS EFFECTS
+if(effectChanged){
+	switch(effect){
+		case CharacterEffect.SLOWED:
+			effectTimer = 2 * room_speed;
+			effectVal = 0.5;
+		break;
+	
+		default:
+			effectTimer = -1;
+		break;
+	}
+	effectChanged = false;
+}
+
+if(effectTimer >= 0){
+	effectTimer--;	
+}else{
+	effectVal = 1;
+	effect = CharacterEffect.NORMAL;
+}
+
+
+//AIM WEAPON
 if(myWeapon != noone){
 	myWeapon.x = x - (sprite_width/2);
 	myWeapon.y = y;
 	if(instance_exists(myWeapon)) myWeapon.direction = facingDirection;
-}
-
-
-
-//COLLISION
-//bullets
-var inst = instance_place(x,y,obj_bullet_friendly);
-if(inst != noone){
-	hp -= inst.damage;
-		if(inst.hasExplosive){
-			var myExplosive = instance_create_depth(x,y,depth-100,obj_blast_friendly);
-			myExplosive.damage = inst.blastDamage;
-			myExplosive.radius = inst.blastRadius;
-			myExplosive.duration = inst.blastDuration;
-			myExplosive.dmgTick = inst.blastDmgTick;
-			myExplosive.shakeAngle = inst.blastShakeAngle;
-			myExplosive.shakeShift = inst.blastShakeShift;
-		}
-	instance_create_depth(inst.x,inst.y,depth-100,obj_poof_strong);
-	instance_destroy(inst);
-	audio_play_sound(sfx_hit,1,false);
-}
-
-//explosions
-var boom = instance_place(x,y,obj_blast_friendly);
-if(boom != noone){
-	hp -= boom.damage;	
-	if(!audio_is_playing(sfx_hit_blast)) audio_play_sound(sfx_hit_blast,1,false);
 }
 
 //This code right determines the direction the enemy will go, basically replace the key inputs the player has. 
@@ -107,28 +104,29 @@ if(place_meeting(x,y,obj_field)){
 
 //"TOLERANCE" is how far the enemy will be from a block
 if(wandering){
-	mspeedX = maxSpeed;
+	mspeedX = maxSpeed*effectVal;
 	mspeedY = 0;
 	if(place_meeting(x+TOLERANCE,y,obj_block)){
 		mspeedX = 0;
-		mspeedY = maxSpeed;
+		mspeedY = maxSpeed*effectVal;
 	}
 	if(place_meeting(x,y+TOLERANCE,obj_block)){
-		mspeedX = -maxSpeed;
+		mspeedX = -maxSpeed*effectVal;
 		mspeedY = 0;
 	}
 	if(place_meeting(x-TOLERANCE,y,obj_block)){
 		mspeedX = 0;
-		mspeedY = -maxSpeed;
+		mspeedY = -maxSpeed*effectVal;
 	}
 	if(place_meeting(x,y-TOLERANCE,obj_block)){
-		mspeedX = maxSpeed;
+		mspeedX = maxSpeed*effectVal;
 		mspeedY = 0;	
 	}
 }else{
-	mspeedX = moveX*maxSpeed;
-	mspeedY = moveY*maxSpeed;		
+	mspeedX = moveX*maxSpeed*effectVal;
+	mspeedY = moveY*maxSpeed*effectVal;
 }
+
 
 
 ///COLLISION
@@ -169,16 +167,40 @@ if(place_meeting(x, y+mspeedY, obj_bPerm)){
 	
 }
 
+//COLLISION
+//bullets
+var inst = instance_place(x,y,obj_bullet_friendly);
+if(inst != noone){
+	hp -= inst.damage;
+	effect = inst.effect;
+	effectVal = inst.effectValue;
+	effectChanged = true;
+		if(inst.hasExplosive){
+			var myExplosive = instance_create_depth(x,y,depth-100,obj_blast_friendly);
+			myExplosive.damage = inst.blastDamage;
+			myExplosive.radius = inst.blastRadius;
+			myExplosive.duration = inst.blastDuration;
+			myExplosive.dmgTick = inst.blastDmgTick;
+			myExplosive.shakeAngle = inst.blastShakeAngle;
+			myExplosive.shakeShift = inst.blastShakeShift;
+		}
+	instance_create_depth(inst.x,inst.y,depth-100,obj_poof_strong);
+	instance_destroy(inst);
+	audio_play_sound(sfx_hit,1,false);
+}
+
+//explosions
+var boom = instance_place(x,y,obj_blast_friendly);
+if(boom != noone){
+	hp -= boom.damage;	
+	if(!audio_is_playing(sfx_hit_blast)) audio_play_sound(sfx_hit_blast,1,false);
+}
+
 if(!place_free(x, y)){
 	while(!place_free(x, y)){
 		x+=4;
 		y+=4;
 	}
-}
-var block = instance_place(x,y,obj_block);
-if(block != noone){
-	mspeedX = mspeedX * block.spdMod;	
-	mspeedY = mspeedY * block.spdMod;	
 }
 
 x += mspeedX;

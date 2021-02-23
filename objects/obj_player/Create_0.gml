@@ -1,5 +1,5 @@
 /// @description initialize variables
-//
+// YES
 //push player in case he spawns on top of something.
 if(x < room_width/2){
 	push = 64;

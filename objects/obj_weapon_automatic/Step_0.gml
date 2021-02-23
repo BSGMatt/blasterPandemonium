@@ -1,15 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
 if(delay <= 0){
-	if(!global.BUILDER_EN && !global.PLAYER_DIED && room == room_main){
+	if(!global.BUILDER_EN && room == room_main){
 		audio_emitter_position(wep_emit,-x,y,0);
-		if(keyboard_check_pressed(ord("R"))){
-			audio_play_sound(sfx_reload_begin,30,false);
-			reloading = true;
-			if(reloadTimer <= 0) reloadTimer = reloadRate;
-			if(!audio_is_playing(sfx_reload_loop)) audio_play_sound(sfx_reload_loop,30,true);
-			//Condition added here to prevent player from restarting reload timer sound effect
-		}
 		if(reloading){
 			if(reloadTimer <= 0){
 				ammo = ammoK;
@@ -20,7 +13,7 @@ if(delay <= 0){
 				reloadTimer--;
 			}			
 		}
-		if(ammo > 0 && mouse_check_button(mb_left)){
+		if(ammo > 0){
 			if(timer <= 0 && !reloading){
 				//FIRE PROJECTILE
 				var angle = -spread;
@@ -32,9 +25,6 @@ if(delay <= 0){
 						bullet.blastRadius = blastRadius;
 						bullet.blastDmgTick = blastDmgTick;
 						bullet.blastDuration = blastDuration;
-						bullet.blastShakeAngle = shakeAngle;
-						bullet.blastShakeShift = shakeShift;
-						bullet.lifeTime = pelletLifeTime * ((i + 1) / pelletCount);
 					}else if(pelletType == obj_bullet_sine_friendly){
 						bullet.maxVelX = pelletVelocity*dcos(direction-angle+dev);
 						bullet.maxVelY = -pelletVelocity*dsin(direction-angle+dev);						
@@ -47,6 +37,8 @@ if(delay <= 0){
 					bullet.velY = bullet.def_velY;
 					bullet.def_damage = damage * obj_player.funMultiplier;
 					bullet.damage = bullet.def_damage;
+					bullet.effect = effect;
+					bullet.effectValue = effectValue;
 					
 					
 					angle += offset;
@@ -59,10 +51,7 @@ if(delay <= 0){
 					shakeTimer = fireRate/2;
 
 				}
-				if(audio_is_playing(mySound)){
-					audio_stop_sound(mySound);
-					audio_play_sound(mySound,10,false);
-				}
+				if(!audio_is_playing(mySound)) audio_play_sound(mySound,10,false);
 			}
 			if(timer >= 0){
 				timer--;
@@ -79,9 +68,8 @@ if(delay <= 0){
 
 		}else{
 			scr_cam_reset();
-			if(mouse_check_button_pressed(mb_left)) {
-				if(!audio_is_playing(sfx_cancel)) audio_play_sound(sfx_cancel,30,false);
-			}
+			if(reloadTimer <= 0) reloadTimer = reloadRate;
+			reloading = true;
 		}
 	}
 }else delay--;

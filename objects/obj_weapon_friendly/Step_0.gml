@@ -44,6 +44,8 @@ if(delay <= 0){
 					bullet.velY = bullet.def_velY;
 					bullet.def_damage = damage * obj_player.funMultiplier;
 					bullet.damage = bullet.def_damage;
+					bullet.effect = effect;
+					bullet.effectValue = effectValue;
 					
 					
 					angle += offset;
@@ -56,7 +58,10 @@ if(delay <= 0){
 					shakeTimer = fireRate/2;
 
 				}
-				if(!audio_is_playing(mySound)) audio_play_sound(mySound,10,false);
+				if(audio_is_playing(mySound)){
+					audio_stop_sound(mySound);
+					audio_play_sound(mySound,10,false);
+				}
 			}
 			if(timer >= 0){
 				timer--;

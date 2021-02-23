@@ -15,6 +15,16 @@ function scr_define_const() {
 #macro BLOCK_XP_BONUS 10
 #macro BLOCK_XP_BONUS_TIME 10*room_speed;
 
+	//Character status effect
+	enum CharacterEffect{
+		NORMAL,
+		SLOWED,
+		BOOSTED,
+		ON_FIRE
+	}
+	
+	//EFFECT MODIFIER CONSTANTS
+
 	//PHASE ENUM
 	enum Phase{
 		IDLE = -1,

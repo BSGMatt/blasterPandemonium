@@ -9,22 +9,14 @@ if(!global.BUILDER_EN){
 				var angle = -spread;
 				offset = (spread*2)/pelletCount;
 				for(var i =0; i < pelletCount; i++){
-					if(hasExplosive){
-								var bullet = instance_create_layer(x,y,"instance_layer",obj_bullet_explosive);
-								bullet.blastDamage = blastDamage;
-								bullet.blastRadius = blastRadius;
-								bullet.blastDmgTick = blastDmgTick;
-								bullet.blastDuration = blastDuration;								
-							}else{
-								var bullet = instance_create_layer(x,y,"instance_layer",obj_bullet_friendly);
-							}		
-							bullet.def_velX = pelletVelocity*dcos(direction-angle);
-							bullet.def_velY = -pelletVelocity*dsin(direction-angle);
-							bullet.velX = bullet.def_velX;
-							bullet.velY = bullet.def_velY;
-							bullet.def_damage = damage;
-							bullet.damage = damage;
-							angle += offset;
+					var bullet = instance_create_layer(x,y,"instance_layer",obj_bullet_friendly);
+					bullet.def_velX = pelletVelocity*dcos(direction-angle);
+					bullet.def_velY = -pelletVelocity*dsin(direction-angle);
+					bullet.velX = bullet.def_velX;
+					bullet.velY = bullet.def_velY;
+					bullet.def_damage = damage;
+					bullet.damage = damage;
+					angle += offset;
 				}
 				ammo--;
 			///

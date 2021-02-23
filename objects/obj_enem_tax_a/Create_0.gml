@@ -9,7 +9,6 @@ maxHealth = 250;
 hp = maxHealth;
 
 
-myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_enem_auto);
 myWeapon.spread = 20;
 myWeapon.damage = 2;
 myWeapon.pelletCount = 1;

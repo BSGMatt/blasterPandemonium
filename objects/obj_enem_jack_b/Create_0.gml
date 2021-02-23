@@ -6,7 +6,6 @@ event_inherited();
 maxHealth = 150;
 killP = 200;
 //DEFINE WEAPON
-myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_enem_manual);
 myWeapon.spread = 30;
 myWeapon.damage = 6;
 myWeapon.pelletCount = 3;

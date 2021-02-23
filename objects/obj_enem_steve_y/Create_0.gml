@@ -6,7 +6,6 @@ event_inherited();
 maxHealth = 300;
 hp = maxHealth;
 maxSpeed = 3;
-myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_enem_manual);
 myWeapon.pelletCount = 10;
 myWeapon.spread = 60;
 myWeapon.damage = 10;

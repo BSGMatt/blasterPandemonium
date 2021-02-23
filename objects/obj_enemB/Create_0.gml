@@ -13,6 +13,8 @@ if(place_meeting(x,y,all)){
 	x += howFarToPush;
 	y += howFarToPush;
 }
+
+//COMBAT VALUES
 myWeapon = noone;
 maxHealth = 100;
 hp = maxHealth;
@@ -27,12 +29,19 @@ onPath = false;
 myPath = path_basic;
 minCoinVal = 45;
 maxCoinVal = 55;
-//path_start(myPath,maxSpeed,path_action_continue,false);
+
+//AUDIO
 au_emit = audio_emitter_create();
 audio_emitter_position(au_emit,x,y,0);
 mySound = sfx_enem_general;
 audio_play_sound(mySound,99,false);
-facingDirection = 0;
 
+//EFFECTS
+facingDirection = 0;
+effect = CharacterEffect.NORMAL;
+effectVal = 1;
+effectDamage = 0;
+effectTimer = 0;
+effectChanged = false;
 
 

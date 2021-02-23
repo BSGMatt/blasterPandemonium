@@ -4,7 +4,6 @@
 // Inherit the parent event
 event_inherited();
 //DEFINE WEAPON PROPERTIES
-myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_enem_auto);
 myWeapon.hasExplosive = true;
 myWeapon.spread = 15;
 myWeapon.damage = 20;

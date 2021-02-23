@@ -8,7 +8,7 @@ function scr_toIdle() {
 
 	global.plyHP = global.plyMaxHP;
 	global.FUN += STARTING_FUN;
-	if(global.FUN > MAX_FUN) global.FUN = MAX_FUN;
+	if(global.FUN > global.MAX_FUN) global.FUN = global.MAX_FUN;
 
 	global.CRYSTAL_HP = MAX_CRYSTAL_HP;
 	if(instance_exists(obj_crystal)) {

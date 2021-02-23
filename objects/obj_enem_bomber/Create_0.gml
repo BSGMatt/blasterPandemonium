@@ -23,7 +23,10 @@ audio_emitter_position(au_emit,x,y,0);
 minCoinVal = 20;
 maxCoinVal = 25;
 //DEFINING WEAPON PROPERTIES
-myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_bomber);
+myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_enemy);
+myWeapon.ammoK = 100;
+myWeapon.ammo = myWeapon.ammoK;
+myWeapon.hasExplosive = true;
 myWeapon.damage = 5;
 myWeapon.blastDmgTick = 6;
 myWeapon.blastDamage = 4;
@@ -37,3 +40,11 @@ killP = 300;
 mySound = sfx_enem_bomber
 audio_play_sound(mySound,99,false);
 facingDirection = 0;
+
+//EFFECTS
+facingDirection = 0;
+effect = CharacterEffect.NORMAL;
+effectVal = 1;
+effectTimer = 0;
+effectChanged = false;
+

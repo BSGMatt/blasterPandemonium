@@ -9,28 +9,34 @@ if(!global.BUILDER_EN){
 				var angle = -spread;
 				offset = (spread*2)/pelletCount;
 				for(var i =0; i < pelletCount; i++){
-					if(hasExplosive){
-						var bullet = instance_create_layer(x,y,"instance_layer",obj_bullet_explosive_enem);
+					var bullet = instance_create_layer(x,y,"instance_layer",pelletType);
+					if(pelletType == obj_bullet_explosive_enem){					
 						bullet.blastDamage = blastDamage;
 						bullet.blastRadius = blastRadius;
 						bullet.blastDmgTick = blastDmgTick;
 						bullet.blastDuration = blastDuration;
-						if(pelletLifeTime > 0) bullet.lifeTime = pelletLifeTime;
-					}else{
-						var bullet = instance_create_layer(x,y,"instance_layer",obj_bullet_enemy);
-					}		
+					}else if(pelletType == obj_bullet_sine_enem){
+						bullet.maxVelX = pelletVelocity*dcos(direction-angle+dev);
+						bullet.maxVelY = -pelletVelocity*dsin(direction-angle+dev);						
+						bullet.minVelX = pelletVelocity*dcos(direction-angle-dev);
+						bullet.minVelY = -pelletVelocity*dsin(direction-angle-dev);	
+					}
 					bullet.def_velX = pelletVelocity*dcos(direction-angle);
 					bullet.def_velY = -pelletVelocity*dsin(direction-angle);
 					bullet.velX = bullet.def_velX;
 					bullet.velY = bullet.def_velY;
 					bullet.def_damage = damage;
-					bullet.damage = damage;				
-					angle += offset;
+					bullet.damage = bullet.def_damage;
+					bullet.effect = effect;
+					bullet.effectValue = effectValue;
 				}
 				ammo--;
 			///
 			timer = fireRate;
-			audio_play_sound_on(wep_emit,sfx_blaster,false,10);
+			if(audio_is_playing(mySound)){
+				audio_stop_sound(mySound);
+				audio_play_sound(mySound,10,false);
+			}
 		}
 		if(timer >= 0) timer--;
 	}else{
