@@ -35,3 +35,4 @@ audio_play_sound(mySound,99,false);
 facingDirection = 0;
 
 
+

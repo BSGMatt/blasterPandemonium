@@ -6,19 +6,8 @@ if(global.plyHP > global.plyMaxHP){
 }
 
 //apply fun modifiers
-if(global.FUN < 90){
-	if(global.FUN < 60){
-		if(global.FUN < 30){
-			funMultiplier = MULT_AT_DOB;
-		}else{
-			funMultiplier = MULT_AT_BORED;
-		}
-	}else{
-		funMultiplier = MULT_AT_HAVING_FUN;
-	}
-}else{	
-	funMultiplier = MULT_AT_HYPED;
-}
+funMultiplier = global.FUN / FUN_CONSTANT;
+
 maxSpeed = normalSpeed * funMultiplier;
 
 //AUDIO
@@ -167,59 +156,61 @@ if(array_length(global.INV_WEAPON) > 1){
 //SWAPPING ITEMS
 if(switched){
 	instance_destroy(myWeapon);
+	objID = noone;
 	switch(global.INV_WEAPON[slotPos]){
 		case weaponID.std_pistol:
-			myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_flamethrower);//temp
+			objID = obj_weapon_flamethrower;//temp
 		break;
 		
-		case weaponID.std_shotgun:
-			myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_shotgun);
+		case weaponID.std_shotgun:			
+			objID = obj_weapon_shotgun;
 		break;
 		
 		case weaponID.std_sniper:
-			myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_sniper);
+			objID = obj_weapon_sniper;
 		break;
 		
 		case weaponID.std_ak:
-			myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_ak);
+			objID = obj_weapon_ak;
 		break;
 		
 		case weaponID.std_sine:
-			myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_sine);
+			objID = obj_weapon_sine;
 		break;
 		
 		case weaponID.std_grenade_launcher:
-			myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_grenadeLauncher);
+			objID = obj_weapon_grenadeLauncher;
 		break;
 		
 		case weaponID.super_shotgun:
-			myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_supershotgun);
+			objID = obj_weapon_supershotgun;
 		break;
 		
 		case weaponID.super_pistol:
-			myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_superpistol);
+			objID = obj_weapon_superpistol;
 		break;
 		
 		case weaponID.super_ak:
-			myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_superak);
+			objID = obj_weapon_superak;
 		break;
 		
 		case weaponID.quirky_ak:
-			myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_quirky);
+			objID = obj_weapon_quirky;
 		break;
 		
 		case weaponID.sine_shotgun:
-			myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_sine_shotgun);
+			objID = obj_weapon_sine_shotgun;
 		break;
 		
 		case weaponID.std_cannon:
-			myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_cannon);
+			objID = obj_weapon_cannon;
 		break;
 		
 		default:
-			myWeapon = noone;
+			objID = obj_weapon_pistol;
 		break;
 	}
+	myWeapon = instance_create_depth(x,y,depth-100,objID);
 	if(myWeapon != noone){
 		myWeapon.ammo = ammo[myWeapon.type];
 		switched = false;

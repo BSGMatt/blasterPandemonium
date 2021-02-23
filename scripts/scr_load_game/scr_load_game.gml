@@ -1,25 +1,21 @@
 ///This script loads necessary data from the save file.
 function scr_load_game() {
+	
+	//Define everything first, and then override any variable that needs to be updated. 
+	scr_univar();
+	
 	show_debug_message("Loading...");
 	//INIT
 	obj_saveLoad.state = ds_map_secure_load("save.json");
 
 	randomise();
-	global.plyLevel = ds_map_find_value(obj_saveLoad.state, "player_level");
-	global.PLAYER_TIER = ds_map_find_value(obj_saveLoad.state, "player_tier");
+	//global.plyLevel = ds_map_find_value(obj_saveLoad.state, "player_level");
+	//global.PLAYER_TIER = ds_map_find_value(obj_saveLoad.state, "player_tier");
+	global.plyLevel = 25;
+	global.PLAYER_TIER = 4;
 	global.plyHP = ds_map_find_value(obj_saveLoad.state, "player_max_hp");
 	global.plyMaxHP = ds_map_find_value(obj_saveLoad.state, "player_max_hp");
-	global.currentEnemyKills = 0;
-	global.packHealing = 50;
 	global.xp = ds_map_find_value(obj_saveLoad.state,"player_xp");
-	global.xpThreshold[0] = 500;
-	global.FUN = 100;
-	global.CRYSTAL_HP = 1000;
-	global.PLAYER_DIED = false;
-	/*#macro MAX_CRYSTAL_HP 1000
-#macro MAX_FUN 120
-#macro FUN_TICK_RATE .0150//RATE OF FUN OVER TIME
-#macro CRYSTAL_HPS 25*/
 
 
 
@@ -40,79 +36,11 @@ function scr_load_game() {
 		global.xpThreshold[i] = round(global.xpThreshold[0]*power((1+0.05),(4*i)));//This comes from the interest rate formula.
 	}
 
-	//PHASE ENUM
-	/*enum Phase{
-		IDLE = -1,
-		PREP = 0,
-		SWARM = 1,
-		BOSS = 2
-	}*/
-
-	//WEAPON ENUM
-	/*enum weaponID{
-		std_pistol = 0,
-		std_shotgun = 1,
-		std_sniper = 2,
-		std_ak = 3,
-		std_sine = 4,
-		std_grenade_launcher = 5,
-		super_pistol = 6,
-		super_shotgun = 7,
-		super_ak = 8
-	}
-
-	enum weaponType{
-		manual= 0,
-		semi = 1,
-		auto = 2
-	}
-
-	//BUILDING ENUMS
-	enum buildingID{
-		block_std = 0,
-		turret_std = 2,
-		block_water = 1,
-		dashpad_std = 3,
-		tv_std = 4,
-		block_super = 5,
-		turret_super = 6,
-		healpod_std = 7
-	}*/
-
-	//#macro PREP_TIME room_speed*60;
 
 	global.WAVE = ds_map_find_value(obj_saveLoad.state,"wave");
-	global.WAVE_PHASE = Phase.IDLE;
-	global.TIMER = PREP_TIME;//60 seconds
-	global.WAVE_STARTED = false;
-	//0 = prep phase, 1 = attack phase, boss phase;
-
+	
 	//inventory and buying
 	global.CURRENCY = ds_map_find_value(obj_saveLoad.state,"cash");
-
-	global.WEAPONS_AVAILABLE_AT_TIER[0] = 4;
-	global.WEAPONS_AVAILABLE_AT_TIER[1] = 7;
-	global.WEAPONS_AVAILABLE_AT_TIER[2] = 10;
-	global.WEAPONS_AVAILABLE_AT_TIER[3] = 10;
-	global.WEAPONS_AVAILABLE_AT_TIER[4] = 10;
-
-	global.BLOCKS_AVAILABLE_AT_TIER[0] = 3;
-	global.BLOCKS_AVAILABLE_AT_TIER[1] = 6;
-	global.BLOCKS_AVAILABLE_AT_TIER[2] = 8;
-	global.BLOCKS_AVAILABLE_AT_TIER[3] = 8;
-	global.BLOCKS_AVAILABLE_AT_TIER[4] = 8;
-
-	global.BUILDER_EN = false;
-	global.IFP_WEAPON = array_create(20, false);//IFP stands for "Items For Purchase";
-	global.IFP_BLOCK = array_create(20, false);//IFP stands for "Items For Purchase";
-	global.PRICES_W = array_create(20, 100);
-	global.PRICES_B = array_create(20, 100);
-
-	global.W_OR_B = false;//W=true,B=false
-
-	global.INV_WEAPON[0] = -1;
-	global.INV_BLOCK[0] = -1;
-
 
 	//global.IFP_WEAPON
 	for(var i=0; i < array_length(global.IFP_WEAPON); i++){
@@ -154,96 +82,6 @@ function scr_load_game() {
 		inst.fromBuilder = ds_map_find_value(obj_saveLoad.state,"block_"+string(i)+"_fromBuilder");
 		if(inst.image_xscale > 1 or inst.image_yscale > 1) layer_add_instance("waterBlockLayer",inst);
 	}
-
-
-	//set prices for items
-	//F - tier
-	global.PRICES_W[weaponID.std_pistol] = 0;
-	global.PRICES_W[weaponID.std_shotgun] = 100;
-	global.PRICES_W[weaponID.std_sniper] = 150;
-	//D - tier
-	global.PRICES_W[weaponID.std_ak] = 300;
-	global.PRICES_W[weaponID.std_sine] = 400;
-	global.PRICES_W[weaponID.std_grenade_launcher] = 450;
-	//C - tier
-	global.PRICES_W[weaponID.quirky_ak] = 600;
-	global.PRICES_W[weaponID.sine_shotgun] = 650;
-	global.PRICES_W[weaponID.std_cannon] = 700;	
-	//B - tier
-	global.PRICES_W[weaponID.super_pistol] = 850;
-	global.PRICES_W[weaponID.super_shotgun] = 900;
-	global.PRICES_W[weaponID.super_sniper] = 950;
-	//A - tier
-	global.PRICES_W[weaponID.super_ak] = 1100;
-	global.PRICES_W[weaponID.super_sine] = 1250;
-	global.PRICES_W[weaponID.super_cannon] = 1500;
-
-	global.WEAPONS_AVAILABLE_AT_TIER[4] = array_length(global.PRICES_W);
-	//I put this here to prevent an out-of-bounds error in the shop. 
-	//C - tier
-	global.PRICES_B[buildingID.block_std] = 0;
-	global.PRICES_B[buildingID.block_water] = 100;
-	global.PRICES_B[buildingID.tv_std] = 150;
-	//B - tier
-	global.PRICES_B[buildingID.turret_std] = 200;
-	global.PRICES_B[buildingID.dashpad_std] = 300;
-	global.PRICES_B[buildingID.healpod_std] = 200;
-	//A - tier
-	global.PRICES_B[buildingID.block_super] = 500;
-	global.PRICES_B[buildingID.turret_super] = 500;
-
-
-
-	global.BLDNG_PRICES[buildingID.block_std] = 25;
-	global.BLDNG_PRICES[buildingID.block_water] = 50;
-	global.BLDNG_PRICES[buildingID.tv_std] = 100;
-	global.BLDNG_PRICES[buildingID.turret_std] = 150;
-	global.BLDNG_PRICES[buildingID.dashpad_std] = 150;
-	global.BLDNG_PRICES[buildingID.block_super] = 50;
-	global.BLDNG_PRICES[buildingID.turret_super] = 200;
-	global.BLDNG_PRICES[buildingID.healpod_std] = 100;
-
-
-
-	//PRICES_B will be the cost to UNLOCK the block, while BLDNG_PRICES will be the cost to BUILD it
-
-	//#macro REFUND_RATE 0.75
-
-	//enemy populations for each wave
-	global.ENEM_POP = array_create(100,0);
-	global.ENEM_POP[0] = 5;
-	global.ENEM_POP[1] = 8;
-	global.ENEM_POP[2] = 12;
-	global.ENEM_POP[3] = 15;
-	for(var i = 4; i < array_length(global.ENEM_POP); i++){
-		global.ENEM_POP[i] = 20;
-	}
-
-	//Checking enemy count
-	global.enemyCount = global.ENEM_POP[0];
-	//BOSS
-	global.BOSS_SPAWNED = false;
-	global.BOSS_EXISTS = false;
-
-	///AUDIO
-	//Set # of channels
-	audio_channel_num(32);//32 Max sounds can play
-	//Play main theme
-	global.BGM = 0;
-
-	//Music Enum
-	/*enum Music{
-		MENU = 0,
-		PREP = 1,
-		SWARM = 2,
-		BOSS = 3,
-		VICTORY = 4
-	}*/
-
-
-	/*#macro MAX_AMMO_MAN 10
-#macro MAX_AMMO_SEMI 25
-#macro MAX_AMMO_AUTO 50*/
 
 
 }

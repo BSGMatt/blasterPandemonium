@@ -73,6 +73,8 @@ if(inst != noone){
 			myExplosive.radius = inst.blastRadius;
 			myExplosive.duration = inst.blastDuration;
 			myExplosive.dmgTick = inst.blastDmgTick;
+			myExplosive.shakeAngle = inst.blastShakeAngle;
+			myExplosive.shakeShift = inst.blastShakeShift;
 		}
 	instance_create_depth(inst.x,inst.y,depth-100,obj_poof_strong);
 	instance_destroy(inst);

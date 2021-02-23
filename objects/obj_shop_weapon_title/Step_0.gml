@@ -50,6 +50,10 @@ if(global.W_OR_B){
 		myString = "THE \"QUIRK\"";
 		break;
 		
+		case weaponID.std_flamethrower:
+		myString = "THE \"FLAMBO\"";
+		break;
+		
 		default:
 		myString = "THE \"GENERIC WEAPON\"";
 		break;

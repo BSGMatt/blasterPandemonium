@@ -43,8 +43,8 @@ function scr_attackPhase() {
 	global.FUN -= global.FUN_TICK;
 
 	//"FUN" stuff
-	if(global.FUN > MAX_FUN){
-		global.FUN = MAX_FUN;
+	if(global.FUN > global.MAX_FUN){
+		global.FUN = global.MAX_FUN;
 	}else if(global.FUN < 0){
 		global.FUN = 0;	
 	}

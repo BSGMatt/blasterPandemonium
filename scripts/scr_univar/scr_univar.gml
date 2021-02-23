@@ -11,6 +11,7 @@ function scr_univar() {
 	global.xp = 0;
 	global.xpThreshold[0] = 500;
 	global.FUN = 100;
+	global.MAX_FUN = MAX_STARTING_FUN;
 	global.CRYSTAL_HP = MAX_CRYSTAL_HP;
 	global.PLAYER_DIED = false;
 	/*#macro MAX_CRYSTAL_HP 1000
@@ -95,7 +96,7 @@ function scr_univar() {
 	//B - tier
 	global.PRICES_W[weaponID.super_pistol] = 850;
 	global.PRICES_W[weaponID.super_shotgun] = 900;
-	global.PRICES_W[weaponID.super_sniper] = 950;
+	global.PRICES_W[weaponID.std_flamethrower] = 950;
 	//A - tier
 	global.PRICES_W[weaponID.super_ak] = 1100;
 	global.PRICES_W[weaponID.super_sine] = 1250;

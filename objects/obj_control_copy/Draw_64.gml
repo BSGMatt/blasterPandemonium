@@ -75,15 +75,27 @@ if(room == room_main){
 			/// FUN Meter ///
 			marginX = 40;
 			marginY += barHeight+4;
+			
+			numFunSegments = global.MAX_FUN/barHealthSegment;	
+			numFunSegments = floor(numFunSegments);			
+			funSegLength = barWidth/numFunSegments;
+			funSegLength = floor(funSegLength);
+			funRemainder = global.MAX_FUN mod barHealthSegment;
+			indent = 0;
 			draw_sprite(spr_hud_icon_funbar,0,viewX-iconW+marginX,viewY+marginY);
-			draw_healthbar(viewX+marginX,(viewY+marginY),
-			(viewX+marginX)+barWidth+4,(viewY+marginY)+barHeight,
-			(global.FUN/MAX_FUN)*100,c_black,$FF00FF,$00FFFF,0,true,true);
-			//Draw Fun "sections"
-			for(var i = 0; i < 4; i++){
-				draw_set_color(c_black);
-				draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+barWidth/4,(viewY+marginY)+barHeight,true);
-				marginX += (barWidth/4)+1;
+			draw_healthbar(viewX+marginX,viewY+marginY,
+			(viewX+marginX)+numFunSegments+(funSegLength*(numFunSegments+(funRemainder/barHealthSegment))),
+			(viewY+marginY)+barHeight,(global.FUN/global.MAX_FUN)*100,
+			c_black,c_purple,c_yellow,0,true,true);
+			draw_set_color(c_black);
+			for(var i = 1; i <= numFunSegments; i++){
+				draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+funSegLength+indent,(viewY+marginY)+barHeight,true);
+				marginX += funSegLength+indent+1;
+			}
+			if(funRemainder > 0){
+				var leftover = funSegLength*(funRemainder/barHealthSegment);
+				draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+leftover,(viewY+marginY)+barHeight,true);
+				marginX += leftover+1;
 			}
 			/////////////////
 			///WAVE//////////			
