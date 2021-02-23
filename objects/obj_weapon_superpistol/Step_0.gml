@@ -48,7 +48,7 @@ if(delay <= 0){
 							bullet.damage = damage;
 							
 							//SINE
-							var sine = instance_create_layer(x,y,"instance_layer",obj_bullet_sine);
+							var sine = instance_create_layer(x,y,"instance_layer",obj_bullet_sine_friendly);
 							sine.velX = pelletVelocity*dcos(direction-angle);
 							sine.velY = -pelletVelocity*dsin(direction-angle);
 							

@@ -8,8 +8,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_weapon_boss_bob",
-    "path": "objects/obj_weapon_boss_bob/obj_weapon_boss_bob.yy",
+    "name": "obj_weapon_enemy",
+    "path": "objects/obj_weapon_enemy/obj_weapon_enemy.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -24,7 +24,8 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_weapon_boss_bob_med","path":"objects/obj_weapon_boss_bob_med/obj_weapon_boss_bob_med.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_weapon_boss_bob","path":"objects/obj_weapon_boss_bob/obj_weapon_boss_bob.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"obj_weapon_boss_bob","path":"objects/obj_weapon_boss_bob/obj_weapon_boss_bob.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -33,7 +34,7 @@
     "path": "folders/Objects/weapons/boss.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_weapon_boss_bob_med",
+  "name": "obj_weapon_boss_bob",
   "tags": [],
   "resourceType": "GMObject",
 }

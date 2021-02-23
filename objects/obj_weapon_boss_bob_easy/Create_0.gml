@@ -2,9 +2,12 @@
 // You can write your code in this editor
 
 // Inherit the parent event
-type = weaponType.manual;
+type = -1;
 event_inherited();
-nickname = "Ultra-Chuck";
-fireRate = 0.67*room_speed;
-damage = 24;
-pelletCount = 20;
+fireRate = 2*room_speed;
+pelletVelocity = 10;
+damage = 25;
+ammoK = 40;
+ammo = ammoK;
+
+

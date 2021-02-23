@@ -11,8 +11,10 @@ if(tick >= dmgTick){
 if(timer >= duration){
 	audio_stop_sound(mySound);
 	audio_emitter_free(blast_emit);
+	scr_cam_reset();
 	instance_destroy();	
 }else{
 	timer++;	
+	scr_cam_shake_params(round(def_damage/10), 0.1);
 }
 

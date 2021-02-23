@@ -42,8 +42,6 @@ dashSpeed = 16;//speed when dashing
 dashing = false;
 maxSpeed = normalSpeed;
 fireRate = 2;//the speed at which player fires
-accX = 2;
-accY = 2;
 /*UPGRADABLE STATS*/
 timer = room_speed / fireRate;//used for firing
 

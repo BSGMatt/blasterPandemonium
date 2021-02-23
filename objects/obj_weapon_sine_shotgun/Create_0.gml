@@ -9,3 +9,4 @@ maxDamage = 100;
 pelletCount = 3;
 dev = 30;
 nickname = "Wavy Chuck";
+pelletType = obj_bullet_sine_friendly;

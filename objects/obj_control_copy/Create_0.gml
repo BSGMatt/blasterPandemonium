@@ -39,6 +39,13 @@ blockXPTimer = 20*room_speed;
 playerRespawnTime = 5*room_speed;
 respawnTimer = playerRespawnTime;
 
+//Camera Effect Functionality
+shakeTimer = 30*room_speed;
+shakeOk = false;
+
+camTarget = noone;
+
+
 
 
 

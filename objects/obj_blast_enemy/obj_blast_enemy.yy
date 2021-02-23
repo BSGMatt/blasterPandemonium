@@ -1,15 +1,15 @@
 {
   "spriteId": {
-    "name": "spr_weapon_general",
-    "path": "sprites/spr_weapon_general/spr_weapon_general.yy",
+    "name": "spr_blast",
+    "path": "sprites/spr_blast/spr_blast.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_weapon_friendly",
-    "path": "objects/obj_weapon_friendly/obj_weapon_friendly.yy",
+    "name": "obj_blast",
+    "path": "objects/obj_blast/obj_blast.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -23,17 +23,15 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_weapon_sine","path":"objects/obj_weapon_sine/obj_weapon_sine.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Dtier",
-    "path": "folders/Objects/weapons/friendly/Dtier.yy",
+    "name": "enemy",
+    "path": "folders/Objects/projectile/enemy.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_weapon_sine",
+  "name": "obj_blast_enemy",
   "tags": [],
   "resourceType": "GMObject",
 }

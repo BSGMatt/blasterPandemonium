@@ -15,9 +15,30 @@ if(gamePause == false){
 		//VIEW FAILSAFE
 		if(!instance_exists(obj_player)){
 			camera_set_view_target(view_camera[0],obj_crystal);
+			camTarget = obj_crystal;
 		}else{
 			camera_set_view_target(view_camera[0],obj_player);
+			camTarget = obj_player;
 		}
+		
+		//SHAKE VIEW (TEST)
+		if(!shakeOk && keyboard_check_pressed(vk_numpad5)){
+			shakeTimer = room_speed/2;	
+			shakeOk = true;
+			
+		}
+		
+		if(shakeOk){
+			shakeTimer--;
+			scr_cam_shake();
+			
+			if(shakeTimer < 0) {
+				scr_cam_reset();
+				shakeOk = false;
+			}
+		}
+		
+		
 		switch(global.WAVE_PHASE){
 			case Phase.IDLE:
 				if(keyboard_check_pressed(vk_enter)){

@@ -12,7 +12,6 @@ if(global.BUILDER_EN){
 			if(slotPos > 0) slotPos--;
 			switched = true;
 		}else if(keyboard_check_pressed(ord("E"))){
-			//SAVE AMMO
 			//
 			if(slotPos < array_length(global.INV_BLOCK)-1) slotPos++;
 			switched = true;

@@ -29,9 +29,12 @@ if(!global.BUILDER_EN){
 				ammo--;
 			///
 			timer = fireRate;
+			scr_cam_reset();
 			audio_play_sound_on(wep_emit,sfx_blaster,false,10);
-		}
-		if(timer >= 0) timer--;
+		}else{
+			timer--;
+			scr_cam_shake_params(0, random_range(-2,2));
+		}	
 	}else{
 		if(reloadTimer > 0) {
 			reloadTimer--;			

@@ -1,5 +1,6 @@
 /// @description - Init Variables
 // You can write your code in this editor
+pelletType = obj_bullet_friendly;
 damage = 0;
 minDamage = 0;
 maxDamage = 0;
@@ -23,6 +24,10 @@ blastRadius = 0;
 pelletVelocity = 20;
 hasExplosive = false;
 mySound = sfx_blaster;
+shaking = false;
+shakeAngle = 0;
+shakeTimer = 0;
+dev = 0;
 
 
 pelletLifeTime = -1;//-1 denotes infinite lifetime

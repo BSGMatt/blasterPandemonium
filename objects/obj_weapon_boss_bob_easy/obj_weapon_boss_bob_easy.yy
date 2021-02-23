@@ -1,15 +1,15 @@
 {
   "spriteId": {
-    "name": "spr_weapon_general",
-    "path": "sprites/spr_weapon_general/spr_weapon_general.yy",
+    "name": "spr_weapon_boss_bob",
+    "path": "sprites/spr_weapon_boss_bob/spr_weapon_boss_bob.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_weapon_friendly",
-    "path": "objects/obj_weapon_friendly/obj_weapon_friendly.yy",
+    "name": "obj_weapon_boss_bob",
+    "path": "objects/obj_weapon_boss_bob/obj_weapon_boss_bob.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -24,16 +24,16 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_weapon_sine","path":"objects/obj_weapon_sine/obj_weapon_sine.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_weapon_boss_bob_easy","path":"objects/obj_weapon_boss_bob_easy/obj_weapon_boss_bob_easy.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Dtier",
-    "path": "folders/Objects/weapons/friendly/Dtier.yy",
+    "name": "boss",
+    "path": "folders/Objects/weapons/boss.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_weapon_sine",
+  "name": "obj_weapon_boss_bob_easy",
   "tags": [],
   "resourceType": "GMObject",
 }

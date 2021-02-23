@@ -13,3 +13,4 @@ blastRadius = 2.5;
 pelletVelocity = 20;
 hasExplosive = true;
 nickname = "Bomb";
+pelletType = obj_bullet_explosive;

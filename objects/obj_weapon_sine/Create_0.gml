@@ -10,3 +10,4 @@ maxDamage = 75;
 dev = 25;
 pelletCount = 1;
 nickname = "Wave";
+pelletType = obj_bullet_sine_friendly;
