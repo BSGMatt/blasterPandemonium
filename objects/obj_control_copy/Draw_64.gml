@@ -20,7 +20,7 @@ if(room == room_main){
 	}else{
 		if(instance_exists(obj_player)){
 			draw_set_halign(fa_left);
-			/// Draw Player Healthbar/////////////////
+			/// Player Healthbar/////////////////
 			numOfHealthSegments = global.plyMaxHP/barHealthSegment;
 			numOfHealthSegments = floor(numOfHealthSegments);
 			healthSegmentLength = (barWidth/numOfHealthSegments);
@@ -30,7 +30,11 @@ if(room == room_main){
 			marginY+=barHeight;
 			var iconW = sprite_get_height(spr_hud_icon_funbar);
 			draw_sprite(spr_hud_icon_healthbar,0,viewX-iconW+marginX,viewY+marginY);
-			draw_healthbar(viewX+marginX,(viewY+marginY),(viewX+marginX)+numOfHealthSegments+(healthSegmentLength*(numOfHealthSegments+(HealthSegmentremainder/barHealthSegment))),(viewY+marginY)+barHeight,(global.plyHP/global.plyMaxHP)*100,c_black,c_red,c_green,0,true,true);
+			//Draw healtbar
+			draw_healthbar(viewX+marginX,(viewY+marginY),
+			(viewX+marginX)+numOfHealthSegments+(healthSegmentLength*(numOfHealthSegments+(HealthSegmentremainder/barHealthSegment))),
+			(viewY+marginY)+barHeight,(global.plyHP/global.plyMaxHP)*100,c_black,c_red,c_green,0,true,true);
+			//
 			//Add Healthbar "Segments" (Think Overwatch health pools)
 			draw_set_color(c_white);
 			for(var i = 1; i <= numOfHealthSegments; i++){				
@@ -39,8 +43,8 @@ if(room == room_main){
 				marginX += healthSegmentLength+1;
 			}
 			if(HealthSegmentremainder > 0){
-				var leftover = healthSegmentLength*(HealthSegmentremainder/barHealthSegment);
-				draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+leftover,(viewY+marginY)+barHeight,true);
+				var leftover = healthSegmentLength * (HealthSegmentremainder / barHealthSegment);
+				draw_rectangle(viewX+marginX, (viewY+marginY), (viewX+marginX) + leftover,(viewY+marginY)+barHeight,true);
 				marginX += leftover+1;
 			}
 			/// XP ///
@@ -54,7 +58,10 @@ if(room == room_main){
 			XPremainder = global.xpThreshold[global.plyLevel] mod barXPSegment;
 			var indent = 0;
 			draw_sprite(spr_hud_icon_xpbar,0,viewX-iconW+marginX,viewY+marginY);
-			draw_healthbar(viewX+marginX,viewY+marginY,(viewX+marginX)+numOfXPSegments+(XPsegmentLength*(numOfXPSegments+(XPremainder/barXPSegment))),(viewY+marginY)+barHeight,(global.xp/global.xpThreshold[global.plyLevel])*100,c_black,c_teal,c_teal,0,true,true);
+			draw_healthbar(viewX+marginX,viewY+marginY,
+			(viewX+marginX)+numOfXPSegments+(XPsegmentLength*(numOfXPSegments+(XPremainder/barXPSegment))),
+			(viewY+marginY)+barHeight,(global.xp/global.xpThreshold[global.plyLevel])*100,
+			c_black,c_teal,c_teal,0,true,true);
 			draw_set_color(c_white);
 			for(var i = 1; i <= numOfXPSegments; i++){
 				draw_rectangle(viewX+marginX,(viewY+marginY),(viewX+marginX)+XPsegmentLength+indent,(viewY+marginY)+barHeight,true);
@@ -69,7 +76,9 @@ if(room == room_main){
 			marginX = 40;
 			marginY += barHeight+4;
 			draw_sprite(spr_hud_icon_funbar,0,viewX-iconW+marginX,viewY+marginY);
-			draw_healthbar(viewX+marginX,(viewY+marginY),(viewX+marginX)+barWidth+4,(viewY+marginY)+barHeight,(global.FUN/MAX_FUN)*100,c_black,$FF00FF,$00FFFF,0,true,true);
+			draw_healthbar(viewX+marginX,(viewY+marginY),
+			(viewX+marginX)+barWidth+4,(viewY+marginY)+barHeight,
+			(global.FUN/MAX_FUN)*100,c_black,$FF00FF,$00FFFF,0,true,true);
 			//Draw Fun "sections"
 			for(var i = 0; i < 4; i++){
 				draw_set_color(c_black);
@@ -106,21 +115,18 @@ if(room == room_main){
 			draw_text(marginX,marginY,levelString);
 			//Draw Phase///////////////////////
 			draw_set_color($0000AA);//DARKER SHADE OF RED
-			switch(global.WAVE_PHASE){			
-				case Phase.PREP:
-				draw_set_halign(fa_center);
-				draw_text_ext(viewX+view_get_wport(0)/2,viewY+string_height("A")+4,"Prepare your defenses! "+string_format(global.TIMER/room_speed,2,1),string_height("A")+4,string_width("AAAAAAAAAAAAAAA"));
-				break;				
+			switch(global.WAVE_PHASE){					
 				case Phase.SWARM:
 				draw_set_halign(fa_center);
 				draw_text(viewX+view_get_wport(0)/2,viewY+string_height("A")+4,"Enemies: "+string(global.currentEnemyKills)+"/"+string(global.ENEM_POP[global.WAVE]));
 				draw_set_color(c_black);
 				draw_text(viewX+view_get_wport(0)/2,viewY+(string_height("A")*2)+4,scr_change_hud_content());
 				break;
-				case Phase.BOSS:
+				
+				default:
 				draw_set_halign(fa_center);
-				draw_text(viewX+view_get_wport(0)/2,viewY+string_height("A")+4,"Large Hostile Incoming!");
-				break;
+				draw_text_ext(viewX+view_get_wport(0)/2,viewY+string_height("A")+4,scr_change_hud_content(),string_height("A")+4,string_width("AAAAAAAAAAAAAAA"));
+				break;		
 			}
 		}
 	}

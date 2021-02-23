@@ -11,7 +11,8 @@ function scr_prepPhase() {
 	if(keyboard_check_pressed(vk_enter) && global.TIMER < (PREP_TIME-10)){
 		scr_toAttack();
 	}
-	/*Added the "PREP_TIME - 10" part of the statement to prevent the key pressed event to happen at the same frame.
+	/*Added the "PREP_TIME - 10" part of the statement to prevent 
+	the key pressed event and the (TIMER < 0) event to happen at the same frame.
 	This was never a problem until July 31st; I don't know why GameMaker decided to change it's mind.*/
 	if(keyboard_check_pressed(vk_space)){
 		if(room == room_main){

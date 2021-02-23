@@ -15,6 +15,7 @@ function scr_toAttack() {
 		seconds = 4;
 	}
 	
+	
 	if(global.WAVE > 24){
 		healthPackTime = 60;
 	}else if(global.WAVE > 18){

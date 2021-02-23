@@ -153,6 +153,7 @@
     {"id":{"name":"obj_menu_quit","path":"objects/obj_menu_quit/obj_menu_quit.yy",},"order":1,},
     {"id":{"name":"sfx_hit_blast","path":"sounds/sfx_hit_blast/sfx_hit_blast.yy",},"order":14,},
     {"id":{"name":"obj_enem_walt_a","path":"objects/obj_enem_walt_a/obj_enem_walt_a.yy",},"order":1,},
+    {"id":{"name":"string_clock_format","path":"scripts/string_clock_format/string_clock_format.yy",},"order":6,},
     {"id":{"name":"obj_menu_tutorial","path":"objects/obj_menu_tutorial/obj_menu_tutorial.yy",},"order":2,},
     {"id":{"name":"tm_healthpack","path":"timelines/tm_healthpack/tm_healthpack.yy",},"order":4,},
     {"id":{"name":"obj_shop_textBox","path":"objects/obj_shop_textBox/obj_shop_textBox.yy",},"order":0,},

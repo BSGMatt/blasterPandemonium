@@ -13,17 +13,6 @@ function scr_attackPhase() {
 		global.PLAYER_DIED = true;
 	}
 
-	if(global.WAVE > 24){
-		healthPackTime = 60;
-	}else if(global.WAVE > 18){
-		healthPackTime = 30;
-	}else if(global.WAVE > 12){
-		healthPackTime = 20;
-	}else if(global.WAVE > 6){
-		healthPackTime = 15;
-	}else{
-		healthPackTime = 10;
-	}
 
 	//Healthpacks
 	timer--;
@@ -42,6 +31,7 @@ function scr_attackPhase() {
 		}
 		global.xp += (blockCount*BLOCK_XP_BONUS);
 		blockXPTimer = BLOCK_XP_BONUS_TIME;	
+		audio_play_sound(sfx_reload_end, 100, false);
 	}
 	
 	///LEVELS

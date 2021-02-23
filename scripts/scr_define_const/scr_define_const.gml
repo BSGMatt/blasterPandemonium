@@ -13,7 +13,7 @@ function scr_define_const() {
 #macro MAX_NUMBER_OF_HEALTHPACKS 20
 #macro MAX_PLAYER_TIER 4
 #macro BLOCK_XP_BONUS 10
-#macro BLOCK_XP_BONUS_TIME 20*room_speed;
+#macro BLOCK_XP_BONUS_TIME 10*room_speed;
 
 	//PHASE ENUM
 	enum Phase{
