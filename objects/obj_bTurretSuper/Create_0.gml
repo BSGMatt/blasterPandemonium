@@ -9,8 +9,7 @@ isDestructible = true;
 myWeapon = noone;
 wepDamage = 6;
 wepFR = 0.8*room_speed;
-if(room == room_main){
-myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_turret);
+if(instance_exists(myWeapon)){
 myWeapon.damage = wepDamage;
 myWeapon.fireRate = wepFR;
 myWeapon.delay = irandom_range(room_speed/2,room_speed);

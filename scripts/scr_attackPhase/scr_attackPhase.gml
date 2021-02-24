@@ -15,11 +15,11 @@ function scr_attackPhase() {
 
 
 	//Healthpacks
-	timer--;
+	/*timer--;
 	if(timer<0){
 		instance_create_layer(irandom_range(obj_spawnPointA.x,obj_spawnPointB.x),irandom_range(obj_spawnPointA.y,obj_spawnPointB.y),"instance_layer",obj_healthpack);
 		timer = healthPackTime*room_speed;
-	}
+	}*/
 	
 	//Calculate Block XP Bonus
 	blockXPTimer--;

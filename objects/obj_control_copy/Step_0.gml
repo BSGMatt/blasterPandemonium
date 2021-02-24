@@ -22,7 +22,7 @@ if(gamePause == false){
 		}
 		
 		//SHAKE VIEW (TEST)
-		if(!shakeOk && keyboard_check_pressed(vk_numpad5)){
+		/*if(!shakeOk && keyboard_check_pressed(vk_numpad5)){
 			shakeTimer = room_speed/2;	
 			shakeOk = true;
 			
@@ -36,7 +36,7 @@ if(gamePause == false){
 				scr_cam_reset();
 				shakeOk = false;
 			}
-		}
+		}*/
 		
 		
 		switch(global.WAVE_PHASE){

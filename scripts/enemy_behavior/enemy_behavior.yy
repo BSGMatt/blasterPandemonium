@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "in_game_events",
-    "path": "folders/Scripts/in_game_events.yy",
+    "name": "Scripts",
+    "path": "folders/Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_determineSpawnArea",
+  "name": "enemy_behavior",
   "tags": [],
   "resourceType": "GMScript",
 }

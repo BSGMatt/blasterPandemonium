@@ -134,12 +134,11 @@ function scr_univar() {
 	//#macro REFUND_RATE 0.75
 
 	//enemy populations for each wave
-	global.ENEM_POP = array_create(100,0);
-	global.ENEM_POP[0] = 5;
-	global.ENEM_POP[1] = 8;
-	global.ENEM_POP[2] = 12;
-	global.ENEM_POP[3] = 15;
-	for(var i = 4; i < array_length(global.ENEM_POP); i++){
+	global.ENEM_POP = array_create(35,0);
+	for(var i = 0; i < 15; i++){
+		global.ENEM_POP[i] = 5+i;	
+	}
+	for(var i = 15; i < array_length(global.ENEM_POP); i++){
 		global.ENEM_POP[i] = 20;
 	}
 

@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "in_game_events",
-    "path": "folders/Scripts/in_game_events.yy",
+    "name": "misc",
+    "path": "folders/Scripts/misc.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_determineSpawnArea",
+  "name": "round_to_digit",
   "tags": [],
   "resourceType": "GMScript",
 }

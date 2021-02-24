@@ -3,30 +3,12 @@ function scr_toAttack() {
 	global.enemyCount = global.ENEM_POP[global.WAVE];
 	global.BUILDER_EN = false;
 	global.currentEnemyKills = 0;
-	if(global.WAVE > 24){
-		seconds = 2;
-	}else if(global.WAVE > 18){
-		seconds = 2.25;
-	}else if(global.WAVE > 12){
-		seconds = 2.5;
-	}else if(global.WAVE > 6){
-		seconds = 3;
-	}else{
-		seconds = 4;
-	}
 	
 	
-	if(global.WAVE > 24){
-		healthPackTime = 60;
-	}else if(global.WAVE > 18){
-		healthPackTime = 30;
-	}else if(global.WAVE > 12){
-		healthPackTime = 15;
-	}else if(global.WAVE > 6){
-		healthPackTime = 8;
-	}else{
-		healthPackTime = 4;
-	}
+	seconds = round_to_digit(3.6 - (global.WAVE/6.3), 2);
+	if(seconds < 1) seconds = 1;
+	
+	healthPackTime = round_to_digit(4 + (global.WAVE/6), 1);
 
 	//Create Timeline for Enemy Spawns
 	if(timeline_exists(tm_test)) timeline_clear(tm_test);
@@ -36,11 +18,11 @@ function scr_toAttack() {
 	}
 	
 	//Create Timeline for HealthPacks
-	/*if(timeline_exists(tm_healthpack)) timeline_clear(tm_healthpack);
+	if(timeline_exists(tm_healthpack)) timeline_clear(tm_healthpack);
 	var moment = room_speed*healthPackTime;
 	for(var i = 0; i < MAX_NUMBER_OF_HEALTHPACKS*moment; i+= moment){
 		timeline_moment_add_script(tm_healthpack,i,scr_createHealthPacks);	
-	}*/
+	}
 	
 	//Set global.FUN_TICK
 	

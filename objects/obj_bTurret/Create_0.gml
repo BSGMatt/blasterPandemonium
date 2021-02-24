@@ -8,8 +8,7 @@ hp = block_max_hp;
 isDestructible = true;
 wepDamage = 4;
 wepFR = 1*room_speed;
-if(room == room_main){
-myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_turret);
+if(instance_exists(myWeapon)){
 myWeapon.damage = wepDamage;
 myWeapon.fireRate = wepFR;
 myWeapon.delay = irandom_range(room_speed/2,room_speed);
