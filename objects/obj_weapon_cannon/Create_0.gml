@@ -8,4 +8,7 @@ damage = 250;
 pelletVelocity = 10;
 fireRate = 1.25*room_speed;
 nickname = "Ka-Boom";
+shakeAngle = 0.3;
+shakeTime = room_speed;
 pelletType = obj_bullet_large_friendly;
+mySound = sfx_bullet_large;

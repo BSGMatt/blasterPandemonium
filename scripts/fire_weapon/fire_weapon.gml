@@ -1,20 +1,6 @@
-/// @description Insert description here
-// You can write your code in this editor
-if(delay <= 0){
-	if(!global.BUILDER_EN && room == room_main){
-		audio_emitter_position(wep_emit,-x,y,0);
-		/*if(reloading){
-			if(reloadTimer <= 0){
-				ammo = ammoK;
-				reloading = false;
-				if(audio_is_playing(sfx_reload_loop)) audio_stop_sound(sfx_reload_loop);
-				 audio_play_sound(sfx_reload_end,30,false);
-			}else{
-				reloadTimer--;
-			}			
-		}*/
-		if(ammo > 0){
-			if(timer <= 0 && !reloading){
+// Script assets have changed for v2.3.0 see
+// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+function fire_weapon(){
 				//FIRE PROJECTILE
 				var angle = -spread;
 				offset = (spread*2)/pelletCount;
@@ -42,32 +28,24 @@ if(delay <= 0){
 					
 					
 					angle += offset;
+					
 				}
-				//ammo--;
+				ammo--;
 				///
 				timer = fireRate;
-				if(!shaking){
-					shaking = true;
-					shakeTimer = fireRate/2;
-
-				}
-				if(!audio_is_playing(mySound)) audio_play_sound(mySound,10,false);
-			}
+				shakeTimer = fireRate/2;
+				audio_stop_sound(mySound);
+				audio_play_sound(mySound,10,false);
 			if(timer >= 0){
 				timer--;
 				
 			}
-			if(shaking){
+			if(shakeTimer >= 0){
 				shakeTimer--;
 				scr_cam_shake_params(0,shakeAngle);
-				if(shakeTimer < 0){
-					scr_cam_reset();	
-					shaking = false;
-				}
-			}
 
-		}else{
-			scr_cam_reset();
-		}
-	}
-}else delay--;
+			}else if(shakeTimer < 0){
+				scr_cam_reset();	
+				shaking = false;
+			}
+}

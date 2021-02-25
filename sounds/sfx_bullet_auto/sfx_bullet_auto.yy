@@ -1,6 +1,6 @@
 {
   "compression": 0,
-  "volume": 0.56,
+  "volume": 0.5,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sfx_reload_end.wav",
-  "duration": 1.206202,
+  "soundFile": "sfx_bullet_auto.wav",
+  "duration": 0.125862,
   "parent": {
     "name": "weapon",
     "path": "folders/Sounds/weapon.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sfx_reload_end",
+  "name": "sfx_bullet_auto",
   "tags": [],
   "resourceType": "GMSound",
 }

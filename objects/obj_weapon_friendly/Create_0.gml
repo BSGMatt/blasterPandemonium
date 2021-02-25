@@ -30,6 +30,7 @@ shakeTimer = 0;
 dev = 0;
 effect = CharacterEffect.NORMAL;
 effectValue = 1;
+shakeTime = fireRate/2;
 
 
 pelletLifeTime = -1;//-1 denotes infinite lifetime

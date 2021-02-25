@@ -11,4 +11,5 @@ pelletVelocity = 40;
 pelletCount = 1;
 weaponSpread = 10;
 nickname = "Quirky";
-
+shakeAngle = 0.2;
+shakeTime = fireRate/2;

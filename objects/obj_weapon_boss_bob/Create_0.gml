@@ -9,5 +9,6 @@ pelletVelocity = 10;
 damage = 25;
 ammoK = 40;
 ammo = ammoK;
+pelletType = obj_bullet_large;
 
 

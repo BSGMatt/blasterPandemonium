@@ -25,4 +25,5 @@ spaceFromBlock = 128;
 //This code right determines the direction the enemy will go, basically replace the key inputs the player has.
 direction = 0;
 facingDirection = 0;
+weaponSpread = 20;
 path_end();

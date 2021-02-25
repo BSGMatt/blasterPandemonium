@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 // Inherit the parent event
-myWeapon.spread = irandom(weaponSpread);
+myWeapon.spread = irandom_range(weaponSpread,-weaponSpread);
 /// @description - MAIN
 // You can write your code in this editor
 //finding target
@@ -26,8 +26,8 @@ enemy_update_direction(target);
 enemy_control_effects();
 
 if(instance_exists(target)){
-	mspeedX = maxSpeed*dcos(facingDirection);
-	mspeedY = -maxSpeed*dsin(facingDirection);
+	mspeedX = effectVal*maxSpeed*dcos(facingDirection);
+	mspeedY = effectVal*-maxSpeed*dsin(facingDirection);
 }
 
 //when you see my face hope it gives you hell

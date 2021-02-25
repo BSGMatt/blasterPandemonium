@@ -14,7 +14,6 @@ function enemy_movement(){
 		}
 	}else{
 		wandering = true;
-		//if(path_index = -1) path_start(myPath,maxSpeed,path_action_continue,false);
 	}
 
 

@@ -9,10 +9,8 @@ function scr_load_game() {
 	obj_saveLoad.state = ds_map_secure_load("save.json");
 
 	randomise();
-	//global.plyLevel = ds_map_find_value(obj_saveLoad.state, "player_level");
-	//global.PLAYER_TIER = ds_map_find_value(obj_saveLoad.state, "player_tier");
-	global.plyLevel = 25;
-	global.PLAYER_TIER = 4;
+	global.plyLevel = ds_map_find_value(obj_saveLoad.state, "player_level");
+	global.PLAYER_TIER = ds_map_find_value(obj_saveLoad.state, "player_tier");
 	global.plyHP = ds_map_find_value(obj_saveLoad.state, "player_max_hp");
 	global.plyMaxHP = ds_map_find_value(obj_saveLoad.state, "player_max_hp");
 	global.xp = ds_map_find_value(obj_saveLoad.state,"player_xp");
