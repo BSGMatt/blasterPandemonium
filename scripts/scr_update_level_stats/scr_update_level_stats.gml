@@ -16,33 +16,33 @@ function scr_update_level_stats() {
 		switch(global.plyLevel){
 			case 0:
 				global.plyMaxHP = 200;
-				obj_player.normalSpeed = 8;//max speed
+				obj_player.normalSpeed = 6;//max speed
 				obj_player.dashSpeed = 16;//speed when dashing
 				global.MAX_FUN = MAX_STARTING_FUN;
 			break;
 			
 			case 1:
 				global.plyMaxHP = 250;
-				obj_player.normalSpeed = 8.5;
+				obj_player.normalSpeed = 6.5;
 				obj_player.dashSpeed = 16;
 				global.MAX_FUN = 3 + MAX_STARTING_FUN;
 			break;
 
 			case 2:
-				obj_player.normalSpeed = 9;
+				obj_player.normalSpeed = 7;
 				obj_player.dashSpeed = 18;
 				global.MAX_FUN = 6 + MAX_STARTING_FUN;
 			break;
 	
 			case 3:
 				global.plyMaxHP = 300;
-				obj_player.normalSpeed = 9;
+				obj_player.normalSpeed = 7.5;
 				obj_player.dashSpeed = 20;
 				global.MAX_FUN = 9 + MAX_STARTING_FUN;
 			break;
 				
 			case 4:
-				obj_player.normalSpeed = 10;
+				obj_player.normalSpeed = 8;
 				obj_player.dashSpeed = 25;
 				global.MAX_FUN = 12 + MAX_STARTING_FUN;
 			break;
@@ -50,10 +50,14 @@ function scr_update_level_stats() {
 			default:
 				global.plyMaxHP = round(300+log10(global.plyLevel)*global.plyLevel*2);//2xlog(x)+300
 				global.MAX_FUN = round((4*power(global.plyLevel, 0.5) + 105) + log10(global.plyLevel));
-				obj_player.normalSpeed = round(10+log10(global.plyLevel)*ln(global.plyLevel)*1.5);//1.5lg(x)+10
+				obj_player.normalSpeed = round_to_digit(8.5+log10(global.plyLevel)*ln(global.plyLevel)*1.25, 1);//1.5lg(x)+10
 				obj_player.dashSpeed = round(25+log10(global.plyLevel)*ln(global.plyLevel)*2);//2lg(x)+28	
 			break;
 		}
+			
+			//MAX OUT SPEED
+			if(obj_player.normalSpeed > MAX_PLAYER_SPEED) obj_player.normalSpeed = MAX_PLAYER_SPEED;
+			
 			
 			global.plyHP = global.plyMaxHP;
 			global.xp = 0;//clears XP

@@ -6,7 +6,7 @@
     "path": "folders/Scripts/behavior.yy",
   },
   "resourceVersion": "1.0",
-  "name": "enemy_behavior",
+  "name": "interpolate_speed",
   "tags": [],
   "resourceType": "GMScript",
 }

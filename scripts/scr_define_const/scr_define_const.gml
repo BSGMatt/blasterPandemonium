@@ -1,5 +1,5 @@
 function scr_define_const() {
-	audio_stop_all();
+audio_stop_all();
 #macro MAX_CRYSTAL_HP 1500
 #macro MAX_STARTING_FUN 100
 #macro STARTING_FUN 50
@@ -11,7 +11,8 @@ function scr_define_const() {
 #macro MAX_AMMO_SEMI 25
 #macro MAX_AMMO_AUTO 50
 #macro MAX_NUMBER_OF_HEALTHPACKS 20
-#macro MAX_PLAYER_TIER 4
+#macro MAX_PLAYER_SPEED 14
+#macro INTERPOLATION_TIME 10
 #macro BLOCK_XP_BONUS 10
 #macro BLOCK_XP_BONUS_TIME 10*room_speed;
 

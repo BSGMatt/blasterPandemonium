@@ -21,7 +21,7 @@ function fire_weapon(){
 					bullet.def_velY = -pelletVelocity*dsin(direction-angle);
 					bullet.velX = bullet.def_velX;
 					bullet.velY = bullet.def_velY;
-					bullet.def_damage = damage * obj_player.funMultiplier;
+					bullet.def_damage = round_to_digit(damage * obj_player.funMultiplier, 2);
 					bullet.damage = bullet.def_damage;
 					bullet.effect = effect;
 					bullet.effectValue = effectValue;

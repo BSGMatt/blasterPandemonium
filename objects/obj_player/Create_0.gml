@@ -14,7 +14,6 @@ while(place_meeting(x,y,all)){
 
 audio_listener_orientation(0,1,0,0,0,1);
 audio_falloff_set_model(audio_falloff_exponent_distance);
-#macro FUN_CONSTANT 50
 
 funMultiplier = 0;
 
@@ -27,6 +26,9 @@ radarTarget = noone;
 maxIFrames = 5;
 iFrames = 0;
 invincible = false;
+interpolationTimer = INTERPOLATION_TIME;
+interpolationActive = false;
+mSpeed = 0;//variable for the interpolated speed
 
 ammo[0] = MAX_AMMO_MAN;//MANUAL
 ammo[1] = MAX_AMMO_SEMI;//SEMI

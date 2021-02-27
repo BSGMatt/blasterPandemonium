@@ -5,10 +5,7 @@ if(global.plyHP > global.plyMaxHP){
 	global.plyHP = global.plyMaxHP;	
 }
 
-//apply fun modifiers
-funMultiplier = global.FUN / FUN_CONSTANT;
 
-maxSpeed = normalSpeed * funMultiplier;
 
 //AUDIO
 audio_listener_position(x,y,0);
@@ -35,9 +32,18 @@ if(invincible){
 	image_alpha = 1;	
 }
 
+
 ///INPUTS 
 moveX = keyboard_check(ord("D")) - keyboard_check(ord("A"));
 moveY = keyboard_check(ord("S")) - keyboard_check(ord("W"));
+
+//interpolate speed
+if(moveX != 0 || moveY != 0) interpolate_speed();	
+
+//apply fun modifiers
+funMultiplier = (global.FUN / MAX_STARTING_FUN) + 0.1;
+
+maxSpeed = mSpeed * funMultiplier;
 
 mspeedX = maxSpeed*moveX;
 mspeedY = maxSpeed*moveY;
@@ -87,10 +93,14 @@ if(place_meeting(x,y+mspeedY,obj_bGroundSuper)){
 	mspeedY = 0;
 }
 
-
-
 x += mspeedX;
 y += mspeedY;
+
+//reset interpolation
+if(interpolationActive && interpolationTimer <= 0){
+	mspeed = normalSpeed;
+	interpolationActive = false;
+}
 
 ///ITEMS
 //Healthpack
