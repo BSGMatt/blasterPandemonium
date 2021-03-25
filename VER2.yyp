@@ -1,5 +1,6 @@
 {
   "resources": [
+    {"id":{"name":"obj_bNoDice","path":"objects/obj_bNoDice/obj_bNoDice.yy",},"order":2,},
     {"id":{"name":"obj_blast_friendly","path":"objects/obj_blast_friendly/obj_blast_friendly.yy",},"order":0,},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":0,},
     {"id":{"name":"spr_enemy0","path":"sprites/spr_enemy0/spr_enemy0.yy",},"order":1,},

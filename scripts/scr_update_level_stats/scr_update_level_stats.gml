@@ -16,35 +16,34 @@ function scr_update_level_stats() {
 		switch(global.plyLevel){
 			case 0:
 				global.plyMaxHP = 200;
-				obj_player.normalSpeed = 6;//max speed
-				obj_player.dashSpeed = 16;//speed when dashing
+				obj_player.normalSpeed = 7;//max speed
 				global.MAX_FUN = MAX_STARTING_FUN;
 			break;
 			
 			case 1:
 				global.plyMaxHP = 250;
-				obj_player.normalSpeed = 6.5;
-				obj_player.dashSpeed = 16;
-				global.MAX_FUN = 3 + MAX_STARTING_FUN;
+				obj_player.normalSpeed += 0.5;
+				obj_player.dashSpeed += 2;
+				global.MAX_FUN += 3;
 			break;
 
 			case 2:
-				obj_player.normalSpeed = 7;
-				obj_player.dashSpeed = 18;
-				global.MAX_FUN = 6 + MAX_STARTING_FUN;
+				obj_player.normalSpeed += 0.5;
+				obj_player.dashSpeed += 2;
+				global.MAX_FUN += 3;
 			break;
 	
 			case 3:
 				global.plyMaxHP = 300;
-				obj_player.normalSpeed = 7.5;
-				obj_player.dashSpeed = 20;
-				global.MAX_FUN = 9 + MAX_STARTING_FUN;
+				obj_player.normalSpeed++;
+				obj_player.dashSpeed += 2;
+				global.MAX_FUN += 3;
 			break;
 				
 			case 4:
-				obj_player.normalSpeed = 8;
-				obj_player.dashSpeed = 25;
-				global.MAX_FUN = 12 + MAX_STARTING_FUN;
+				obj_player.normalSpeed++;
+				obj_player.dashSpeed += 5;
+				global.MAX_FUN += 3;
 			break;
 			
 			default:

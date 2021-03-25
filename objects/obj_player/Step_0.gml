@@ -127,6 +127,7 @@ if(inst != noone){
 		instance_destroy(inst);
 	}
 }
+
 //Explosions
 var boom = instance_place(x,y,obj_blast_enemy);
 if(boom != noone){

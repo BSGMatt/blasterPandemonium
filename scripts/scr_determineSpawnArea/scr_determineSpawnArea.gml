@@ -1,4 +1,9 @@
 function scr_determineSpawnArea() {
+	//Constant for how far
+	//away from the spawnpoint
+	//an enemy will actually
+	//spawn
+	spawnOffset = 64;
 	
 	randomize();
 	
@@ -21,28 +26,12 @@ function scr_determineSpawnArea() {
 		higher = 7;
 	}
 	
-	//DETERMINE WHERE ENEMIES WILL SPAWN
-	switch(irandom_range(1,4)){
-		default:
-			spawnPoint = obj_spawnPointA;
-		break;
-		
-		case 2:
-			spawnPoint = obj_spawnPointB;
-		break;
-		
-		case 3:
-			spawnPoint = obj_spawnPointC;
-		break;
-		
-		case 4:
-			spawnPoint = obj_spawnPointD;
-		break; 
-	}
+	//PICK A RANDOM SPAWN POINT
+	spawnPoint = instance_find(obj_spawnPointA, irandom(instance_number(obj_spawnPointA ) - 1));
 	
 	
-	spawnOffsetX = irandom_range(-128,128);
-	spawnOffsetY = irandom_range(-128,128);
+	spawnOffsetX = irandom_range(-spawnOffset,spawnOffset);
+	spawnOffsetY = irandom_range(-spawnOffset,spawnOffset);
 	//
 	rand = irandom_range(lower,higher);
 	//rand = 1;
