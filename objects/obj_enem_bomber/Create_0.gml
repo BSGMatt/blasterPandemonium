@@ -5,6 +5,7 @@
 /// @description Init variables
 // You can write your code in this editor
 randomise();
+event_inherited();
 myWeapon = noone;
 maxHealth = 100;
 hp = maxHealth;
@@ -16,8 +17,7 @@ moveX = 0;
 moveY = 0;
 radius = 250;
 onPath = true;
-myPath = path_basic;
-path_start(myPath,maxSpeed,path_action_continue,false);
+path_start(myPath,maxSpeed,myPathAction,false);
 au_emit = audio_emitter_create();
 audio_emitter_position(au_emit,x,y,0);
 minCoinVal = 20;

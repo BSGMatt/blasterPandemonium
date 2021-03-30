@@ -1,5 +1,5 @@
 /// @description INIT GLOBAL VARIABLES
-// You're probably wondering why there are 2 control objects. Well
+// You're probably wondering why this is a copy. Well
 /*in short, the original control object, for some fucking reason, kept deleting itself
 whenever you game over'd. I guess the object has depression and decided to end its life. 
 So, I decided to make a new one, and it somehow worked. I literally didn't change anything about the code;
@@ -26,6 +26,7 @@ timeline_position = 0;
 gamePause = false;
 instance_create_layer(global.PLAYER_SPAWN_X,global.PLAYER_SPAWN_Y,"instance_layer",obj_player);
 cam = camera_create_view(0,0,1920,1080,0,obj_player,-1,-1,640,360);
+scr_update_level_stats();
 view_set_camera(0,cam);
 if(!view_visible[0]){
 	view_visible[0] = true;	

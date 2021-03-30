@@ -229,6 +229,8 @@ if(switched){
 
 //set position of myWeapon
 facingDirection = point_direction(x,y,mouse_x,mouse_y);
+
+//change sprite to match direction
 var offset = 22.5;
 if(facingDirection >= (90 - offset) && facingDirection <= (90 + offset)){
 	image_index = 1;
@@ -274,7 +276,7 @@ if(instance_exists(myWeapon)){
 }
 
 //prevent player from being seen 
-if(room != room_main) instance_deactivate_object(obj_player);
+if(room != room_main && room != rm_test_enemies) instance_deactivate_object(obj_player);
 
 
 

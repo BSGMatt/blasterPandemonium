@@ -24,6 +24,13 @@ function scr_toAttack() {
 		timeline_moment_add_script(tm_healthpack,i,scr_createHealthPacks);	
 	}
 	
+	//check if player has a pistol, if not, give him one. 
+	if (!array_contains(global.INV_WEAPON, weaponID.std_pistol)) {
+		global.INV_WEAPON[global.NSA_WEAPON] = weaponID.std_pistol;
+		global.IFP_WEAPON[weaponID.std_pistol] = true;
+		global.NSA_WEAPON++;
+	}
+	
 	//Set global.FUN_TICK
 	
 	global.FUN_TICK = FUN_TICK_RATE * (1 + (global.WAVE / 12.5));

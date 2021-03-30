@@ -51,4 +51,3 @@ if(!layer_exists("instance_layer")){
 }
 myfield = instance_create_layer(x,y,"instance_layer",obj_field);
 
-scr_update_level_stats();

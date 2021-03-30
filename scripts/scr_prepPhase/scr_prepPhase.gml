@@ -3,7 +3,8 @@ function scr_prepPhase() {
 	if(global.TIMER <= 0){
 		scr_toAttack();	
 	}
-	if(mouse_check_button_pressed(mb_middle) || keyboard_check_pressed(ord("B"))){
+	if((mouse_check_button_pressed(mb_middle) || keyboard_check_pressed(ord("B")))
+		&& global.INV_BLOCK[0] != -1){
 		if(!global.BUILDER_EN) 	global.BUILDER_EN = true;
 		else global.BUILDER_EN = false;
 		audio_play_sound(sfx_confirm,2,false);

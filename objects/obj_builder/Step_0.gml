@@ -5,7 +5,7 @@ if(global.BUILDER_EN){
 	y = obj_mouse.y;
 	move_snap(GRID,GRID);
 	
-		//Sroll through invetory slot
+	//Sroll through invetory slot
 	if(array_length(global.INV_BLOCK) > 1){
 		if(keyboard_check_pressed(ord("Q"))){
 			//

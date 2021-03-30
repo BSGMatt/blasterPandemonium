@@ -26,9 +26,12 @@ moveX = 0;
 moveY = 0;
 radius = 250;
 onPath = false;
-myPath = path_basic;
+myPath = create_path();
+myPathAction = path_action_reverse;
 minCoinVal = 45;
 maxCoinVal = 55;
+myColor = random_color();
+
 
 //AUDIO
 au_emit = audio_emitter_create();
@@ -43,5 +46,14 @@ effectVal = 1;
 effectDamage = 0;
 effectTimer = 0;
 effectChanged = false;
+
+//STATES
+enum EnemyState {
+	NORMAL,
+	FOLLOWING_PLAYER,
+	WALKING_BACK
+}
+
+myState = EnemyState.NORMAL;
 
 
