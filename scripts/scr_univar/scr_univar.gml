@@ -20,7 +20,9 @@ function scr_univar() {
 #macro CRYSTAL_HPS 25*/
 
 
-
+	//CREATE GRID AND PERMANANT BLOCKS TO IT
+	global.grid = mp_grid_create(0, 0, room_width, room_height, 64, 64);
+	mp_grid_add_instances(global.grid,obj_block,false);
 
 	switch(room){
 		default:

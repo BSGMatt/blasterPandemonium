@@ -56,33 +56,52 @@ function enemy_movement(){
 			break;
 		
 		case EnemyState.FOLLOWING_PLAYER:
+			var target = noone;
 			if(instance_exists(obj_player)){
-				moveX = sign(obj_player.x - x);
-				moveY = sign(obj_player.y - y);
+				target = obj_player;
 			}else{
-				moveX = sign(obj_crystal.x - x);
-				moveY = sign(obj_crystal.y - y);
+				target = obj_crystal;			
 			}
 			
-			x += moveX * maxSpeed;
-			y += moveY * maxSpeed;
+			var newPath = path_add();
+			if (mp_grid_path(global.grid, newPath, x, y, target.x, target.y, 0)) {
+				//if not on regular path, change to the new path. 
+				if (path_index == myPath || path_index == -1) {
+					path_start(newPath, maxSpeed, path_action_stop, true);
+				}
+			}
+			/*else {
+				moveX = sign(target.x - x);
+				moveY = sign(target.y - y);
+				
+				x += moveX * maxSpeed;
+				y += moveY * maxSpeed;
+			}*/
+			
+
 			
 			if (!place_meeting(x,y,obj_field)) {
 				lastPathPosition = path_position;
 				lastX = x;
 				lastY = y;
+				path_end();
+				if (path_exists(newPath)) path_delete(newPath);
+				newPath = path_add();
+				if (mp_grid_path(global.grid, newPath, x, y, lastX, lastY, 0)) {
+				//if not on regular path, change to the new path. 
+					if (path_index == -1) {
+						path_start(newPath, maxSpeed, path_action_stop, true);
+					}
+				}
 				myState = EnemyState.WALKING_BACK;	
 			}
 			
 			break;
 		
 		case EnemyState.WALKING_BACK:
-			moveX = sign(x - lastX);
-			moveY = sign(y - lastY);
-			x += maxSpeed * moveX;
-			y += maxSpeed * moveY;
-			if (abs(x-lastX) <= maxSpeed && abs(y-lastY) <= maxSpeed) {
-				myState = EnemyState.NORMAL;	
+			if (abs(path_get_x(path_index, lastPathPosition) - lastX) < 16 && abs(path_get_y(path_index, lastPathPosition) - lastY) < 16) {
+				path_end();
+				myState = EnemyState.NORMAL;
 			}
 			break;
 	}
@@ -243,7 +262,46 @@ function check_for_bounds(){
 /**
 	Create a path that the enemy will follow. 
 */
-function create_path() {
+function create_path(target) {
+	
+	//Determine the end point of the path. 
+	var goalX = 0;
+	var goalY = 0;
+	if (target == obj_player) {
+		goalX = obj_player.x;
+		goalY = obj_player.y;
+	}
+	else if (target == obj_crystal) {
+		goalY = obj_crystal.y;
+		goalX = obj_crystal.x;
+	}
+	else {
+		if (x < room_width / 2) {
+			goalX = room_width - 32;
+		}
+		else {
+			goalX = 0;
+		}
+		
+		if (y < room_height / 2) {
+			goalY = room_height - 32;
+		}
+		else {
+			goalY = 0;
+		}
+	}
+	
+	
+	var thisPath = path_add();
+	
+	if (mp_grid_path(global.grid, thisPath, x, y, goalX, goalY, 0)) {
+		return thisPath;
+	}
+	
+	return path_basic;
+}
+
+function create_path_old() {
 	
 	var thisPath = path_add();
 	var indexY = y;
