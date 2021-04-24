@@ -50,8 +50,10 @@ function enemy_movement(){
 	switch (myState) {
 		case EnemyState.NORMAL:
 			if (path_index == -1) {
+				if (path_exists(myPath)) path_delete(myPath);
+				myPath = path_add();			
+				myPath = create_path(0);
 				path_start(myPath, maxSpeed, path_action_reverse, true);
-				path_position = lastPathPosition;	
 			}
 			break;
 		
@@ -81,26 +83,18 @@ function enemy_movement(){
 
 			
 			if (!place_meeting(x,y,obj_field)) {
-				lastPathPosition = path_position;
-				lastX = x;
-				lastY = y;
 				path_end();
-				if (path_exists(newPath)) path_delete(newPath);
-				newPath = path_add();
-				if (mp_grid_path(global.grid, newPath, x, y, lastX, lastY, 0)) {
-				//if not on regular path, change to the new path. 
-					if (path_index == -1) {
-						path_start(newPath, maxSpeed, path_action_stop, true);
-					}
-				}
+				if (path_exists(myPath)) path_delete(myPath);
+				myPath = path_add();			
+				myPath = create_path(0);
+				path_start(myPath, maxSpeed, path_action_stop, false);
 				myState = EnemyState.WALKING_BACK;	
 			}
 			
 			break;
 		
 		case EnemyState.WALKING_BACK:
-			if (abs(path_get_x(path_index, lastPathPosition) - lastX) < 16 && abs(path_get_y(path_index, lastPathPosition) - lastY) < 16) {
-				path_end();
+			if (path_index == -1) {
 				myState = EnemyState.NORMAL;
 			}
 			break;
@@ -264,43 +258,34 @@ function check_for_bounds(){
 */
 function create_path(target) {
 	
-	//Determine the end point of the path. 
-	var goalX = 0;
-	var goalY = 0;
-	if (target == obj_player) {
-		goalX = obj_player.x;
-		goalY = obj_player.y;
-	}
-	else if (target == obj_crystal) {
-		goalY = obj_crystal.y;
-		goalX = obj_crystal.x;
-	}
-	else {
-		if (x < room_width / 2) {
-			goalX = room_width - 32;
-		}
-		else {
-			goalX = 0;
-		}
-		
-		if (y < room_height / 2) {
-			goalY = room_height - 32;
-		}
-		else {
-			goalY = 0;
-		}
-	}
-	
-	
 	var thisPath = path_add();
 	
-	if (mp_grid_path(global.grid, thisPath, x, y, goalX, goalY, 0)) {
+	//Check for possible paths. 
+	if (mp_grid_path(global.grid, thisPath, x, y, 
+		obj_player.x, obj_player.y, 0)) {
+		//Is Player a Valid Target
+		return thisPath;
+	}
+	else if (mp_grid_path(global.grid, thisPath, x, y, 
+		obj_crystal.x, obj_crystal.y, 0)) {	
+		//Is Crystal a Valid Target
+		return thisPath;
+	}
+	else if (mp_grid_path(global.grid, thisPath, x, y, 
+		room_width - 64, room_height - 64, 0)) {	
+		//Is Bottom Right a Valid Target
+		return thisPath;
+	}
+	else if (mp_grid_path(global.grid, thisPath, x, y, 64, 64, 0)) {	
+		//Is Top Left a Valid Target
 		return thisPath;
 	}
 	
 	return path_basic;
 }
 
+//An old path finding system that I used before
+//I switched to the A*star-based system
 function create_path_old() {
 	
 	var thisPath = path_add();

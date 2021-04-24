@@ -297,7 +297,6 @@
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"rm_test_enemies","path":"rooms/rm_test_enemies/rm_test_enemies.yy",},},
     {"roomId":{"name":"rm_start","path":"rooms/rm_start/rm_start.yy",},},
     {"roomId":{"name":"rm_menu","path":"rooms/rm_menu/rm_menu.yy",},},
     {"roomId":{"name":"rm_cutscene","path":"rooms/rm_cutscene/rm_cutscene.yy",},},
@@ -306,6 +305,7 @@
     {"roomId":{"name":"rm_shop_tutorial","path":"rooms/rm_shop_tutorial/rm_shop_tutorial.yy",},},
     {"roomId":{"name":"rm_game_over","path":"rooms/rm_game_over/rm_game_over.yy",},},
     {"roomId":{"name":"rm_endgame","path":"rooms/rm_endgame/rm_endgame.yy",},},
+    {"roomId":{"name":"rm_test_enemies","path":"rooms/rm_test_enemies/rm_test_enemies.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":0,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
