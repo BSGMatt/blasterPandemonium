@@ -115,12 +115,13 @@ var inst = instance_place(x,y,obj_bullet_enemy);
 if(inst != noone){
 	if(!invincible){
 		global.plyHP -= inst.damage*(1/funMultiplier);
-		if(inst.hasExplosive){
+		if(inst.hasExplosive) {
 			var myExplosive = instance_create_depth(x,y,depth-100,obj_blast);
 			myExplosive.damage = inst.blastDamage;
 			myExplosive.radius = inst.blastRadius;
 			myExplosive.duration = inst.blastDuration;
 			myExplosive.dmgTick = inst.blastDmgTick;
+			instance_destroy(inst);
 		}
 		audio_play_sound(sfx_hit,1,false);
 		invincible = true;

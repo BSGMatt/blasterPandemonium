@@ -8,7 +8,7 @@ if(!global.BUILDER_EN){
 			//FIRE PROJECTILE
 				var angle = -spread;
 				offset = (spread*2)/pelletCount;
-				for(var i =0; i < pelletCount; i++){
+				for(var i =0; i < pelletCount; i++) {
 					var bullet = instance_create_layer(x,y,"instance_layer",pelletType);
 					if(pelletType == obj_bullet_explosive_enem){					
 						bullet.blastDamage = blastDamage;
@@ -29,6 +29,8 @@ if(!global.BUILDER_EN){
 					bullet.damage = bullet.def_damage;
 					bullet.effect = effect;
 					bullet.effectValue = effectValue;
+					
+					angle += offset;
 				}
 				ammo--;
 			///

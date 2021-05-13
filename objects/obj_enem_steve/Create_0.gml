@@ -10,10 +10,10 @@ myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_enemy);
 myWeapon.ammoK = 100;
 myWeapon.ammo = myWeapon.ammoK;
 myWeapon.pelletCount = 8;
-myWeapon.spread = 60;
+myWeapon.spread = 45;
 myWeapon.damage = 8;
 myWeapon.fireRate = 2*room_speed;
-facingDirection = 361;
+facingDirection = 0;
 
 //EFFECTS
 facingDirection = 0;

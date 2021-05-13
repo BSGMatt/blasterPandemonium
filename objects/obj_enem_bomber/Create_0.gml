@@ -27,6 +27,7 @@ myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_enemy);
 myWeapon.ammoK = 100;
 myWeapon.ammo = myWeapon.ammoK;
 myWeapon.hasExplosive = true;
+myWeapon.pelletType = obj_bullet_explosive_enem;
 myWeapon.damage = 5;
 myWeapon.blastDmgTick = 6;
 myWeapon.blastDamage = 4;
