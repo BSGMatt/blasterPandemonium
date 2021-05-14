@@ -5,7 +5,6 @@
 event_inherited();
 path_end();
 
-#macro TOLERANCE 64
 
 //Create Weapon
 myWeapon.fireRate = 0.25*room_speed;

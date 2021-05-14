@@ -11,4 +11,3 @@ myWeapon.spread = 30;
 myWeapon.damage = 6;
 myWeapon.pelletCount = 3;
 myWeapon.fireRate = 1.25*room_speed;
-#macro TOLERANCE 32

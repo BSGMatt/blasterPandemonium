@@ -3,7 +3,6 @@
 event_inherited();
 maxHealth = 1000;
 hp = maxHealth;
-#macro PATH_STD_SPEED 8
 #macro MAX_SHIGGY_TIME 1200
 myPath = path_boss_harder;
 myWeapon = instance_create_depth(x,y,depth-100,obj_weapon_boss_bob);

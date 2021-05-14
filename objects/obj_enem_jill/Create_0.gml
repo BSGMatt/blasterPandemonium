@@ -16,6 +16,7 @@ maxSpeed = 3;
 maxHealth = 200;
 spaceFromCrystal = 256;
 killP = 325;
+myTarget = obj_crystal;
 //This code right determines the direction the enemy will go, basically replace the key inputs the player has.
 direction = point_direction(x,y,obj_crystal.x,obj_crystal.y);
 path_end();

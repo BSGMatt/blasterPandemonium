@@ -1,6 +1,5 @@
 /// @description Init variables
 // You can write your code in this editor
-#macro TOLERANCE 64
 randomise();
 //push place enemy out of blocks
 if(x < room_width /2){
@@ -26,7 +25,8 @@ moveX = 0;
 moveY = 0;
 radius = 250;
 onPath = false;
-myPath = create_path(0);
+myTarget = noone;
+myPath = create_path(myTarget);
 myDefaultPath = myPath;
 myPathAction = path_action_reverse;
 minCoinVal = 45;

@@ -69,6 +69,7 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"Bag","resourceVersion":"1.0","name":"f66c7e45-5ba3-4f11-8618-03ac1e9509fe","tags":[],"resourceType":"GMImageLayer",},
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"Coin","resourceVersion":"1.0","name":"dedae1d3-4aba-44ae-8809-84db02876944","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "item",
     "path": "folders/Sprites/item.yy",

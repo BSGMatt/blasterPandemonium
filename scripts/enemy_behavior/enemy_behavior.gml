@@ -8,87 +8,32 @@ function enemy_movement(){
 		myState = EnemyState.FOLLOWING_PLAYER;
 	}
 
-
-	//"TOLERANCE" is how far the enemy will be from a block
-	/*if(wandering){
-		mspeedX = maxSpeed * effectVal;
-		mspeedY = 0;
-		
-		if (place_meeting(x+TOLERANCE,y,obj_block)){
-			mspeedX = 0;
-			mspeedY = maxSpeed * effectVal;
-		}
-		
-		if (place_meeting(x-TOLERANCE,y,obj_block)){
-			mspeedX = 0;
-			mspeedY = -maxSpeed * effectVal;
-		}
-		
-		if(place_meeting(x,y+TOLERANCE,obj_block)){
-			mspeedX = -maxSpeed * effectVal;
-			mspeedY = 0;
-		}
-
-		if(place_meeting(x,y-TOLERANCE,obj_block)){
-			mspeedX = maxSpeed * effectVal;
-			mspeedY = 0;	
-		}
-		
-		if(abs(x - obj_block.x) < TOLERANCE) {
-			mspeedY = maxSpeed * effectVal;	
-		}
-		
-		if(abs(y - obj_block.y) < TOLERANCE) {
-			mspeedX = maxSpeed * effectVal;	
-		}
-		
-	}else{
-
-		mspeedX = moveX * maxSpeed * effectVal;
-		mspeedY = moveY * maxSpeed * effectVal;
-	}*/
 	switch (myState) {
 		case EnemyState.NORMAL:
 			if (path_index == -1) {
 				if (path_exists(myPath)) path_delete(myPath);
 				myPath = path_add();			
-				myPath = create_path(0);
+				myPath = create_path(noone);
 				path_start(myPath, maxSpeed, path_action_reverse, true);
 			}
 			break;
 		
 		case EnemyState.FOLLOWING_PLAYER:
-			var target = noone;
-			if(instance_exists(obj_player)){
-				target = obj_player;
-			}else{
-				target = obj_crystal;			
-			}
 			
-			var newPath = path_add();
-			if (mp_grid_path(global.grid, newPath, x, y, target.x, target.y, 0)) {
-				//if not on regular path, change to the new path. 
-				if (path_index == myPath || path_index == -1) {
-					path_start(newPath, maxSpeed, path_action_stop, true);
-				}
+			if (instance_exists(obj_player)) {
+				path_end();
+				x += maxSpeed * -sign(x - obj_player.x);
+				y += maxSpeed * -sign(y - obj_player.y);
 			}
-			/*else {
-				moveX = sign(target.x - x);
-				moveY = sign(target.y - y);
-				
-				x += moveX * maxSpeed;
-				y += moveY * maxSpeed;
-			}*/
-			
+			else {
+				x += maxSpeed * -sign(x - obj_crystal.x);
+				y += maxSpeed * -sign(y - obj_crystal.y);
+			}
 
-			
 			if (!place_meeting(x,y,obj_field)) {
 				path_end();
 				if (path_exists(myPath)) path_delete(myPath);
-				myPath = path_add();			
-				myPath = create_path(0);
-				path_start(myPath, maxSpeed, path_action_stop, false);
-				myState = EnemyState.WALKING_BACK;	
+				myState = EnemyState.NORMAL;	
 			}
 			
 			break;
@@ -260,24 +205,18 @@ function create_path(target) {
 	
 	var thisPath = path_add();
 	
-	//Check for possible paths. 
+	if (target != noone) {
+		
+		if (mp_grid_path(global.grid, thisPath, x, y, 
+			target.x, target.y, 0)) {	
+			//Is Player or Crystal a Valid Target
+			return thisPath;
+		}
+	}
+	
 	if (mp_grid_path(global.grid, thisPath, x, y, 
-		obj_player.x, obj_player.y, 0)) {
-		//Is Player a Valid Target
-		return thisPath;
-	}
-	else if (mp_grid_path(global.grid, thisPath, x, y, 
-		obj_crystal.x, obj_crystal.y, 0)) {	
-		//Is Crystal a Valid Target
-		return thisPath;
-	}
-	else if (mp_grid_path(global.grid, thisPath, x, y, 
-		room_width - 64, room_height - 64, 0)) {	
+		-x + room_width, -y + room_width, 0)) {	
 		//Is Bottom Right a Valid Target
-		return thisPath;
-	}
-	else if (mp_grid_path(global.grid, thisPath, x, y, 64, 64, 0)) {	
-		//Is Top Left a Valid Target
 		return thisPath;
 	}
 	
@@ -286,77 +225,3 @@ function create_path(target) {
 
 //An old path finding system that I used before
 //I switched to the A*star-based system
-function create_path_old() {
-	
-	var thisPath = path_add();
-	var indexY = y;
-	var indexX = x;
-	
-	//Find which way the enemy is going
-	if (room_width / 2 - x >= 0) {
-		goalX = room_width;
-	}
-	else {
-		goalX = 0;	
-	}
-	
-	
-	if (room_height / 2 - y >= 0) {
-		goalY = room_height;
-	}
-	else {
-		goalY = 0;	
-	}
-	
-	var incrementY = 64 * sign(room_height / 2 - y);
-		if (incrementY == 0) incrementY = 64;
-	var incrementX = 64 * sign(room_width / 2 - x);
-		if (incrementX == 0) incrementX = 64;
-	
-	var blockOnNextX = false;
-	var blockOnNextY = false;
-	
-	//Stop loop when either the x or y is within 64 pixels of the goal. 
-	while (abs(indexY - goalY) >= 64 && abs(indexX - goalX) >= 64) {
-		show_debug_message("Outer Loop: " + string(indexX) + ", " + string(indexY));
-		//insert points to path
-		while (abs(indexY - goalY) >= 64) {
-			//show_debug_message("Inner X Loop: " + string(indexX) + ", " + string(indexY));
-			if (instance_place(indexX, indexY+incrementY, obj_block) != noone) {
-				blockOnNextY = true;
-				break;	
-			}
-			
-			path_insert_point(thisPath, path_get_number(thisPath), indexX, indexY, 100);
-			show_debug_message(string(id) + "has a point on: " + string(indexX) + ", " + string(indexY));
-			indexY += incrementY;
-		}
-	
-		while (abs(indexX - goalX) >= 64) {
-			show_debug_message("Inner Y Loop: " + string(indexX) + ", " + string(indexY));
-			if (instance_place(indexX+incrementX, indexY, obj_block) != noone) {
-				blockOnNextX = true;
-				break;	
-			}
-		
-			path_insert_point(thisPath, path_get_number(thisPath), indexX, indexY, 100);
-			show_debug_message(string(id) + "has a point on: " + string(indexX) + ", " + string(indexY));
-			indexX += incrementX;
-		}
-		
-		if (instance_place(indexX + (blockOnNextX * incrementX), indexY + (blockOnNextY * incrementY), obj_block) != noone) {
-			break;
-		}
-		else if (instance_place(indexX + (blockOnNextX * incrementX), indexY, obj_block) != noone) {
-			break;	
-		}
-		else if (instance_place(indexX, indexY + (blockOnNextY * incrementY), obj_block) != noone) {
-			break;	
-		}
-		
-	} //end outer while
-	
-	path_set_closed(thisPath, false);
-	return thisPath;
-	
-}
